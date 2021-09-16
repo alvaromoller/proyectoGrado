@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './material/material.module';
+import {FlexLayoutModule} from "@angular/flex-layout";
+
 
 //Rutas
 import { APP_ROUTING } from './app.routes';
 
 
 //Servicios
+import { TiendasService } from './servicios/tiendas.service';
+
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -26,9 +31,14 @@ import { EncuestaComponent } from './components/encuesta/encuesta.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MaterialModule,
+    FlexLayoutModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: 
+  [
+    TiendasService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
