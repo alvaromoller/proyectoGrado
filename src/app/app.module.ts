@@ -20,6 +20,8 @@ import { HomeComponent } from './components/home/home.component';
 import { TiendasComponent } from './components/tiendas/tiendas.component';
 import { EncuestaComponent } from './components/encuesta/encuesta.component';
 import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tiendas.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { ListProductosComponent } from './components/productos/list-productos/list-productos.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tie
     TiendasComponent,
     EncuestaComponent,
     ListTiendasComponent,
+    ProductosComponent,
+    ListProductosComponent,
   ],
   imports: [
     BrowserModule,

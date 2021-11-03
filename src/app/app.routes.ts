@@ -2,9 +2,10 @@ import { RouterModule,Routes} from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { HomeComponent } from './components/home/home.component';
+import { EncuestaComponent } from './components/encuesta/encuesta.component';
 import { TiendasComponent } from './components/tiendas/tiendas.component';
 import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tiendas.component';
-import { EncuestaComponent } from './components/encuesta/encuesta.component';
+import { ListProductosComponent } from './components/productos/list-productos/list-productos.component';
 
 
 
@@ -13,6 +14,7 @@ const APP_ROUTES: Routes = [
     { path: 'encuesta', component: EncuestaComponent },
     { path: 'tiendas', component: TiendasComponent },
     { path: 'listaTiendas', component: ListTiendasComponent },
+    { path: 'listaProductos', component: ListProductosComponent },
     //{ path: 'path4', component: Name4Component } ,
     { path: '**', pathMatch:'full', redirectTo:'home' }
 ];
