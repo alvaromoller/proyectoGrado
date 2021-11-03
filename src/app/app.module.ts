@@ -19,6 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { TiendasComponent } from './components/tiendas/tiendas.component';
 import { EncuestaComponent } from './components/encuesta/encuesta.component';
+import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tiendas.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { EncuestaComponent } from './components/encuesta/encuesta.component';
     HomeComponent,
     TiendasComponent,
     EncuestaComponent,
+    ListTiendasComponent,
   ],
   imports: [
     BrowserModule,

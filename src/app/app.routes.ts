@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { HomeComponent } from './components/home/home.component';
 import { TiendasComponent } from './components/tiendas/tiendas.component';
+import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tiendas.component';
 import { EncuestaComponent } from './components/encuesta/encuesta.component';
 
 
 
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
-    { path: 'tiendas', component: TiendasComponent },
     { path: 'encuesta', component: EncuestaComponent },
+    { path: 'tiendas', component: TiendasComponent },
+    { path: 'listaTiendas', component: ListTiendasComponent },
     //{ path: 'path4', component: Name4Component } ,
     { path: '**', pathMatch:'full', redirectTo:'home' }
 ];
