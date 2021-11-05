@@ -1,6 +1,41 @@
 
 <div class="container  animated fadeIn" style="background-color:#AAAAAA; " >
    <h1>Hola mundo</h1>
-       <p>Este texto es un párrafo</p>
-       <p><a class="btn btn-primary btn-lg">Leer más</a></p>
+       <p>Orientacion de venta de computadoras con WebCrawler.
+          Busca la mejor computadora de acuerdo a tus necesidades y presupuesto
+       </p>
 </div>
+
+
+<h1>Productos</h1>
+<hr>
+
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
+
+      <div fxFlex="25%" fxFlex.sm="10%" fxFlex.md="33" *ngFor="let tienda of tiendas" >
+
+        <mat-card class="prod">
+
+          <mat-card-header>
+            <mat-card-title>{{ tienda.nombre }}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src= "{{ tienda.img }}" class="card-img-top" alt="...">
+
+          <mat-card-content align="center">
+            <h3> {{ tienda.bio }} </h3>
+          </mat-card-content>
+
+          <div class="card-footer">
+            <small class="text-muted">Aparición: {{ tienda.aparicion }}</small>
+          </div>
+
+          <div align="center">
+            <button type="button" class="btn btn-outline-primary w-100 ">
+              ver más
+            </button>
+          </div>
+        </mat-card>
+
+      </div>
+</div>
+

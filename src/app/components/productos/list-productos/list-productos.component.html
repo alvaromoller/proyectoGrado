@@ -1,25 +1,23 @@
-<p>list-productos works!</p>
-
-<h1>Tiendas</h1>
+<h1>list-productos works!</h1>
 <hr>
 
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
 
-      <div fxFlex="25%" fxFlex.sm="10%" fxFlex.md="33" *ngFor="let tienda of tiendas" >
+      <div fxFlex="25%" fxFlex.sm="10%" fxFlex.md="33" *ngFor="let producto of productos" >
 
         <mat-card class="prod">
 
           <mat-card-header>
-            <mat-card-title>{{ tienda.nombre }}</mat-card-title>
+            <mat-card-title>{{ producto.name }}</mat-card-title>
           </mat-card-header>
-          <img mat-card-image src= "{{ tienda.img }}" class="card-img-top" alt="...">
+          <img mat-card-image src= "{{ producto.img }}" class="card-img-top" alt="...">
 
           <mat-card-content align="center">
-            <h3> {{ tienda.bio }} </h3>
+            <h3> {{ producto.description }} </h3>
           </mat-card-content>
 
           <div class="card-footer">
-            <small class="text-muted">Aparición: {{ tienda.aparicion }}</small>
+            <small class="text-muted">Aparición:</small>
           </div>
 
           <div align="center">
@@ -31,3 +29,4 @@
 
       </div>
 </div>
+

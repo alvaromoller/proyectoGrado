@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import {FlexLayoutModule} from "@angular/flex-layout";
+//http para realizar GET, POST,PUT, DELETE
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+
 
 
 //Rutas
@@ -11,6 +14,7 @@ import { APP_ROUTING } from './app.routes';
 
 //Servicios
 import { TiendasService } from './servicios/tiendas.service';
+import { ProductosService } from './servicios/productos.service';
 
 
 //Componentes
@@ -39,11 +43,13 @@ import { ListProductosComponent } from './components/productos/list-productos/li
     AppRoutingModule,
     MaterialModule,
     FlexLayoutModule,
+    HttpClientModule,
     APP_ROUTING
   ],
   providers: 
   [
-    TiendasService
+    TiendasService,
+    ProductosService
   ],
   bootstrap: [AppComponent]
 })
