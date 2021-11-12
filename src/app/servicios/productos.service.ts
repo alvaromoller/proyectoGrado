@@ -14,11 +14,14 @@ export class ProductosService {
 
     ProductUrl:string = 'http://localhost:8080/v1/product';
 
-    //conexión con el backend, llamando los productos    
+    //conexión con el backend, 
+    //lista de productos    
     getProducts(): Observable<Productos[]>{
         return this.http.get<Productos[]>(this.ProductUrl);
     }
 
-
-    
+    //Encontrar producto por ID
+    getProductId(id:any):Observable<any>{
+        return this.http.get<Productos[]>(this.ProductUrl + "/" + id);
+    }
 }

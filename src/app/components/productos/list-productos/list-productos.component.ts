@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../../servicios/productos.service';
 import { Productos } from '../productos';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,6 +29,10 @@ export class ListProductosComponent implements OnInit {
       this.productos = data;
     })
    console.log("lista productos");
+  }
+
+  getProductId(id:number){
+    console.log(id);
   }
 
 

@@ -1,1 +1,13 @@
 <p>productos works!</p>
+<h1>Nombre del Heroe: </h1>
+
+
+<form [formGroup]="productForm"   class="form">
+
+  <div class="md-form mb-5">
+    <label >Nombre del Producto</label>
+    <input matInput class="form-control"  readonly="readonly"  formControlName="name">
+  </div>
+
+</form>
+

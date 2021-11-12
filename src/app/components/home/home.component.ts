@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TiendasService, tiendasInterface } from '../../servicios/tiendas.service';
+import { ProductosService } from '../../servicios/productos.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -11,14 +14,23 @@ export class HomeComponent implements OnInit {
  //creando arreglo[] para almacenar contenido de TiendasService
  tiendas:tiendasInterface[] = [];
 
+ //para llamar listado de productos en ngOnInit
+  productos:any;
  //creando variable de tipo TiendasService para llamar metodos
- constructor( private _tiendasService:TiendasService ) { }
+ constructor( private _productosService:ProductosService, private router:Router ) { }
 
  
   ngOnInit(): void {
-    //llamando al metodo getTiendas() de tiendas.service
-    this.tiendas = this._tiendasService.getTiendas();
-    console.log(this.tiendas);
+   this._productosService.getProducts()
+   .subscribe(data =>{
+    this.productos = data;
+   })
+  }
+
+  //redirige al componente PRODUCTOS con su ID
+  getProductId(id:number){
+    this.router.navigate( ["/producto", id] );
+    console.log(id);
   }
 
 }

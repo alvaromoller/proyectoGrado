@@ -10,8 +10,8 @@
           <mat-card-header>
             <mat-card-title>{{ producto.name }}</mat-card-title>
           </mat-card-header>
-          <img mat-card-image src= "{{ producto.img }}" class="card-img-top" alt="...">
-
+          <img mat-card-image src= "" class="card-img-top" alt="...">
+          {{ producto.img }}
           <mat-card-content align="center">
             <h3> {{ producto.description }} </h3>
           </mat-card-content>
@@ -20,7 +20,7 @@
             <small class="text-muted">Aparición:</small>
           </div>
 
-          <div align="center">
+          <div align="center" >
             <button type="button" class="btn btn-outline-primary w-100 ">
               ver más
             </button>

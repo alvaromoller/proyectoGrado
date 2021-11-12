@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 //http para realizar GET, POST,PUT, DELETE
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 
@@ -44,6 +47,8 @@ import { ListProductosComponent } from './components/productos/list-productos/li
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     APP_ROUTING
   ],
   providers: 
