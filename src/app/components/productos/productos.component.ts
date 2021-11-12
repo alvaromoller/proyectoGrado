@@ -19,7 +19,6 @@ export class ProductosComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log("productoAny desde Constructor");
     this.getProductId();
   }
 
@@ -27,7 +26,7 @@ export class ProductosComponent implements OnInit {
   
 
      /**ESTRUCTURA DE info Product*/
-     productos:any;
+     productos:any={};
      productForm = new FormGroup({
          productId: new FormControl(''),
          name: new FormControl(''),
@@ -38,12 +37,11 @@ export class ProductosComponent implements OnInit {
          productTypeId: new FormControl(''),
      });
 
-  //probar   getProductId(id:any)
+  //probar solo ccon   getProductId(id:any)
   getProductId(){
     let producotId = this.activeRoute.snapshot.paramMap.get('id'); 
     this._productosService.getProductId(producotId).subscribe(data =>{   
     this.productos = data;  
-
       //
       this.productForm.setValue({
       'productId': this.productos.productId,
@@ -54,9 +52,8 @@ export class ProductosComponent implements OnInit {
       'shopId': this.productos.shopId,
       'productTypeId': this.productos.productTypeId,
       })   
+      //
       console.log(this.productForm.value); 
-      
-
     })
 
   }

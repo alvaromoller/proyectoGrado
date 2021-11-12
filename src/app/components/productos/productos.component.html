@@ -1,13 +1,50 @@
-<p>productos works!</p>
-<h1>Nombre del Heroe: </h1>
+<h1>{{ productos.name }}</h1> 
+<hr>
 
+<div style="width: 1000px;">
+  <!--izquierda-->
+  <div style=" width: 300px; float: left;" >
+    <img mat-card-image src= "assets/img/aquaman.png" class="card-img-top" >
+  </div>
+  
+  <!--derecha-->
+  <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 600px; margin-top: 40px; float: right;"  >
+    <p>{{ productos.name }}</p>
 
-<form [formGroup]="productForm"   class="form">
-
-  <div class="md-form mb-5">
-    <label >Nombre del Producto</label>
-    <input matInput class="form-control"  readonly="readonly"  formControlName="name">
+    <table class="">
+      <tr>
+        <td>Modelo: {{ productos. description }}</td>
+        <td>Marca:  {{ productos. description }}</td>
+      </tr>
+      <tr>
+        <td>Precio: {{ productos. description }}</td>
+        <td>Celda 5</td>
+      </tr>
+    </table>
+    <hr>
   </div>
 
-</form>
+  <!--abajo derecha-->
+  <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 600px; margin-top: 20px; float: right;"  >
+    <p>{{ productos.description }}</p>
+  </div>
+  <!--datos de la tienda abajo derecha-->
+  <div class="container  animated fadeIn" style=" background-color:#AAAAAA; width: 600px; margin-top: 20px; float: right;"  >
+    <p>Nombre y logo de la tienda</p>
+    <img mat-card-image src= "assets/img/batman.png" class="card-img-top" style="width: 150px;">
+    <button type="button" class="btn btn-outline-primary w-100 " style="width: 100px; margin-top: 10px; ">
+      Ver más
+    </button>
+  </div>  
 
+  
+</div>
+
+<!--
+<form [formGroup]="productForm"   class="form" style="clear: left;">
+  <div>
+    <label >Nombre del Producto: </label>
+    <input matInput class="form-control"  readonly="readonly"  formControlName="name">
+  </div>
+</form>
+-->
