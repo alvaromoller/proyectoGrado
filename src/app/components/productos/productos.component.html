@@ -1,7 +1,7 @@
-<h1>{{ productos.name }}</h1> 
+<h1>{{ producto.name }}</h1> 
 <hr>
 
-<div style="width: 1000px;">
+<div  class="producto" style="width: 1000px;">
   <!--izquierda-->
   <div style=" width: 300px; float: left;" >
     <img mat-card-image src= "assets/img/aquaman.png" class="card-img-top" >
@@ -9,34 +9,46 @@
   
   <!--derecha-->
   <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 600px; margin-top: 40px; float: right;"  >
-    <p>{{ productos.name }}</p>
+    <p>{{ producto.name }}</p>
 
     <table class="">
       <tr>
-        <td>Modelo: {{ productos. description }}</td>
-        <td>Marca:  {{ productos. description }}</td>
+        <td>Marca: {{ marca.name }}</td>
+        <td>Tipo de PC: {{ tipoProducto.name }}</td>
       </tr>
       <tr>
-        <td>Precio: {{ productos. description }}</td>
-        <td>Celda 5</td>
+        <td>Procesador: </td>
+        <td>Memoria Ram: </td>
+      </tr>
+      <tr>
+        <td>Disco de almacenamiento:  </td>
+        <td>Tarjeta de video: </td>
+      </tr>
+      <tr>
+        <td>Pantalla: </td>
       </tr>
     </table>
     <hr>
   </div>
 
-  <!--abajo derecha-->
+  <!--abajo derecha, Descripcion extra del producto-->
   <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 600px; margin-top: 20px; float: right;"  >
-    <p>{{ productos.description }}</p>
+    <p>Garantía: </p>
   </div>
-  <!--datos de la tienda abajo derecha-->
-  <div class="container  animated fadeIn" style=" background-color:#AAAAAA; width: 600px; margin-top: 20px; float: right;"  >
+
+  <!--datos de la tienda, abajo derecha-->
+  <div class="container  animated fadeIn" style=" width: 600px; margin-top: 20px; float: right;"  >
     <p>Nombre y logo de la tienda</p>
+    <p>{{ tienda.name }}</p>
     <img mat-card-image src= "assets/img/batman.png" class="card-img-top" style="width: 150px;">
-    <button type="button" class="btn btn-outline-primary w-100 " style="width: 100px; margin-top: 10px; ">
+  </div>  
+
+  <!--Boton, abajo derecha-->
+  <div class="container  animated fadeIn" style="  width: 580px; margin-top: 5px; float: right;"  >
+    <button type="button" class="btn btn-outline-primary  " style="width: 100px; margin-top: 10px; ">
       Ver más
     </button>
   </div>  
-
   
 </div>
 
