@@ -1,14 +1,14 @@
 <h1>{{ producto.name }}</h1> 
 <hr>
 
-<div  class="producto" style="width: 1000px;">
+<div  class="producto" style="width: 1100px;">
   <!--izquierda-->
   <div style=" width: 300px; float: left;" >
     <img mat-card-image src= "assets/img/aquaman.png" class="card-img-top" >
   </div>
   
   <!--derecha-->
-  <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 600px; margin-top: 40px; float: right;"  >
+  <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 700px; margin-top: 40px; float: right;"  >
     <p>{{ producto.name }}</p>
 
     <table class="">
@@ -17,34 +17,34 @@
         <td>Tipo de PC: {{ tipoProducto.name }}</td>
       </tr>
       <tr>
-        <td>Procesador: </td>
-        <td>Memoria Ram: </td>
+        <td>Procesador: {{ producto.procesador }} </td>
+        <td>Memoria Ram: {{ producto.memoriaRam }}</td>
       </tr>
       <tr>
-        <td>Disco de almacenamiento:  </td>
-        <td>Tarjeta de video: </td>
+        <td>Disco de almacenamiento:  {{ producto.discoAlmacenamiento }}</td>
+        <td>Tarjeta de video: {{ producto.tarjetaVideo }}</td>
       </tr>
       <tr>
-        <td>Pantalla: </td>
+        <td>Pantalla: {{ producto.pantalla }}</td>
       </tr>
     </table>
     <hr>
   </div>
 
   <!--abajo derecha, Descripcion extra del producto-->
-  <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 600px; margin-top: 20px; float: right;"  >
+  <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 700px; margin-top: 20px; float: right;"  >
     <p>Garantía: </p>
   </div>
 
   <!--datos de la tienda, abajo derecha-->
-  <div class="container  animated fadeIn" style=" width: 600px; margin-top: 20px; float: right;"  >
+  <div class="container  animated fadeIn" style=" width: 700px; margin-top: 20px; float: right;"  >
     <p>Nombre y logo de la tienda</p>
     <p>{{ tienda.name }}</p>
     <img mat-card-image src= "assets/img/batman.png" class="card-img-top" style="width: 150px;">
   </div>  
 
   <!--Boton, abajo derecha-->
-  <div class="container  animated fadeIn" style="  width: 580px; margin-top: 5px; float: right;"  >
+  <div class="container  animated fadeIn" style="  width: 670px; margin-top: 5px; float: right;"  >
     <button type="button" class="btn btn-outline-primary  " style="width: 100px; margin-top: 10px; ">
       Ver más
     </button>
