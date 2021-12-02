@@ -32,6 +32,7 @@ export class ProductosComponent implements OnInit {
     this.getBrandId();
     this.getProductTypeId();
     this.getshopId();
+
   }
 
 
@@ -84,15 +85,15 @@ export class ProductosComponent implements OnInit {
   /**ESTRUCTURA DE info Marca*/
   marca:any={};
 
-  //probar solo ccon   getBrandId(id:any)
+  //probar solo con getBrandId(id:any)
   getBrandId(){
     let marcaId = this.activeRoute.snapshot.paramMap.get('id'); 
     this._marcaService.getBrandId(marcaId).subscribe(data =>{   
     this.marca = data;  
-
     console.log(this.marca); 
     })
   }
+
 
   
   /**ESTRUCTURA DE info tipo-producto*/

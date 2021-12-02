@@ -13,6 +13,7 @@ export class ProductosMarcasService {
     constructor(private http:HttpClient) { }
 
     BrandUrl:string = 'http://localhost:8080/v1/brand';
+    BrandUrlCrawler:string = 'http://localhost:8080/v1/brand/crawler1';
 
     //conexión con el backend, 
     //lista de productos    
@@ -24,4 +25,6 @@ export class ProductosMarcasService {
     getBrandId(id:any):Observable<any>{
         return this.http.get<Marcas[]>(this.BrandUrl + "/" + id);
     }
+
+
 }

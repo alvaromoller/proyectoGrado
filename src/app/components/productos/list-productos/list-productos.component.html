@@ -8,16 +8,16 @@
         <mat-card class="prod">
 
           <mat-card-header>
-            <mat-card-title>{{ producto.name }}</mat-card-title>
+            <mat-card-title> Producto </mat-card-title>
           </mat-card-header>
           <img mat-card-image src= "" class="card-img-top" alt="...">
           {{ producto.img }}
           <mat-card-content align="center">
-            <h3> {{ producto.description }} </h3>
+            <h3> {{ producto.name }} </h3>
           </mat-card-content>
 
           <div class="card-footer">
-            <small class="text-muted">Aparición:</small>
+            <small class="text-muted">{{ producto.description }} </small> <!--GARANTIA-->
           </div>
 
           <div align="center" >

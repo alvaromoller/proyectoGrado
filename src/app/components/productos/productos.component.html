@@ -17,15 +17,15 @@
         <td>Tipo de PC: {{ tipoProducto.name }}</td>
       </tr>
       <tr>
-        <td>Procesador: {{ producto.procesador }} </td>
-        <td>Memoria Ram: {{ producto.memoriaRam }}</td>
+        <td> {{ producto.procesador }} </td> <!--Procesador:-->
+        <td> {{ producto.memoriaRam }} </td> <!--Memoria Ram: -->
       </tr>
       <tr>
-        <td>Disco de almacenamiento:  {{ producto.discoAlmacenamiento }}</td>
-        <td>Tarjeta de video: {{ producto.tarjetaVideo }}</td>
+        <td> {{ producto.discoAlmacenamiento }}</td> <!--Disco de almacenamiento:  -->
+        <td>Tarjeta de {{ producto.tarjetaVideo }}</td> <!--Tarjeta de video: -->
       </tr>
       <tr>
-        <td>Pantalla: {{ producto.pantalla }}</td>
+        <td> {{ producto.pantalla }} </td> <!--Pantalla: -->
       </tr>
     </table>
     <hr>
@@ -33,7 +33,7 @@
 
   <!--abajo derecha, Descripcion extra del producto-->
   <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 700px; margin-top: 20px; float: right;"  >
-    <p>Garantía: </p>
+    <p> {{ producto.description }} </p> <!--Garantía: -->
   </div>
 
   <!--datos de la tienda, abajo derecha-->
