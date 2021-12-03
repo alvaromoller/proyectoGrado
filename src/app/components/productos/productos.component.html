@@ -44,14 +44,45 @@
 
   </div>  
 
-  <!--Boton, abajo derecha-->
-  <div class="container  animated fadeIn" style="  width: 670px; margin-top: 5px; float: right;"  >
-    <button type="button" class="btn btn-outline-primary  " style="width: 100px; margin-top: 10px; ">
+  <!--Boton Modal para tienda, abajo derecha-->
+  <div class="container  animated fadeIn" style="width: 670px; margin-top: 5px; float: right;"  >
+    <button type="button" class="btn btn-outline-primary " (click)="openModal(contenido)" style="width: 100px; margin-top: 10px; ">
       Ver más
     </button>
+
   </div>  
   
 </div>
+
+
+
+
+<!--INFO-->
+<!--Modal:-->
+<h1>Modal 1</h1>
+<hr>
+<ng-template #contenido let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title"> {{ tienda.name }}</h4> <!--Modal: Titulo de la tienda: -->
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+      <p>Logo:</p>
+      <img mat-card-image [src]="getImgUrl(tienda.img)" alt="Fotografia de muestra" class="image">
+      <p>Descripción:</p>
+      {{ tienda.description }}
+      <hr>
+      <p>Ubicación:</p>
+      <p>{{ tienda.location  }}</p>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="modal.close()">Ok!</button>
+    </div>
+</ng-template>
+
 
 <!--
 <form [formGroup]="productForm"   class="form" style="clear: left;">

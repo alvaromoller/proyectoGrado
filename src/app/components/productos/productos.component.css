@@ -6,3 +6,15 @@ table
     border : 1px solid gray; 
     border-spacing: 10px;
 } 
+
+.oscuro .modal-content {
+    background-color: #021f2e;
+    color: white;
+  }
+  .oscuro .close {
+    color: black;
+  }
+
+.azul {
+    background-color: black;
+  }

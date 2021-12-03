@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { EncuestaComponent } from './components/encuesta/encuesta.component';
 import { TiendasComponent } from './components/tiendas/tiendas.component';
 import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tiendas.component';
+import { VentanaEmergenteTiendasComponent } from './components/tiendas/ventana-emergente-tiendas/ventana-emergente-tiendas.component';
 import { ListProductosComponent } from './components/productos/list-productos/list-productos.component';
 import { ProductosComponent } from './components/productos/productos.component';
 
@@ -15,6 +16,7 @@ const APP_ROUTES: Routes = [
     { path: 'encuesta', component: EncuestaComponent },
     { path: 'tiendas', component: TiendasComponent },
     { path: 'listaTiendas', component: ListTiendasComponent },
+    { path: 'tiendaEmergente', component: VentanaEmergenteTiendasComponent },  //Ventana emergente de tienda
     { path: 'listaProductos', component: ListProductosComponent },
     { path: 'producto/:id', component: ProductosComponent },   //get ID
     //{ path: 'path4', component: Name4Component } ,

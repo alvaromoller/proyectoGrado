@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// ngBootstrap
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 //http para realizar GET, POST,PUT, DELETE
@@ -51,7 +53,8 @@ import { VentanaEmergenteTiendasComponent } from './components/tiendas/ventana-e
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    APP_ROUTING
+    APP_ROUTING,
+    NgbModule
   ],
   providers: 
   [

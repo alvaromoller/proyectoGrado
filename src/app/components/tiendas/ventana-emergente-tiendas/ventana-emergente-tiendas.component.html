@@ -1,1 +1,18 @@
 <p>ventana-emergente-tiendas works!</p>
+<mat-toolbar color="primary"> 
+    <span class="fill-remaining-space">{{tienda.name}}</span>
+    <mat-icon class="icon" (click)="close()">close</mat-icon>
+</mat-toolbar>
+
+<div class="container" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid" class="contenedor" fxLayoutAlign="center">
+    <div class="img">
+       <!-- <img [src]="getImg()" alt=""> -->
+    </div>
+
+    <div class="details">
+        <span><h2>Descripción: </h2></span>
+        <span><h2>Ubicación: </h2></span>
+        <span><h2>Mas: </h2></span>
+    </div>
+
+</div>

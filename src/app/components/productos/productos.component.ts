@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser"
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { ProductosService } from '../../servicios/productos.service';
 import { ProductosMarcasService } from '../../servicios/productosMarca.service';
 import { TipoProductoService } from '../../servicios/tipoProducto.service';
@@ -17,6 +19,7 @@ import { ProductosTienda } from './productosTienda';
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
+  encapsulation:ViewEncapsulation.None,
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
@@ -27,8 +30,9 @@ export class ProductosComponent implements OnInit {
               private _tipoProductoService:TipoProductoService, 
               private _tiendaService:ProductosTiendaService, 
               private activeRoute:ActivatedRoute,
-              private sanitizer: DomSanitizer ) {
-   }
+              private sanitizer: DomSanitizer,
+              public modal: NgbModal
+              ) {}
 
   ngOnInit(): void {
     this.getProductId();
@@ -42,6 +46,10 @@ export class ProductosComponent implements OnInit {
   //metodo para obtener imagen de la base de datos
   public getImgUrl(url : string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+  //Boton para el Modal
+  openModal(contenido:any){
+    this.modal.open(contenido,{scrollable:true, size:"lg", centered:true, backdropClass:"azul", windowClass:"oscuro"});
   }
 
   /**ESTRUCTURA DE info Product*/
@@ -117,18 +125,21 @@ export class ProductosComponent implements OnInit {
     })
   }
 
-/**ESTRUCTURA DE info Tienda*/
-tienda:any={};
+  /**ESTRUCTURA DE info Tienda*/
+  tienda:any={};
 
-//probar solo ccon   getShopId(id:any)
-getshopId(){
-  let shopId = this.activeRoute.snapshot.paramMap.get('id'); 
-  this._tiendaService.getShopId(shopId).subscribe(data =>{   
-  this.tienda = data;  
-  
-  console.log(this.tienda); 
-  })
-}
+  //probar solo ccon   getShopId(id:any)
+  getshopId(){
+    let shopId = this.activeRoute.snapshot.paramMap.get('id'); 
+    this._tiendaService.getShopId(shopId).subscribe(data =>{   
+    this.tienda = data;  
+    
+    console.log(this.tienda); 
+    })
+  }
+
+
+
 
 
 }
