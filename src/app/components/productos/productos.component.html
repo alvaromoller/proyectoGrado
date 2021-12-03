@@ -4,7 +4,7 @@
 <div  class="producto" style="width: 1100px;">
   <!--izquierda-->
   <div style=" width: 300px; float: left;" >
-    <img mat-card-image src= "assets/img/aquaman.png" class="card-img-top" >
+    <img mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" class="image">
   </div>
   
   <!--derecha-->
@@ -38,9 +38,10 @@
 
   <!--datos de la tienda, abajo derecha-->
   <div class="container  animated fadeIn" style=" width: 700px; margin-top: 20px; float: right;"  >
-    <p>Nombre y logo de la tienda</p>
-    <p>{{ tienda.name }}</p>
-    <img mat-card-image src= "assets/img/batman.png" class="card-img-top" style="width: 150px;">
+    <p>Nombre de tienda: {{ tienda.name }}</p>
+    <p>Logo</p>
+    <img mat-card-image [src]="getImgUrl(tienda.img)" alt="Fotografia de muestra" class="image">
+
   </div>  
 
   <!--Boton, abajo derecha-->

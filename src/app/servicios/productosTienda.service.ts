@@ -15,7 +15,7 @@ export class ProductosTiendaService {
     ShopUrl:string = 'http://localhost:8080/v1/shop';
 
     //conexión con el backend, 
-    //lista de productos    
+    //lista de tiendas    
     getShop(): Observable<ProductosTienda[]>{
         return this.http.get<ProductosTienda[]>(this.ShopUrl);
     }

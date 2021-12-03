@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from "@angular/platform-browser"
 import { ProductosService } from '../../servicios/productos.service';
 import { ProductosMarcasService } from '../../servicios/productosMarca.service';
 import { TipoProductoService } from '../../servicios/tipoProducto.service';
@@ -24,7 +25,9 @@ export class ProductosComponent implements OnInit {
   constructor(private _productoService:ProductosService, 
               private _marcaService:ProductosMarcasService ,
               private _tipoProductoService:TipoProductoService, 
-              private _tiendaService:ProductosTiendaService, private activeRoute:ActivatedRoute ) {
+              private _tiendaService:ProductosTiendaService, 
+              private activeRoute:ActivatedRoute,
+              private sanitizer: DomSanitizer ) {
    }
 
   ngOnInit(): void {
@@ -35,6 +38,11 @@ export class ProductosComponent implements OnInit {
 
   }
 
+  
+  //metodo para obtener imagen de la base de datos
+  public getImgUrl(url : string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
   /**ESTRUCTURA DE info Product*/
   producto:any={};
