@@ -29,6 +29,7 @@ import { EncuestaComponent } from './components/encuesta/encuesta.component';
 import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tiendas.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ListProductosComponent } from './components/productos/list-productos/list-productos.component';
+import { VentanaEmergenteTiendasComponent } from './components/tiendas/ventana-emergente-tiendas/ventana-emergente-tiendas.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ListProductosComponent } from './components/productos/list-productos/li
     ListTiendasComponent,
     ProductosComponent,
     ListProductosComponent,
+    VentanaEmergenteTiendasComponent,
   ],
   imports: [
     BrowserModule,
