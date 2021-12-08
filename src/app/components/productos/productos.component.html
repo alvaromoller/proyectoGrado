@@ -8,43 +8,35 @@
   </div>
   
   <!--derecha-->
-  <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 700px; margin-top: 40px; float: right;"  >
-    <p>{{ producto.name }}</p>
+  <div class="description  animated fadeIn" style="background-color:#AAAAAA; width: 700px; margin-top: 40px; float: right;"  >
+    <h4>{{ producto.name }}</h4>
 
     <table class="">
       <tr>
-        <td>Marca: {{ marca.name }}</td>
+        <td> <h6>Marca: {{ marca.name }}</h6> </td>
       </tr>
-      <tr>
-        <td>Descripción del producto: <br> {{ producto.description }} </td> <!--Procesador:-->        
+      <tr class="texto-justificado">
+        <td> <h6 class="texto-justificado">Descripción del producto:</h6> {{ producto.description }}</td>     
       </tr>
-
     </table>
     <hr>
   </div>
 
 
   <!--datos de la tienda, abajo derecha-->
-  <div class="container  animated fadeIn" style=" width: 700px; margin-top: 20px; float: right;"  >
-    <p>Tienda: {{ tienda.name }}</p>
+  <div class="shop  animated fadeIn" style=" width: 700px; margin-top: 20px; float: right;"  >
+    <h4>Tienda: {{ tienda.name }}</h4>
     <img mat-card-image [src]="getImgUrl(tienda.img)" width="500" height="150" alt="Fotografia de muestra" class="image">
 
   </div>  
 
   <!--Boton Modal para tienda, abajo derecha-->
-  <div class="container  animated fadeIn" style="width: 670px; margin-top: 5px; float: right;"  >
+  <div class="buttonModal  animated fadeIn" style="width: 670px; margin-top: 5px; float: right;"  >
     <button type="button" class="btn btn-outline-primary " (click)="openModal(contenido)" style="width: 100px; margin-top: 10px; ">
       Ver más
     </button>
   </div>  
 </div>
-
-<!--Espacio-->
-<div style="clear: left;"> 
-
-</div>
-
-
 
 
 <!--INFO-->
