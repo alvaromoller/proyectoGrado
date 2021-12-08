@@ -4,7 +4,7 @@
 <div  class="producto" style="width: 1100px;">
   <!--izquierda-->
   <div style=" width: 300px; float: left;" >
-    <img mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" class="image">
+    <img mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" class="image" width="400" height="400">
   </div>
   
   <!--derecha-->
@@ -14,33 +14,20 @@
     <table class="">
       <tr>
         <td>Marca: {{ marca.name }}</td>
-        <td>Tipo de PC: {{ tipoProducto.name }}</td>
       </tr>
       <tr>
-        <td> {{ producto.procesador }} </td> <!--Procesador:-->
-        <td> {{ producto.memoriaRam }} </td> <!--Memoria Ram: -->
+        <td>Descripción del producto: <br> {{ producto.description }} </td> <!--Procesador:-->        
       </tr>
-      <tr>
-        <td> {{ producto.discoAlmacenamiento }}</td> <!--Disco de almacenamiento:  -->
-        <td>Tarjeta de {{ producto.tarjetaVideo }}</td> <!--Tarjeta de video: -->
-      </tr>
-      <tr>
-        <td> {{ producto.pantalla }} </td> <!--Pantalla: -->
-      </tr>
+
     </table>
     <hr>
   </div>
 
-  <!--abajo derecha, Descripcion extra del producto-->
-  <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 700px; margin-top: 20px; float: right;"  >
-    <p> {{ producto.description }} </p> <!--Garantía: -->
-  </div>
 
   <!--datos de la tienda, abajo derecha-->
   <div class="container  animated fadeIn" style=" width: 700px; margin-top: 20px; float: right;"  >
-    <p>Nombre de tienda: {{ tienda.name }}</p>
-    <p>Logo</p>
-    <img mat-card-image [src]="getImgUrl(tienda.img)" alt="Fotografia de muestra" class="image">
+    <p>Tienda: {{ tienda.name }}</p>
+    <img mat-card-image [src]="getImgUrl(tienda.img)" width="500" height="150" alt="Fotografia de muestra" class="image">
 
   </div>  
 
@@ -49,9 +36,12 @@
     <button type="button" class="btn btn-outline-primary " (click)="openModal(contenido)" style="width: 100px; margin-top: 10px; ">
       Ver más
     </button>
-
   </div>  
-  
+</div>
+
+<!--Espacio-->
+<div style="clear: left;"> 
+
 </div>
 
 
@@ -59,8 +49,6 @@
 
 <!--INFO-->
 <!--Modal:-->
-<h1>Modal 1</h1>
-<hr>
 <ng-template #contenido let-modal>
     <div class="modal-header">
         <h4 class="modal-title"> {{ tienda.name }}</h4> <!--Modal: Titulo de la tienda: -->
@@ -69,8 +57,8 @@
         </button>
     </div>
     <div class="modal-body">
-      <p>Logo:</p>
-      <img mat-card-image [src]="getImgUrl(tienda.img)" alt="Fotografia de muestra" class="image">
+      <!--IMG-->
+      <img mat-card-image [src]="getImgUrl(tienda.img)" alt="Fotografia de muestra" class="image" width="700" height="200">
       <p>Descripción:</p>
       {{ tienda.description }}
       <hr>

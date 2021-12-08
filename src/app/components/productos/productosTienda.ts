@@ -2,6 +2,6 @@ export interface ProductosTienda {
     "shopId": number,
     "name": string,
     "description": string,
-    "location": number,
+    "location": string,
     "img": string
 }

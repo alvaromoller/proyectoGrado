@@ -32,6 +32,7 @@ import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tie
 import { ProductosComponent } from './components/productos/productos.component';
 import { ListProductosComponent } from './components/productos/list-productos/list-productos.component';
 import { VentanaEmergenteTiendasComponent } from './components/tiendas/ventana-emergente-tiendas/ventana-emergente-tiendas.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { VentanaEmergenteTiendasComponent } from './components/tiendas/ventana-e
     ProductosComponent,
     ListProductosComponent,
     VentanaEmergenteTiendasComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
