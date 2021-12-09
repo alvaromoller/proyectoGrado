@@ -59,12 +59,6 @@ export class ProductosComponent implements OnInit {
     name: new FormControl(''),
     description: new FormControl(''),
     img: new FormControl(''),
-    procesador: new FormControl(''),
-    memoriaRam: new FormControl(''),
-    discoAlmacenamiento: new FormControl(''),
-    tarjetaVideo: new FormControl(''),
-    pantalla: new FormControl(''),
-
     brandId: new FormControl(''),
     shopId: new FormControl(''),
     productTypeId: new FormControl(''),
@@ -72,8 +66,8 @@ export class ProductosComponent implements OnInit {
 
   //probar solo ccon   getProductId(id:any)
   getProductId(){
-    let producotId = this.activeRoute.snapshot.paramMap.get('id'); 
-    this._productoService.getProductId(producotId).subscribe(data =>{   
+    let productId = this.activeRoute.snapshot.paramMap.get('id'); 
+    this._productoService.getProductId(productId).subscribe(data =>{   
     this.producto = data;  
       //
       this.productForm.setValue({
@@ -81,11 +75,6 @@ export class ProductosComponent implements OnInit {
       'name': this.producto.name,
       'description': this.producto.description,
       'img': this.producto.img,
-      'procesador': this.producto.procesador,
-      'memoriaRam': this.producto.memoriaRam,
-      'discoAlmacenamiento': this.producto.discoAlmacenamiento,
-      'tarjetaVideo': this.producto.tarjetaVideo,
-      'pantalla': this.producto.pantalla,
 
       'brandId': this.producto.brandId,
       'shopId': this.producto.shopId,
@@ -130,9 +119,11 @@ export class ProductosComponent implements OnInit {
 
   //probar solo ccon   getShopId(id:any)
   getshopId(){
-    let shopId = this.activeRoute.snapshot.paramMap.get('id'); 
+    //tiendaId llave foranea extraida desde la ruta y home.ts
+    let shopId = this.activeRoute.snapshot.paramMap.get('tiendaId'); 
     this._tiendaService.getShopId(shopId).subscribe(data =>{   
     this.tienda = data;  
+    //this.tienda = shopId;  
     
     console.log(this.tienda); 
     })

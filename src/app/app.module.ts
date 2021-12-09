@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from './material/material.module';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 // ngBootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -56,7 +58,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ReactiveFormsModule,
     FormsModule,
     APP_ROUTING,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ],
   providers: 
   [

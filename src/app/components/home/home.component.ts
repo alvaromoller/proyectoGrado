@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from "@angular/platform-browser"
-import { TiendasService, tiendasInterface } from '../../servicios/tiendas.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { DomSanitizer } from "@angular/platform-browser";
+import { ActivatedRoute } from '@angular/router';
+import { ProductosTiendaService } from '../../servicios/productosTienda.service';
 import { ProductosService } from '../../servicios/productos.service';
 import { Router } from '@angular/router';
 
@@ -12,14 +14,17 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
- //creando arreglo[] para almacenar contenido de TiendasService
- tiendas:tiendasInterface[] = [];
-
  //para llamar listado de productos en ngOnInit
   productos:any;
- //creando variable de tipo TiendasService para llamar metodos
- constructor( private _productosService:ProductosService, 
+
+
+  //pagination
+  public page: number=0;
+
+  constructor(private _productosService:ProductosService,
+              private _tiendaService:ProductosTiendaService,
               private router:Router,
+              private activeRoute:ActivatedRoute,
               private sanitizer: DomSanitizer ) { }
 
  
@@ -27,16 +32,16 @@ export class HomeComponent implements OnInit {
     this.getProducts();
   }
 
+  //lista de productos
   getProducts(){
     this._productosService.getProducts()
     .subscribe(data => {
       this.productos = data;
     });
   } 
-
-  //Redirige al componente PRODUCTOS con su ID
-  getProductId(id:number){
-    this.router.navigate( ["/producto", id] );
+  //Redirige al componente PRODUCTOS con su productId y llave foranea tiendaId
+  getProductId(id:number, tiendaId:any){
+    this.router.navigate( ["/producto", id, tiendaId ] );
     console.log(id);
   }
 

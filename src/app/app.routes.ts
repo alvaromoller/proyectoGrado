@@ -14,11 +14,10 @@ import { ProductosComponent } from './components/productos/productos.component';
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'encuesta', component: EncuestaComponent },
-    { path: 'tiendas', component: TiendasComponent },
+    { path: 'tienda/:id', component: TiendasComponent },
     { path: 'listaTiendas', component: ListTiendasComponent },
-    { path: 'tiendaEmergente', component: VentanaEmergenteTiendasComponent },  //Ventana emergente de tienda
     { path: 'listaProductos', component: ListProductosComponent },
-    { path: 'producto/:id', component: ProductosComponent },   //get ID
+    { path: 'producto/:id/:tiendaId', component: ProductosComponent },   //get ID
     //{ path: 'path4', component: Name4Component } ,
     { path: '**', pathMatch:'full', redirectTo:'home' }
 ];

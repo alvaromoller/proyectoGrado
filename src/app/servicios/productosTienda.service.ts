@@ -16,7 +16,7 @@ export class ProductosTiendaService {
 
     //conexión con el backend, 
     //lista de tiendas    
-    getShop(): Observable<ProductosTienda[]>{
+    getShops(): Observable<ProductosTienda[]>{
         return this.http.get<ProductosTienda[]>(this.ShopUrl);
     }
 
