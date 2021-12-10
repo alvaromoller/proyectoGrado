@@ -33,7 +33,7 @@
               <small class="text-muted"> Tienda o precio: </small>  <!--GARANTIA-->
             </div>
 
-            <div align="center"   (click)="getProductId(producto.productId, producto.shopId)">
+            <div align="center"   (click)="getProductId(producto.productId, producto.shopId, producto.brandId, producto.productTypeId)">
               <button type="button" class="btn btn-outline-primary w-100 ">
                 ver más
               </button>
@@ -80,7 +80,7 @@
           <small class="text-muted"> Tienda o precio: </small>  <!--GARANTIA-->
         </div>
 
-        <div align="center"  (click)="getProductId(producto.productId, producto.shopId)" >
+        <div align="center"  (click)="getProductId(producto.productId, producto.shopId, producto.brandId, producto.productTypeId)" >
           <button type="button" class="btn btn-outline-primary w-100 ">
             ver más
           </button>

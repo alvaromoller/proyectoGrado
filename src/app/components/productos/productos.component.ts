@@ -6,6 +6,7 @@ import { ProductosService } from '../../servicios/productos.service';
 import { ProductosMarcasService } from '../../servicios/productosMarca.service';
 import { TipoProductoService } from '../../servicios/tipoProducto.service';
 import { ProductosTiendaService } from '../../servicios/productosTienda.service';
+import { ProductosDetalleService } from '../../servicios/productosDetalle.service';
 
 import { Productos } from '../productos/productos';
 import { Marcas } from '../productos/productosMarca';
@@ -28,17 +29,20 @@ export class ProductosComponent implements OnInit {
   constructor(private _productoService:ProductosService, 
               private _marcaService:ProductosMarcasService ,
               private _tipoProductoService:TipoProductoService, 
-              private _tiendaService:ProductosTiendaService, 
+              private _tiendaService:ProductosTiendaService,
+              private _detalleService:ProductosDetalleService,  
               private activeRoute:ActivatedRoute,
               private sanitizer: DomSanitizer,
               public modal: NgbModal
               ) {}
 
   ngOnInit(): void {
-    this.getProductId();
-    this.getBrandId();
+    this.getProductId(); //product tiene llave foranea de shop, brand, typeProduct
+    this.getBrandId();  
     this.getProductTypeId();
     this.getshopId();
+
+    this.getProductDetailId();  //productDetail tiene llave foranea de product
 
   }
 
@@ -92,7 +96,7 @@ export class ProductosComponent implements OnInit {
 
   //probar solo con getBrandId(id:any)
   getBrandId(){
-    let marcaId = this.activeRoute.snapshot.paramMap.get('id'); 
+    let marcaId = this.activeRoute.snapshot.paramMap.get('marcaId'); 
     this._marcaService.getBrandId(marcaId).subscribe(data =>{   
     this.marca = data;  
     console.log(this.marca); 
@@ -106,7 +110,7 @@ export class ProductosComponent implements OnInit {
 
   //probar solo ccon   getProductTypeId(id:any)
   getProductTypeId(){
-    let tipoProductoId = this.activeRoute.snapshot.paramMap.get('id'); 
+    let tipoProductoId = this.activeRoute.snapshot.paramMap.get('tipoProductoId'); 
     this._tipoProductoService.getProductTypeId(tipoProductoId).subscribe(data =>{   
     this.tipoProducto = data;  
 
@@ -116,7 +120,6 @@ export class ProductosComponent implements OnInit {
 
   /**ESTRUCTURA DE info Tienda*/
   tienda:any={};
-
   //probar solo ccon   getShopId(id:any)
   getshopId(){
     //tiendaId llave foranea extraida desde la ruta y home.ts
@@ -126,6 +129,20 @@ export class ProductosComponent implements OnInit {
     //this.tienda = shopId;  
     
     console.log(this.tienda); 
+    })
+  }
+
+  /**ESTRUCTURA DE info productoDetail*/
+  detalle:any={};
+  //probar solo ccon   getShopId(id:any)
+  getProductDetailId(){
+    //tiendaId llave foranea extraida desde la ruta y home.ts
+    let detailId = this.activeRoute.snapshot.paramMap.get('id'); 
+    this._detalleService.getProductDetailId(detailId).subscribe(data =>{   
+    this.detalle = data;  
+    //this.detalle = detailId;  
+    
+    console.log(this.detalle); 
     })
   }
 

@@ -17,7 +17,7 @@ const APP_ROUTES: Routes = [
     { path: 'tienda/:id', component: TiendasComponent },
     { path: 'listaTiendas', component: ListTiendasComponent },
     { path: 'listaProductos', component: ListProductosComponent },
-    { path: 'producto/:id/:tiendaId', component: ProductosComponent },   //get ID
+    { path: 'producto/:id/:tiendaId/:marcaId/:tipoProductoId', component: ProductosComponent },   //get ID
     //{ path: 'path4', component: Name4Component } ,
     { path: '**', pathMatch:'full', redirectTo:'home' }
 ];
