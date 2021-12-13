@@ -5,6 +5,13 @@ import { MaterialModule } from './material/material.module';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+
+
 
 // ngBootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -35,6 +42,8 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { ListProductosComponent } from './components/productos/list-productos/list-productos.component';
 import { VentanaEmergenteTiendasComponent } from './components/tiendas/ventana-emergente-tiendas/ventana-emergente-tiendas.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FilterPipe } from './pipes/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +57,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ListProductosComponent,
     VentanaEmergenteTiendasComponent,
     FooterComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +69,12 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     APP_ROUTING,
     NgbModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatToolbarModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: 
   [
