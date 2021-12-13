@@ -1,3 +1,5 @@
+
+
 .category{
     width: 1000px;
     text-align: center;
@@ -12,3 +14,116 @@
     margin-right: 150px;
 }
 
+#contendorProd{
+    width: 100%
+}
+#contPadre{
+    margin-top: 2em;
+    width: 100%;
+}
+#imgPrin{
+    width: 40%; 
+    float: left;
+    text-align: center;
+}
+#txtDescrip{
+    width: 60%; 
+    background-color:#AAAAAA;
+    margin-top: 40px; 
+    float: right;
+}
+#imgCon{
+    width: 60%;
+}
+
+.matCarPro{
+    text-align: center;
+}
+.imageTr{
+    width: 100%;
+}
+
+#txtBuscador{
+    width:17%;
+    display: inline-block;
+}
+
+#matBuscador{
+    width: 100%;
+}
+
+#iconSearch{
+    width:10%; 
+    display: inline-block; 
+    text-align: left;
+}
+
+/*Extra large device (laptops/desktops), 1200 and up */
+@media only screen and (max-width: 1200px), screen and (max-device-width: 1200px ){
+
+}
+/*large device (laptops/desktops), 992 and up */
+@media only screen and (max-width: 992px), screen and (max-device-width: 992px ){
+   
+    #imgPrin{
+        width: 100%; 
+        float: left;
+        text-align: center;
+    }
+    #imgCon{
+        width: 30%;
+    }
+    #txtDescrip{
+        background-color:#AAAAAA; 
+        margin-top: 0px; 
+        width: 100%; 
+        float: right;
+    }
+
+    #txtBuscador{
+        width:86%;
+        display: inline-block;
+    }
+
+    #matBuscador{
+        width: 100%;
+    }
+    
+    #iconSearch{
+        width:10%; 
+        display: inline-block; 
+        text-align: left;
+    }
+
+    
+}
+
+/*Medium  device (landscape tablets), 768 and up */
+@media only screen and (max-width: 768px), screen and (max-device-width: 768px ){
+
+    #txtBuscador{
+        width:86%;
+        display: inline-block;
+    }
+
+    #matBuscador{
+        width: 100%;
+    }
+    
+    #iconSearch{
+        width:10%; 
+        display: inline-block; 
+        text-align: left;
+    }
+
+
+
+}
+
+
+/*Small  device (portrait phone), 600 and up */
+@media only screen and (max-width: 600px), screen and (max-device-width: 600px ){
+    .imageTr{
+        width: 50%;
+    }
+}
