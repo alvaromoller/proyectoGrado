@@ -1,76 +1,56 @@
-<h1 >Productos</h1>
-<hr>
 
-<div style="width: 1000px;">
-  <!--izquierda-->
-  <div style=" width: 300px; float: left;" >
-    <img mat-card-image src= "assets/img/logo.jpg" class="card-img-top" >
-  </div>
 
-  <!--derecha-->
-  <div class="container  animated fadeIn" style="background-color:#AAAAAA; width: 600px; margin-top: 40px; float: right;"  >
-    <p>Orientacion de venta de computadoras con WebCrawler.
-      Busca la mejor computadora de acuerdo a tus necesidades y presupuesto
-    </p>
-  </div>
-
-  <!--abajo-->
-  <div style="clear: left;  width: 1300px;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
-    <div fxFlex="30%" fxFlex.sm="10%" fxFlex.md="33" *ngFor="let producto of productos" >
-        
-          <mat-card class="prod">
-            <mat-card-header>
-              <mat-card-title> Laptop </mat-card-title>
-            </mat-card-header>
-            <!-- <img mat-card-image src= "assets/img/batman.png" class="card-img-top" alt="...">-->
-            <img mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" class="image">
-
-            <mat-card-content align="center">
-              <h3> {{ producto.name }} </h3>
-            </mat-card-content>
-
-            <div class="card-footer">
-              <small class="text-muted"> Tienda o precio: </small>  <!--GARANTIA-->
-            </div>
-
-            <div align="center"   (click)="getProductId(producto.productId, producto.shopId, producto.brandId, producto.productTypeId)">
-              <button type="button" class="btn btn-outline-primary w-100 ">
-                ver más
-              </button>
-            </div>
-          </mat-card>
-
+<div id ="contendorProd">
+  <mat-toolbar style="width: 100%" color="primary">
+    <h1>Bienvenido</h1>
+  </mat-toolbar>
+  <div id="contPadre">
+    <div id = "imgPrin">
+      <img id = "imgCon" mat-card-image src= "assets/img/logo.jpg" class="card-img-top" >
+    </div>
+    <!--derecha-->
+    <div id="txtDescrip" class="container animated fadeIn" >
+      Orientacion de venta de computadoras con WebCrawler.
+        Busca la mejor computadora de acuerdo a tus necesidades y presupuesto
+      
     </div>
   </div>
 
-</div>
+  <div style="width: 100%; display: inline-block; text-align: right;">
+    <div id= "txtBuscador" >
+      <form class="example-form">
+        <mat-form-field id="matBuscador" class="example-full-width" appearance="fill">
+          <mat-label>Buscar</mat-label>
+          <input matInput type="text" (keyDown.enter) ="prueba() " autocomplete="off" placeholder="Buscar" name="filterPost" [(ngModel)] = "filterPost" >
+        </mat-form-field>
+      </form>
+    </div>
+    <div id= "iconSearch" >
+      <button mat-raised-button color="primary"  style="height: 4em; vertical-align: 0.5em; background-color:#003cff3f; " disabled>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>  
+      </button>
+    </div>
+  </div>
+    
+  <h1 >Productos</h1>
+  <hr>
 
-<!--Segundo Div-->
-<hr>
-<h1>Categorias</h1><br>
-<div class="category" >
-  <button type="button" class="btn1 btn-outline-primary" >categoria 1</button>
-  <button type="button" class="btn2 btn-outline-primary" >categoria 2</button>
-  <button type="button" class="btn3 btn-outline-primary" >categoria 3</button>
-</div><br>
-
-<div style="width: 1000px;">
-  <!--Pagination-->
-  <pagination-controls 
-    (pageChange)="page = $event"
-    previousLabel="Anterior"
-    nextLabel="Siguiente">
-  </pagination-controls>
-
+  <!--izquierda-->
+  
+    
+  <!-- Se pondra un pipe    | filter:filterPost -->
   <!--abajo-->
-  <div style="clear: left;  width: 1300px;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
-    <div fxFlex="30%" fxFlex.sm="10%" fxFlex.md="33" *ngFor="let producto of productos| paginate: { itemsPerPage: 1, currentPage: page }">
-      <mat-card class="prod">
+  <div style="clear: left;  width: 100%;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
+    <!-- Se pondra un pipe    | filter:filterPost -->
+    
+    <div fxFlex="20%" fxFlex.sm="50%" fxFlex.md="25%" *ngFor="let producto of productos | filter:filterPost" >
+      <mat-card class="matCarPro">
+
         <mat-card-header>
           <mat-card-title> Laptop </mat-card-title>
         </mat-card-header>
        <!-- <img mat-card-image src= "assets/img/batman.png" class="card-img-top" alt="...">-->
-        <img mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" class="image">
+        <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" >
 
         <mat-card-content align="center">
           <h3> {{ producto.name }} </h3>
@@ -80,7 +60,7 @@
           <small class="text-muted"> Tienda o precio: </small>  <!--GARANTIA-->
         </div>
 
-        <div align="center"  (click)="getProductId(producto.productId, producto.shopId, producto.brandId, producto.productTypeId)" >
+        <div align="center"  (click)="getProductId(producto.productId, producto.shopId, producto.brandId, producto.productTypeId)">
           <button type="button" class="btn btn-outline-primary w-100 ">
             ver más
           </button>
@@ -89,5 +69,10 @@
     </div>
   </div>
 
+</div>
 
+<!--Segundo Div-->
+<hr>
+<div class="category">
+  <h1>Categorias</h1>
 </div>

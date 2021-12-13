@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
  //para llamar listado de productos en ngOnInit
   productos:any;
 
+  //
+  filterPost = "";
 
   //pagination
   public page: number=0;
@@ -48,5 +50,13 @@ export class HomeComponent implements OnInit {
   public getImgUrl(url : string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
+
+  //
+  public prueba(){
+    console.log("Prueba desde home");
+  }
+
+
 
 }
