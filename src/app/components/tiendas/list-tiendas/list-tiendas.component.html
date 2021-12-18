@@ -1,1 +1,36 @@
-<p>list-tiendas works!</p>
+
+<h1>Tienda: {{ tienda.name }}</h1>
+<hr>
+
+
+  <!--izquierda-->
+  
+  <div  class="producto" style="width: 1100px;">
+    <!--izquierda-->
+    <div>
+      <img mat-card-image [src]="getImgUrl(tienda.img)" alt="Fotografia de muestra" class="logoImg" >
+    </div>
+    
+    <!--derecha-->
+    <div class="description  animated fadeIn" >
+      <h3>Tienda : {{ tienda.shopId }}</h3>
+      <table>
+        <tr class="texto-justificado">
+          <td> <h3 class="texto-justificado">Descripción: <br> {{ tienda.description }}</h3></td>     
+        </tr> <br>
+        <tr class="texto-justificado">
+            <td> <h3 class="texto-justificado">Ubicación: <br>{{ tienda.location }}</h3> </td>     
+          </tr>
+      </table>
+      <hr>
+    </div>
+  
+  
+  
+    <!--Boton Modal para tienda, abajo derecha-->
+    <div class="buttonShowProduct  animated fadeIn" >
+      <button type="button" class=" btn btn-outline-primary ">
+        Ver más
+      </button>
+    </div>  
+  </div>

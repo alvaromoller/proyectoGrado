@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
  //para llamar listado de productos en ngOnInit
   productos:any;
 
-  //
+  //Filter, para las busquedas
   filterPost = "";
 
   //pagination

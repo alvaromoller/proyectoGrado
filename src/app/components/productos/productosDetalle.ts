@@ -1,6 +1,6 @@
 export interface ProductosDetalle {
     "productDetailId": number,
-    "price": number,
+    "detail": string,
     "quantity": string,
     "productId": number
 }

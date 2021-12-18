@@ -5,19 +5,24 @@ import { HomeComponent } from './components/home/home.component';
 import { EncuestaComponent } from './components/encuesta/encuesta.component';
 import { TiendasComponent } from './components/tiendas/tiendas.component';
 import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tiendas.component';
-import { VentanaEmergenteTiendasComponent } from './components/tiendas/ventana-emergente-tiendas/ventana-emergente-tiendas.component';
+import { homeShopComponent } from './components/tiendas/homeShop/homeShop.component';
 import { ListProductosComponent } from './components/productos/list-productos/list-productos.component';
 import { ProductosComponent } from './components/productos/productos.component';
 
 
 
 const APP_ROUTES: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'encuesta', component: EncuestaComponent },
-    { path: 'tienda/:id', component: TiendasComponent },
-    { path: 'listaTiendas', component: ListTiendasComponent },
+    { path: 'home', component: HomeComponent },   
     { path: 'listaProductos', component: ListProductosComponent },
     { path: 'producto/:id/:tiendaId/:marcaId/:tipoProductoId', component: ProductosComponent },   //get ID
+    
+
+    { path: 'encuesta', component: EncuestaComponent },
+    //Mejorar tiendas
+    { path: 'tiendas', component: homeShopComponent },                  //lista de tiendas
+    { path: 'listaProductosTienda/:tiendaId', component: ListTiendasComponent }, //lista de productos desde tienda
+    { path: 'productoTienda', component: TiendasComponent },       //producto individual desde tienda
+
     //{ path: 'path4', component: Name4Component } ,
     { path: '**', pathMatch:'full', redirectTo:'home' }
 ];

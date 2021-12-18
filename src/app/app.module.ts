@@ -40,9 +40,11 @@ import { EncuestaComponent } from './components/encuesta/encuesta.component';
 import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tiendas.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { ListProductosComponent } from './components/productos/list-productos/list-productos.component';
-import { VentanaEmergenteTiendasComponent } from './components/tiendas/ventana-emergente-tiendas/ventana-emergente-tiendas.component';
+import { homeShopComponent } from './components/tiendas/homeShop/homeShop.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { CategoriasComponent } from './components/categorias/categorias.component';
+import { ListCategoriasComponent } from './components/categorias/list-categorias/list-categorias.component';
 
 
 @NgModule({
@@ -55,9 +57,11 @@ import { FilterPipe } from './pipes/filter.pipe';
     ListTiendasComponent,
     ProductosComponent,
     ListProductosComponent,
-    VentanaEmergenteTiendasComponent,
+    homeShopComponent,
     FooterComponent,
     FilterPipe,
+    CategoriasComponent,
+    ListCategoriasComponent,
   ],
   imports: [
     BrowserModule,
