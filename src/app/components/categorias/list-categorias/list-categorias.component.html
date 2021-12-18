@@ -1,1 +1,13 @@
-<p>list-categorias works!</p>
+
+<h1>lista de Categorias</h1>
+<hr>
+<div *ngFor="let categoria of categorias">
+    <p> nombre de la categoria: {{ categoria.categoryName }}</p>
+
+    <div (click)="getCategoryId(categoria.categoryId)"  >
+        <button type="button" class="btn btn-outline-primary ">
+          ver más
+        </button>
+    </div>
+</div>
+

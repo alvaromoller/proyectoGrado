@@ -8,6 +8,9 @@ import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tie
 import { homeShopComponent } from './components/tiendas/homeShop/homeShop.component';
 import { ListProductosComponent } from './components/productos/list-productos/list-productos.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { CategoriasComponent } from './components/categorias/categorias.component';
+import { ListCategoriasComponent } from './components/categorias/list-categorias/list-categorias.component';
+
 
 
 
@@ -16,7 +19,11 @@ const APP_ROUTES: Routes = [
     { path: 'listaProductos', component: ListProductosComponent },
     { path: 'producto/:id/:tiendaId/:marcaId/:tipoProductoId', component: ProductosComponent },   //get ID
     
-
+    //recomendaciones por categorias
+    { path: 'listaCategorias', component: ListCategoriasComponent },
+    { path: 'categoria/:categoriaId', component: CategoriasComponent },   //get ID
+    
+    //encuesta
     { path: 'encuesta', component: EncuestaComponent },
     //Mejorar tiendas
     { path: 'tiendas', component: homeShopComponent },                  //lista de tiendas
