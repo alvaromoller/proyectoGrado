@@ -1,13 +1,15 @@
 
-<h1>lista de Categorias</h1>
+<h1>lista desde Categorias, Nombres</h1>
 <hr>
-<div *ngFor="let categoria of categorias">
-    <p> nombre de la categoria: {{ categoria.categoryName }}</p>
+<div *ngFor="let categoria of categorias" >
+    <p> Categoria: {{ categoria.categoryName }}, {{ categoria.categoryId }}</p>
+</div>
 
-    <div (click)="getCategoryId(categoria.categoryId)"  >
-        <button type="button" class="btn btn-outline-primary ">
-          ver más
-        </button>
-    </div>
+<div *ngFor="let pc of productoCategorias" >
+  <div (click)="getPcId(pc.categoryId, pc.productId)"  >
+    <button type="button" class="btn btn-outline-primary ">
+      ver más
+    </button>
+  </div>
 </div>
 

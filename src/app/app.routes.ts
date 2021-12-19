@@ -21,7 +21,7 @@ const APP_ROUTES: Routes = [
     
     //recomendaciones por categorias
     { path: 'listaCategorias', component: ListCategoriasComponent },
-    { path: 'categoria/:categoriaId', component: CategoriasComponent },   //get ID
+    { path: 'categoria/:categoryId/:productId', component: CategoriasComponent },   //get ID
     
     //encuesta
     { path: 'encuesta', component: EncuestaComponent },

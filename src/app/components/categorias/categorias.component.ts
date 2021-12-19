@@ -15,15 +15,17 @@ export class CategoriasComponent implements OnInit {
                private activeRoute:ActivatedRoute    ) { }
 
   ngOnInit(): void {
+    this.getProductId();
   }
 
+
   //obtener productId
-  producto:any={}; 
+  productoId:any={}; 
    getProductId(){
-    let productId = this.activeRoute.snapshot.paramMap.get('id'); 
+    let productId = this.activeRoute.snapshot.paramMap.get('productId'); 
     this._productoService.getProductId(productId).subscribe(data =>{   
-    this.producto = data;  
-      console.log(this.producto); 
+    this.productoId = data;  
+      console.log(this.productoId); 
     })
   }
  
