@@ -20,10 +20,8 @@ export class ListCategoriasComponent implements OnInit {
                private router:Router) { }
 
   ngOnInit(): void {
-    this.getProductCategories();
-
-    this.getCategories();
-    //this.getCategoryId();
+    this.getProductCategories();    //tabla NxN productCategory
+    this.getCategories();           
   }
 
 
@@ -37,8 +35,8 @@ export class ListCategoriasComponent implements OnInit {
   } 
 
 
-  //lista de ProductCategory (llaves foraneas), tabla NxN
-  //productoCategorias para el button
+  //Tabla NxN, lista de ProductCategory , 
+  // para el button
   productoCategorias:any;
   getProductCategories(){
     this._pcService.getPc()
@@ -48,24 +46,13 @@ export class ListCategoriasComponent implements OnInit {
   } 
 
 
-  //redirigir al component Category con su productId y categoryId q son sus llaves foraneas
-   //sus llaves foraneas llamaran a variables de product y variables de category
-  getPcId(categoryId:number, productId:number){    //no pasamos la llave primaria, enviamos las llaves foraneas
-    this.router.navigate( ["/categoria", categoryId, productId ] );
-    console.log("categoryId:"+ categoryId+ "\n productId:"+ productId);
+  //Tabla NxN productCategory, redirigir al component Category con su llave primaria y su categoryId 
+   //sus llaves foraneas llamaran a variables de product y category
+  getPcId(pcId:number, categoryId:number){    //no pasamos la llave primaria, enviamos las llaves foraneas
+    this.router.navigate( ["/categoria", pcId, categoryId ] );
+    console.log("categoryId:"+ pcId+ "\n productId:"+ categoryId );
   }
 
-/**
-  //obtener Categorias por sus ID
-  categoria:any={};
-  getCategoryId(){
-    let categoryId = this.activeRoute.snapshot.paramMap.get('categoriaId'); 
-    this._categoriasService.getCategoryId(categoryId).subscribe(data =>{   
-    this.categoria = data;  
-    console.log(this.categoria); 
-    })
-  }
-*/
 
 
 }

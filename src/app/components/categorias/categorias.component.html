@@ -1,10 +1,24 @@
-<p>categorias works!</p>
-
-<p>aqui llamar a la tabla productCategory, tabla NxN la cual contiene llaves foraneas de product y categoria
+<p>Tabla NxN productCategory, la cual contiene llaves foraneas de product y categoria
     y sus llaves foraneas llamaran a las variables que tiene product y category
 </p>
 
 <div >
-    <p>productos desde tabla NxN productCategory</p>
-    <p>productos: {{ productoId.name }}</p>
+    <h1>desde categoria</h1>
+    <p>categoria por ID: 
+        {{ categoria.categoryId }}
+        {{ categoria.categoryName }}  
+    </p>
+    <p>mostrando category Id desde PC: {{ pc.categoryId }}</p>
+    <p>mostrando product Id desde PC: {{ pc.productId }}</p>
+
+</div>
+
+
+<h1>productos por listado: </h1>
+<!-- quitar productId de rutas xq se debe obtener 3 productos de categoria -->
+<div *ngFor="let producto of productos"  >
+    <div>
+        {{ producto.productId }}
+        {{ producto.name }}
+    </div>
 </div>
