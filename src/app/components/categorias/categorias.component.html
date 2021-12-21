@@ -1,20 +1,37 @@
-<p>Tabla NxN productCategory, la cual contiene llaves foraneas de product y categoria
-    y sus llaves foraneas llamaran a las variables que tiene product y category
-</p>
+<p>Tabla NxN productCategory, aqui se muestra el JOIN de productCategory, se usa productService y categoryService</p>
 
 <div >
-    <h1>desde categoria</h1>
-    <p>categoria por ID: 
-        {{ categoria.categoryId }}
+    <h1> Categoria: 
+        {{ categoria.categoryId }}, 
         {{ categoria.categoryName }}  
-    </p>
+    </h1>
 </div>
+<!---->
 
-<!--productos desde categoria, las categorias tienen productos-->
-<h1>productos por categoria listado: </h1>
-<div *ngFor="let pc of productosByCategory"  >
-    <div>
-        {{ pc.productId }}
-        {{ pc.name }}
+<div  style="clear: left;  width: 100%;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
+    <!-- getProductsByCategory()  desde  _productosService -->
+    <div fxFlex="20%" fxFlex.sm="50%" fxFlex.md="25%" *ngFor="let pc of productosByCategory " >
+        <mat-card class="matCarPro">
+            <mat-card-header>
+                <mat-card-title> Laptop </mat-card-title>
+            </mat-card-header>
+            <img class="imageTr" mat-card-image [src]="getImgUrl(pc.img)" alt="Fotografia de muestra" >
+
+            <mat-card-content align="center">
+                <h3> {{ pc.name }} </h3>
+            </mat-card-content>
+
+            <div class="card-footer">
+                <small class="text-muted"> Precio: {{ pc.price }}</small>  <!--GARANTIA-->
+            </div>
+
+            <div align="center"  >
+            <button type="button" class="btn btn-outline-primary w-100 ">
+                ver más
+            </button>
+            </div>
+            
+        </mat-card>
     </div>
 </div>
+
