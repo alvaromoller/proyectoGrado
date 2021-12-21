@@ -6,6 +6,7 @@
     <div id = "imgPrin">
       <img id = "imgCon" mat-card-image src= "assets/img/logo.jpg" class="card-img-top" >
     </div>
+
     <!--derecha-->
     <div id="txtDescrip" class="container animated fadeIn" >
       Orientacion de venta de computadoras con WebCrawler.
@@ -14,12 +15,13 @@
     </div>
   </div>
 
+  <!--Buscador-->
   <div style="width: 100%; display: inline-block; text-align: right;">
     <div id= "txtBuscador" >
       <form class="example-form">
         <mat-form-field id="matBuscador" class="example-full-width" appearance="fill">
           <mat-label>Buscar</mat-label>
-          <input matInput type="text" (keyDown.enter) ="prueba() " autocomplete="off" placeholder="Buscar" name="filterPost" [(ngModel)] = "filterPost" >
+          <input matInput type="text" (keyDown.enter) ="prueba()" autocomplete="off" placeholder="Buscar" name="filterPost" [(ngModel)] = "filterPost" >
         </mat-form-field>
       </form>
     </div>
@@ -35,7 +37,6 @@
 
   <!--izquierda-->
     
-  <!-- Se pondra un pipe    | filter:filterPost -->
   <!--abajo-->
   <div style="clear: left;  width: 100%;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
     <!-- Se pondra un pipe    | filter:filterPost -->

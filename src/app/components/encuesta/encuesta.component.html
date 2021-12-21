@@ -1,1 +1,90 @@
-<p>encuesta works!</p>
+<p>encuesta works..!</p>
+
+precio:
+<select>
+    <option value="C02">1000Bs - 5000Bs </option>
+    <option value="C03">5000BS - 8000BS</option>
+</select><br><br>
+
+Marca:
+<select  name="filterPost" [(ngModel)] = "filterPost">
+    <option >Hp </option>
+    <option >Dell </option>
+    <option >Lenovo </option>
+</select><br><br>
+
+Memoria Ram:
+<select  name="filterPost" [(ngModel)] = "filterPost" >
+    <option >4Gb</option>
+    <option >8Gb</option>
+    <option >16Gb</option>
+</select><br><br>
+
+Tarjeta de video:
+<select >
+    <option value="C02">Delphi</option>
+    <option value="C03">Power Builder</option>
+</select><br><br>
+
+Procesador:
+<select >
+    <option >AMD Ryzen</option>
+    <option >Intel</option>
+</select><br><br>
+
+Disco solido:
+<select  >
+    <option >500 GB </option>
+    <option >1TB </option>
+</select>
+
+
+ <!--Buscador-->
+ <div style="width: 100%; display: inline-block; text-align: right;">
+    <div id= "txtBuscador" >
+      <form class="example-form">
+        <mat-form-field id="matBuscador" class="example-full-width" appearance="fill">
+          <mat-label>Buscar</mat-label>
+          <input matInput type="text"  autocomplete="off" placeholder="Buscar" name="filterPost" [(ngModel)] = "filterPost" >
+        </mat-form-field>
+      </form>
+    </div>
+    <div id= "iconSearch" >
+      <button mat-raised-button color="primary"  style="height: 4em; vertical-align: 0.5em; background-color:#003cff3f; " disabled>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>  
+      </button>
+    </div>
+  </div>
+  <!--FIN Buscador-->
+
+
+ <!--PRODUCTOS-->
+<div style="clear: left;  width: 100%;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
+    <!-- Se pondra un pipe    | filter:filterPost -->
+    
+    <div fxFlex="20%" fxFlex.sm="50%" fxFlex.md="25%" *ngFor="let producto of productos | filter:filterPost" >
+      <mat-card class="matCarPro">
+
+        <mat-card-header>
+          <mat-card-title> Laptop </mat-card-title>
+        </mat-card-header>
+        <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" >
+
+        <mat-card-content align="center">
+          <h3> {{ producto.name }} </h3>
+          <hr>
+          <p> {{ producto.description }} </p>
+        </mat-card-content>
+
+        <div class="card-footer">
+          <small class="text-muted"> precio: {{ producto.price }}</small>  <!--GARANTIA-->
+        </div>
+
+        <div align="center"  >
+          <button type="button" class="btn btn-outline-primary w-100 ">
+            ver más
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
