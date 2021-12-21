@@ -13,6 +13,7 @@ export class ProductosService {
     constructor(private http:HttpClient) { }
 
     ProductUrl:string = 'http://localhost:8080/v1/product';
+    pcUrl:string = 'http://localhost:8080/v1/product/productsByCategory';
 
     //conexión con el backend, 
     //lista de productos    
@@ -20,8 +21,17 @@ export class ProductosService {
         return this.http.get<Productos[]>(this.ProductUrl);
     }
 
+    //listado de productos por categoria,
+    //JOIN de tabla product con productCategory
+    getProductsByCategory(categoryId:any): Observable<Productos[]>{
+        return this.http.get<Productos[]>(this.pcUrl + "/" + categoryId);
+    }
+
     //Encontrar producto por ID
     getProductId(id:any):Observable<any>{
         return this.http.get<Productos[]>(this.ProductUrl + "/" + id);
     }
+
+    //lista de productos, JOIN con productCategory    
+
 }
