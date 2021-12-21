@@ -8,17 +8,13 @@
         {{ categoria.categoryId }}
         {{ categoria.categoryName }}  
     </p>
-    <p>mostrando category Id desde PC: {{ pc.categoryId }}</p>
-    <p>mostrando product Id desde PC: {{ pc.productId }}</p>
-
 </div>
 
-
-<h1>productos por listado: </h1>
-<!-- quitar productId de rutas xq se debe obtener 3 productos de categoria -->
-<div *ngFor="let producto of productos"  >
+<!--productos desde categoria, las categorias tienen productos-->
+<h1>productos por categoria listado: </h1>
+<div *ngFor="let pc of productosByCategory"  >
     <div>
-        {{ producto.productId }}
-        {{ producto.name }}
+        {{ pc.productId }}
+        {{ pc.name }}
     </div>
 </div>

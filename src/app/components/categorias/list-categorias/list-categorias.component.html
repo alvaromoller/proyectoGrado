@@ -2,14 +2,12 @@
 <h1>lista desde Categorias, Nombres</h1>
 <hr>
 <div *ngFor="let categoria of categorias" >
-    <p> Categoria: {{ categoria.categoryName }}, {{ categoria.categoryId }}</p>
+    <p> Categoria: {{ categoria.categoryId }}, {{ categoria.categoryName }}</p>
+    <div (click)="getCategoryId(categoria.categoryId)"  >
+      <button type="button" class="btn btn-outline-primary ">
+        ver más
+      </button>
+    </div>
 </div>
 
-<div *ngFor="let pc of productoCategorias" >
-  <div (click)="getPcId(pc.productCategoryId, pc.categoryId)"  >
-    <button type="button" class="btn btn-outline-primary ">
-      ver más
-    </button>
-  </div>
-</div>
 

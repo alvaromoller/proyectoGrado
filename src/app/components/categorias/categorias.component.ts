@@ -20,25 +20,16 @@ export class CategoriasComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategoryId();
-    this.getPcId();
     
-    this.getProducts();
+    //this.getProducts();
+    this.getProductsByCategory();
   }
 
 
     
-  //Tabla NxN, ProductCategory, obtener productCategoryId 
-  pc:any={};
-  getPcId(){
-    let pcId = this.activeRoute.snapshot.paramMap.get('pcId'); //'categoryId' desde la ruta
-    this._pcService.getPcId(pcId).subscribe(data =>{   
-    this.pc = data;  
-    console.log(this.pc); 
-    })
-  }
 
   
-  //Tabla NxN, ProductCategory, obtener categoryId 
+  //obtener categoryId 
   categoria:any={};
   getCategoryId(){
     let categoryId = this.activeRoute.snapshot.paramMap.get('categoryId'); //'categoryId' desde la ruta
@@ -48,9 +39,8 @@ export class CategoriasComponent implements OnInit {
     })
   }
 
-  
 
-  //Tabla NxN, ProductCategory, obtener lista de productos
+  //Lista de productos
   productos:any=[]; 
   getProducts(){
     this._productosService.getProducts()
@@ -60,44 +50,18 @@ export class CategoriasComponent implements OnInit {
     });
   } 
 
-
-  //se creo nuevo metodo para ordenar la ejecucion de los Servicios
-  /**
-  async getData(){
-    //product
-    await this._productosService.getProducts().toPromise().then
-    (data => {
-      this.productos = data;
-    });
-    console.log(this.productos); 
-    //category
+  //Lista productos de una categoria ,
+  //JOIN con productCategory
+  productosByCategory:any=[]; 
+  getProductsByCategory(){
     let categoryId = this.activeRoute.snapshot.paramMap.get('categoryId'); //'categoryId' desde la ruta
-    await this._categoriasService.getCategoryId(categoryId).toPromise().then
-    (data =>{   
-      this.categoria = data;  
-    console.log(this.categoria); 
-    })
-    //ProductCategory
-    let pcId = this.activeRoute.snapshot.paramMap.get('pcId'); //'categoryId' desde la ruta
-    await this._pcService.getPcId(pcId).toPromise().then
-    (data =>{   
-      this.pc = data;  
-    console.log(this.pc); 
-    })
+    this._productosService.getProductsByCategory(categoryId)
+    .subscribe(data => {
+      this.productosByCategory = data;
+      console.log(this.productosByCategory); 
+    });
+  } 
 
-    let productosAux = [];
-    
-    for( let i=0; i < this.pc.length(); i++ ){
-      let pcAux = this.pc[i];
-      if( pcAux.categoryId == categoryId ){
-        let pcProductId = pcAux.productId; 
-        //this.productos.find(prod  => prod.productId == pcProductId);
-      }
-    } 
-     
-    console.log("es sincrono erickin?")
-  }
-*/
- 
+
 
 }
