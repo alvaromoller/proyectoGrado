@@ -1,13 +1,33 @@
 
-<h1>lista desde Categorias, Nombres</h1>
+<h1>lista desde Categorias</h1>
 <hr>
-<div *ngFor="let categoria of categorias" >
-    <p> Categoria: {{ categoria.categoryId }}, {{ categoria.categoryName }}</p>
-    <div (click)="getCategoryId(categoria.categoryId)"  >
-      <button type="button" class="btn btn-outline-primary ">
-        ver más
-      </button>
-    </div>
+
+<div  style="clear: left;  width: 100%;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
+  <!-- getProductsByCategory()  desde  _productosService -->
+  <div fxFlex="20%" fxFlex.sm="50%" fxFlex.md="25%" *ngFor="let categoria of categorias " >
+      <mat-card class="matCarPro">
+          <mat-card-header>
+              <mat-card-title> Categoria </mat-card-title>
+          </mat-card-header>
+          <!--
+          <img class="imageTr" mat-card-image [src]="getImgUrl(pc.img)" alt="Fotografia de muestra" >
+          -->
+          <mat-card-content align="center">
+              <h3> {{ categoria.categoryName }} </h3>
+          </mat-card-content>
+
+          <div class="card-footer">
+              <small class="text-muted"> Precio: </small>  <!--GARANTIA-->
+          </div>
+
+          <div align="center" (click)="getCategoryId(categoria.categoryId)"   >
+          <button type="button" class="btn btn-outline-primary w-100 ">
+              ver más
+          </button>
+          </div>
+          
+      </mat-card>
+  </div>
 </div>
 
 

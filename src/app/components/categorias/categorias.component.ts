@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductosService } from '../../servicios/productos.service';
 import { CategoriasService } from '../../servicios/categorias.service';
 import { CategoriaProductosService } from '../../servicios/categoriaProductos.service';
+import { DomSanitizer } from "@angular/platform-browser";
+
 
 
 
@@ -16,7 +18,8 @@ export class CategoriasComponent implements OnInit {
   constructor(private _productosService:ProductosService, 
               private _categoriasService:CategoriasService,
               private _pcService:CategoriaProductosService,
-              private activeRoute:ActivatedRoute    ) { }
+              private activeRoute:ActivatedRoute,
+              private sanitizer: DomSanitizer    ) { }
 
   ngOnInit(): void {
     this.getCategoryId();
@@ -61,6 +64,12 @@ export class CategoriasComponent implements OnInit {
       console.log(this.productosByCategory); 
     });
   } 
+
+
+  //metodo para obtener imagen de la base de datos
+  public getImgUrl(url : string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 
 
 
