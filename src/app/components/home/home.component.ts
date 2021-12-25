@@ -4,6 +4,8 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { ActivatedRoute } from '@angular/router';
 import { ProductosService } from '../../servicios/productos.service';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 
 @Component({
@@ -16,6 +18,10 @@ export class HomeComponent implements OnInit {
  //para llamar listado de productos en ngOnInit
   productos:any;
 
+  //para llamar listado de productos en ngOnInit
+  productosSinBd:any=[];
+
+
   //Filter, para las busquedas
   filterPost = "";
 
@@ -25,12 +31,29 @@ export class HomeComponent implements OnInit {
   constructor(private _productosService:ProductosService,
               private router:Router,
               private activeRoute:ActivatedRoute,
-              private sanitizer: DomSanitizer ) { }
+              private sanitizer: DomSanitizer,
+              private http:HttpClient ) { }
 
  
   ngOnInit(): void {
     this.getProducts();
+    this.getProducts2();
   }
+    
+  //PRUEBA, lista de productos SIN BASE DE DATOS
+  getProducts2(){
+    this._productosService.getProducts()
+    .subscribe(data => {
+      this.productosSinBd = data;
+    });
+    //console.log("Listado de productos extraidos sin base de datos: \n"+this.productosSinBd);
+
+    //MODIFICAR
+
+    //MODIFICAR
+
+
+  } 
 
   //lista de productos
   getProducts(){
@@ -51,11 +74,6 @@ export class HomeComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-
-  //
-  public prueba(){
-    console.log("Prueba desde home");
-  }
 
 
 

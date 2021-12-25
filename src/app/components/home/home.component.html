@@ -21,7 +21,7 @@
       <form class="example-form">
         <mat-form-field id="matBuscador" class="example-full-width" appearance="fill">
           <mat-label>Buscar</mat-label>
-          <input matInput type="text" (keyDown.enter) ="prueba()" autocomplete="off" placeholder="Buscar" name="filterPost" [(ngModel)] = "filterPost" >
+          <input matInput type="text"  autocomplete="off" placeholder="Buscar" name="filterPost" [(ngModel)] = "filterPost" >
         </mat-form-field>
       </form>
     </div>
@@ -32,11 +32,22 @@
     </div>
   </div>
     
+  <!--PRUEBA Lista de productos sin Base de datos-->
+
+  <h1>Lista de productos sin Base de datos</h1>
+  <hr>
+  <div  *ngFor="let productoSinDB of productosSinBd | filter:filterPost">
+      <h3> {{ productoSinDB.name }} </h3>
+  </div>
+  <script type="text/javascript">
+    var Casa = { "color":"cafe",  "fondo":"20M",  "Alto":"5M" }
+    console.log(Casa)
+  </script>
+  <!--PRUEBA Lista de productos sin Base de datos-->
+
+
   <h1 >Productos</h1>
   <hr>
-
-  <!--izquierda-->
-    
   <!--abajo-->
   <div style="clear: left;  width: 100%;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
     <!-- Se pondra un pipe    | filter:filterPost -->
@@ -74,3 +85,4 @@
 <div class="category">
   <h1>Categorias</h1>
 </div>
+
