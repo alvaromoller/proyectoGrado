@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   productos:any;
 
   //para llamar listado de productos en ngOnInit
-  productosSinBd:any=[];
+  productosSinBd:any;
 
 
   //Filter, para las busquedas
@@ -47,11 +47,6 @@ export class HomeComponent implements OnInit {
       this.productosSinBd = data;
     });
     //console.log("Listado de productos extraidos sin base de datos: \n"+this.productosSinBd);
-
-    //MODIFICAR
-
-    //MODIFICAR
-
 
   } 
 

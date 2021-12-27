@@ -3,7 +3,7 @@ export interface Productos {
     "name": string,
     "description": string,
     "img": string,
-    "price": number,
+    "price": string,
     "brandId": number,
     "shopId": number,
     "productTypeId": number
