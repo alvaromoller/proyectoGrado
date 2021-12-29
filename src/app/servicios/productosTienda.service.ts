@@ -24,7 +24,7 @@ export class ProductosTiendaService {
     getShopId(id:any):Observable<any>{
         return this.http.get<ProductosTienda[]>(this.ShopUrl + "/" + id);
     }
-
+    
 
 
 }

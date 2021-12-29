@@ -36,8 +36,8 @@ export class ProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductId(); //product tiene llave foranea de shop, brand, typeProduct
-    this.getBrandId();  
-    this.getProductTypeId();
+    //this.getBrandId();  
+    //this.getProductTypeId();
     this.getshopId();
 
   }
@@ -54,34 +54,14 @@ export class ProductosComponent implements OnInit {
 
   /**ESTRUCTURA DE info Product*/
   producto:any={};
-  productForm = new FormGroup({
-    productId: new FormControl(''),
-    name: new FormControl(''),
-    description: new FormControl(''),
-    img: new FormControl(''),
-    brandId: new FormControl(''),
-    shopId: new FormControl(''),
-    productTypeId: new FormControl(''),
-  });
 
   //probar solo ccon   getProductId(id:any)
   getProductId(){
     let productId = this.activeRoute.snapshot.paramMap.get('id'); 
     this._productoService.getProductId(productId).subscribe(data =>{   
     this.producto = data;  
-      //
-      this.productForm.setValue({
-      'productId': this.producto.productId,
-      'name': this.producto.name,
-      'description': this.producto.description,
-      'img': this.producto.img,
-
-      'brandId': this.producto.brandId,
-      'shopId': this.producto.shopId,
-      'productTypeId': this.producto.productTypeId,
-      })   
-      //
-      console.log(this.productForm.value); 
+      // 
+      console.log(this.producto); 
     })
 
   }

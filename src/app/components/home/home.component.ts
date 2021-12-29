@@ -58,8 +58,9 @@ export class HomeComponent implements OnInit {
     });
   } 
   //Redirige al componente PRODUCTOS con su productId y sus llaves foraneas tiendaId,marcaId,tipoProductoId
-  getProductId(id:number, tiendaId:number, marcaId:number, tipoProductoId:number){
-    this.router.navigate( ["/producto", id, tiendaId, marcaId, tipoProductoId ] );
+  //, marcaId:number, tipoProductoId:number
+  getProductId(id:number, tiendaId:number){
+    this.router.navigate( ["/producto", id, tiendaId ] );
     console.log(id);
   }
 

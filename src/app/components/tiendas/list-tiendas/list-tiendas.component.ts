@@ -28,8 +28,8 @@ productos:any;
  
   ngOnInit(): void {
     this.getShopId();
-    this.getProducts();
-    this.getProductId();
+    //this.getProducts();
+    //this.getProductId();
   }
 
   //ID de tienda

@@ -17,7 +17,7 @@ import { ListCategoriasComponent } from './components/categorias/list-categorias
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },   
     { path: 'listaProductos', component: ListProductosComponent },
-    { path: 'producto/:id/:tiendaId/:marcaId/:tipoProductoId', component: ProductosComponent },   //get ID
+    { path: 'producto/:id/:tiendaId', component: ProductosComponent },   //get ID
     
     //recomendaciones por categorias
     { path: 'listaCategorias', component: ListCategoriasComponent },
@@ -25,6 +25,7 @@ const APP_ROUTES: Routes = [
     
     //encuesta
     { path: 'encuesta', component: EncuestaComponent },
+
     //Mejorar tiendas
     { path: 'tiendas', component: homeShopComponent },                  //lista de tiendas
     { path: 'listaProductosTienda/:tiendaId', component: ListTiendasComponent }, //lista de productos desde tienda
