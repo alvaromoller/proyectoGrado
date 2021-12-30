@@ -12,8 +12,8 @@ export class ProductosService {
     
     constructor(private http:HttpClient) { }
 
-    ProductUrl:string = 'http://localhost:8080/v1/product';
-    pcUrl:string = 'http://localhost:8080/v1/product/productsByCategory';
+    ProductUrl:string = 'http://localhost:8080/v1/product';         //direccion de productos de tiendas 1, 2, 3
+    pcUrl:string = 'http://localhost:8080/v1/productCategory/productsByCategory';      //direccion de productos de tiendas 4, 5, 3
 
     //conexión con el backend, 
     //lista de productos    
