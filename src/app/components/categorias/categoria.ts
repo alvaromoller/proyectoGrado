@@ -1,4 +1,5 @@
 export interface Categorias {
     "categoryId": number,
-    "categoryName": string
+    "categoryName": string,
+    "img": string
 }

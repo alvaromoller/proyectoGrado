@@ -3,6 +3,8 @@ import { CategoriasService } from '../../../servicios/categorias.service';
 import { CategoriaProductosService } from '../../../servicios/categoriaProductos.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from "@angular/platform-browser";
+
 
 
 
@@ -17,7 +19,8 @@ export class ListCategoriasComponent implements OnInit {
   constructor( private _categoriasService:CategoriasService,
                private _pcService:CategoriaProductosService,
                private activeRoute:ActivatedRoute,
-               private router:Router) { }
+               private router:Router,
+               private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getCategories();           
@@ -37,6 +40,12 @@ export class ListCategoriasComponent implements OnInit {
   getCategoryId(categoryId:number){    //no pasamos la llave primaria, enviamos las llaves foraneas
     this.router.navigate( ["/categoria", categoryId ] );
     console.log("categoryId:"+ categoryId );
+  }
+
+  
+  //metodo para obtener imagen de la base de datos
+  public getImgUrl(url : string) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
 

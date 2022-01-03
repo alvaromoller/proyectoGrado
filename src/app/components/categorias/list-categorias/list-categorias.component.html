@@ -7,17 +7,17 @@
   <div fxFlex="20%" fxFlex.sm="50%" fxFlex.md="25%" *ngFor="let categoria of categorias " >
       <mat-card class="matCarPro">
           <mat-card-header>
-              <mat-card-title> Categoria: {{ categoria.categoryId }} </mat-card-title>
+              <mat-card-title> {{ categoria.categoryName }} </mat-card-title>
           </mat-card-header>
           <!--
           <img class="imageTr" mat-card-image [src]="getImgUrl(pc.img)" alt="Fotografia de muestra" >
-          -->
+          --><br>
           <mat-card-content align="center">
-              <h3> {{ categoria.categoryName }} </h3>
+              <img class="imageTr" mat-card-image [src]="getImgUrl(categoria.img)" alt="Fotografia de muestra" width="196" height="180">
           </mat-card-content>
 
           <div class="card-footer">
-              <small class="text-muted"> Precio: </small>  <!--GARANTIA-->
+              <small class="text-muted"> Categoria: {{ categoria.categoryId }} </small>  <!--GARANTIA-->
           </div>
 
           <div align="center" (click)="getCategoryId(categoria.categoryId)"   >
