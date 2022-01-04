@@ -47,7 +47,7 @@
           <mat-card-title> Laptop </mat-card-title>
         </mat-card-header>
        <!-- <img mat-card-image src= "assets/img/batman.png" class="card-img-top" alt="...">-->
-        <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" >
+        <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
 
         <mat-card-content align="center">
           <h3> {{ producto.name }} </h3>
@@ -56,9 +56,9 @@
         <div class="card-footer">
           <small class="text-muted"> Tienda o precio: </small>  <!--GARANTIA-->
         </div>
-
-        <div align="center"  (click)="getProductId(producto.productId, producto.shopId)">
-          <button type="button" class="btn btn-outline-primary w-100 ">
+         <!--(click)="getProductId(producto.productId, producto.shopId)"--> 
+        <div align="center"  >
+          <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
             ver más
           </button>
         </div>

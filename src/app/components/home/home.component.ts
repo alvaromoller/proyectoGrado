@@ -2,9 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { DomSanitizer } from "@angular/platform-browser";
 import { ActivatedRoute } from '@angular/router';
+import { ProductosComponent } from '../../components/productos/productos.component';
 import { ProductosService } from '../../servicios/productos.service';
+import { Productos } from '../../components/productos/productos';
+
+import { TiendasComponent } from '../../components/tiendas/tiendas.component';
+import { ProductosTiendaService } from '../../servicios/productosTienda.service';
+import { ProductosTienda } from '../../components/productos/productosTienda';
+
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -29,10 +37,12 @@ export class HomeComponent implements OnInit {
   public page: number=0;
 
   constructor(private _productosService:ProductosService,
+              private _tiendaService:ProductosTiendaService,
               private router:Router,
               private activeRoute:ActivatedRoute,
               private sanitizer: DomSanitizer,
-              private http:HttpClient ) { }
+              private http:HttpClient,
+              public dialog: MatDialog ) { }
 
  
   ngOnInit(): void {
@@ -64,12 +74,23 @@ export class HomeComponent implements OnInit {
     console.log(id);
   }
 
-
   //metodo para obtener imagen de la base de datos
   public getImgUrl(url : string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
+/////////////////////////////////////////////////////////////////////////////////////
+  //nueva metodo ventana emergente
+  //metodo para ver inf. de nuestro producto
+  productInfo(product: Productos) {
+    this._productosService.setLast(product);
+    const dialogRef = this.dialog.open(ProductosComponent,{
+      width: '1040px',height:'550px',disableClose: true 
+    });
+  }
+
+  
+/////////////////////////////////////////////////////////////////////////////////////
 
 
 

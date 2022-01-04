@@ -3,7 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductosService } from '../../servicios/productos.service';
 import { CategoriasService } from '../../servicios/categorias.service';
 import { CategoriaProductosService } from '../../servicios/categoriaProductos.service';
+
+import { ProductosComponent } from '../../components/productos/productos.component';
+import { Productos } from '../../components/productos/productos';
 import { DomSanitizer } from "@angular/platform-browser";
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -19,7 +23,8 @@ export class CategoriasComponent implements OnInit {
               private _categoriasService:CategoriasService,
               private _pcService:CategoriaProductosService,
               private activeRoute:ActivatedRoute,
-              private sanitizer: DomSanitizer    ) { }
+              private sanitizer: DomSanitizer,
+              public dialog: MatDialog    ) { }
 
   ngOnInit(): void {
     this.getCategoryId();
@@ -70,6 +75,21 @@ export class CategoriasComponent implements OnInit {
   public getImgUrl(url : string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
+
+  /////////////////////////////////////////////////////////////////////////////////////
+  //nueva metodo ventana emergente
+  //metodo para ver inf. de nuestro producto
+  productInfo(product: Productos) {
+    this._productosService.setLast(product);
+    const dialogRef = this.dialog.open(ProductosComponent,{
+      width: '1040px',height:'550px',disableClose: true 
+    });
+  }
+
+  
+/////////////////////////////////////////////////////////////////////////////////////
+
 
 
 

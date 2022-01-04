@@ -32,6 +32,14 @@ export class ProductosService {
         return this.http.get<Productos[]>(this.ProductUrl + "/" + id);
     }
 
-    //lista de productos, JOIN con productCategory    
+    
+    //obtiene el detalle del producto
+    last:any;
+    setLast(product: Productos){
+      this.last = product;
+    }
+    getLast(): Productos{
+        return this.last;
+    }
 
 }

@@ -14,7 +14,7 @@
             <mat-card-header>
                 <mat-card-title> Laptop </mat-card-title>
             </mat-card-header>
-            <img class="imageTr" mat-card-image [src]="getImgUrl(pc.img)" alt="Fotografia de muestra" >
+            <img class="imageTr" mat-card-image [src]="getImgUrl(pc.img)" alt="Fotografia de muestra" (click)="productInfo(pc)" >
 
             <mat-card-content align="center">
                 <h3> {{ pc.name2 }} </h3>   <!--nombre opcional-->
@@ -27,7 +27,7 @@
             </div>
 
             <div align="center"  >
-            <button type="button" class="btn btn-outline-primary w-100 ">
+            <button type="button" class="btn btn-outline-primary w-100" (click)="productInfo(pc)">
                 ver más
             </button>
             </div>

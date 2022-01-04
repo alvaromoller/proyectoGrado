@@ -10,6 +10,7 @@ import { ProductosTiendaService } from '../../servicios/productosTienda.service'
 import { Productos } from '../productos/productos';
 import { Marcas } from '../productos/productosMarca';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { ProductosTienda } from './productosTienda';
 
@@ -24,15 +25,14 @@ import { ProductosTienda } from './productosTienda';
 })
 export class ProductosComponent implements OnInit {
 
-  //productos:any;
   constructor(private _productoService:ProductosService, 
               private _marcaService:ProductosMarcasService ,
               private _tipoProductoService:TipoProductoService, 
               private _tiendaService:ProductosTiendaService,
               private activeRoute:ActivatedRoute,
               private sanitizer: DomSanitizer,
-              public modal: NgbModal
-              ) {}
+              public modal: NgbModal,
+              private dialog: MatDialog              ) {}
 
   ngOnInit(): void {
     this.getProductId(); //product tiene llave foranea de shop, brand, typeProduct
@@ -40,9 +40,12 @@ export class ProductosComponent implements OnInit {
     //this.getProductTypeId();
     this.getshopId();
 
+
+    //prueba llamando a lastProduct
+    this.getProductLastId();
   }
 
-  
+  ///////////////////////////////////////////////////////////////////////////
   //metodo para obtener imagen de la base de datos
   public getImgUrl(url : string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
@@ -52,10 +55,9 @@ export class ProductosComponent implements OnInit {
     this.modal.open(contenido,{scrollable:true, size:"lg", centered:true, backdropClass:"azul", windowClass:"oscuro"});
   }
 
+
   /**ESTRUCTURA DE info Product*/
   producto:any={};
-
-  //probar solo ccon   getProductId(id:any)
   getProductId(){
     let productId = this.activeRoute.snapshot.paramMap.get('id'); 
     this._productoService.getProductId(productId).subscribe(data =>{   
@@ -63,13 +65,35 @@ export class ProductosComponent implements OnInit {
       // 
       console.log(this.producto); 
     })
+  }
 
+  /**ESTRUCTURA DE info Tienda*/
+  tienda:any={};
+  getshopId(){
+    //tiendaId llave foranea extraida desde la ruta y home.ts
+    let shopId = this.activeRoute.snapshot.paramMap.get('tiendaId'); 
+    this._tiendaService.getShopId(shopId).subscribe(data =>{   
+    this.tienda = data;  
+    //this.tienda = shopId;  
+    
+    console.log(this.tienda); 
+    })
+  }
+/////////////////////////////////////////////////////////////////////////////////////
+  //OBTENER ultimo producto
+  productLast:any;
+  getProductLastId(){
+    this.productLast = this._productoService.getLast();
+  }
+  close(){
+    this.dialog.closeAll();
   }
 
 
+  /////////////////////////////////////////////////////////////////////////////////////
+
   /**ESTRUCTURA DE info Marca*/
   marca:any={};
-
   //probar solo con getBrandId(id:any)
   getBrandId(){
     let marcaId = this.activeRoute.snapshot.paramMap.get('marcaId'); 
@@ -83,7 +107,6 @@ export class ProductosComponent implements OnInit {
   
   /**ESTRUCTURA DE info tipo-producto*/
   tipoProducto:any={};
-
   //probar solo ccon   getProductTypeId(id:any)
   getProductTypeId(){
     let tipoProductoId = this.activeRoute.snapshot.paramMap.get('tipoProductoId'); 
@@ -94,19 +117,7 @@ export class ProductosComponent implements OnInit {
     })
   }
 
-  /**ESTRUCTURA DE info Tienda*/
-  tienda:any={};
-  //probar solo ccon   getShopId(id:any)
-  getshopId(){
-    //tiendaId llave foranea extraida desde la ruta y home.ts
-    let shopId = this.activeRoute.snapshot.paramMap.get('tiendaId'); 
-    this._tiendaService.getShopId(shopId).subscribe(data =>{   
-    this.tienda = data;  
-    //this.tienda = shopId;  
-    
-    console.log(this.tienda); 
-    })
-  }
+
 
 
 

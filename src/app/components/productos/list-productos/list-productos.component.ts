@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../../servicios/productos.service';
+import { MatDialog } from '@angular/material/dialog';
 import { Productos } from '../productos';
 import { Router } from '@angular/router';
 
@@ -34,6 +35,7 @@ export class ListProductosComponent implements OnInit {
   getProductId(id:number){
     console.log(id);
   }
+
 
 
 }

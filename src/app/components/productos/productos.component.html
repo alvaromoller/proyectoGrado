@@ -1,25 +1,28 @@
-<h1>{{ producto.name }}</h1> 
+<mat-toolbar color="primary"> 
+  <span class="fill-remaining-space">{{productLast.name}}</span>
+  <mat-icon class="icon" (click)="close()">close</mat-icon>
+</mat-toolbar>
 <hr>
 
 <div  class="producto" style="width: 1100px;">
   <!--izquierda-->
   <div style=" width: 300px; float: left;" >
-    <img mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" class="image" width="400" height="400">
+    <img mat-card-image [src]="getImgUrl(productLast.img)" alt="Fotografia de muestra" class="image" width="400" height="400">
   </div>
   
   <!--derecha-->
   <div class="description  animated fadeIn" style="background-color:#AAAAAA; width: 700px; margin-top: 40px; float: right;"  >
-    <h4>{{ producto.name }}</h4>
+    <h4>{{ productLast.name }}</h4>
 
     <table class="">
       <tr>
-        <td> <h6>Precio: {{ producto.price }}</h6> </td>
+        <td> <h6>Precio: {{ productLast.price }}</h6> </td>
       </tr>
       <tr>
-        <td> <h6>Marca: {{ marca.name }}</h6> </td>
+        <td> <h6>Disponible</h6> </td>
       </tr>
       <tr class="texto-justificado">
-        <td> <h6 class="texto-justificado">Descripción del producto:</h6> {{ producto.description }}</td>     
+        <td> <h6 class="texto-justificado">Descripción del producto:</h6> {{ productLast.description }}</td>     
       </tr>
     </table>
     <hr>
@@ -28,21 +31,15 @@
 
   <!--datos de la tienda, abajo derecha-->
   <div class="shop  animated fadeIn" style=" width: 700px; margin-top: 20px; float: right;"  >
-    <h4>Tienda: {{ tienda.name }} {{tienda.shopId}}</h4>
-    <img mat-card-image [src]="getImgUrl(tienda.img)" width="500" height="150" alt="Fotografia de muestra" class="image">
-
+    <h4>Tienda: {{productLast.shopId}}</h4>
+    <h4>{{productLast.shopName}}</h4>
   </div>  
 
-  <!--Boton Modal para tienda, abajo derecha-->
-  <div class="buttonModal  animated fadeIn" style="width: 670px; margin-top: 5px; float: right;"  >
-    <button type="button" class="btn btn-outline-primary " (click)="openModal(contenido)" style="width: 100px; margin-top: 10px; ">
-      Ver más
-    </button>
-  </div>  
 </div>
 
 
-<!--INFO-->
+<!--INFO sin usar aun
+(click)="openModal(contenido)"-->
 <!--Modal:-->
 <ng-template #contenido let-modal>
     <div class="modal-header">
@@ -68,10 +65,5 @@
 
 
 <!--
-<form [formGroup]="productForm"   class="form" style="clear: left;">
-  <div>
-    <label >Nombre del Producto: </label>
-    <input matInput class="form-control"  readonly="readonly"  formControlName="name">
-  </div>
-</form>
+
 -->

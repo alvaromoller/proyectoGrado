@@ -24,6 +24,15 @@ export class ProductosTiendaService {
     getShopId(id:any):Observable<any>{
         return this.http.get<ProductosTienda[]>(this.ShopUrl + "/" + id);
     }
+
+    //obtiene el detalle de la tienda
+    last:any;
+    setLast(tienda: ProductosTienda){
+      this.last = tienda;
+    }
+    getLast(): ProductosTienda{
+        return this.last;
+    }
     
 
 
