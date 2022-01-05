@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export interface TablaProductos{
   productId: number,
   name: string,
+  name2: string,
   description: string,
   price: number
 }
@@ -21,10 +22,12 @@ export class FilterPipe implements PipeTransform {
     if(arrProductos !== undefined ){
       for (const post of arrProductos){ //busqueda post por name, description, price
         if (post.name.toLowerCase().indexOf(arg.toLowerCase()) > -1  || 
+            post.name2.toLowerCase().indexOf(arg.toLowerCase()) > -1 ||
             post.description.toLowerCase().indexOf(arg.toLowerCase()) > -1 
            ) {
 
             console.log("SI");
+            //console.log(post);
             resltadoPost.push(post); 
         }
       }

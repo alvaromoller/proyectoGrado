@@ -1,5 +1,30 @@
-.buttonModal{
-  padding-bottom: 10%; /* espacio abajo del boton que activa el modal*/
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+.icon {
+  cursor: pointer;
+}
+
+.producto{
+  width: 100%
+}
+
+.img{
+  width: 30%; 
+  float: left;
+}
+
+.description{
+  background-color:#AAAAAA;
+  width: 70%;
+  margin-top: 40px;
+  float: right;
+}
+
+.shop{
+  width: 70%;
+  margin-top: 20px;
+  float: right;
 }
 
 .texto-justificado{
@@ -7,6 +32,11 @@
 }
 
 
+
+
+.buttonModal{
+  padding-bottom: 10%; /* espacio abajo del boton que activa el modal*/
+}
 
 table 
 { 

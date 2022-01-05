@@ -1,28 +1,30 @@
-<mat-toolbar color="primary"> 
-  <span class="fill-remaining-space">{{productLast.name}}</span>
+<mat-toolbar color="primary">
+  <span class="fill-remaining-space">{{productLast.name2}}</span>
   <mat-icon class="icon" (click)="close()">close</mat-icon>
 </mat-toolbar>
 <hr>
 
-<div  class="producto" style="width: 1100px;">
+<div  class="producto">
   <!--izquierda-->
-  <div style=" width: 300px; float: left;" >
-    <img mat-card-image [src]="getImgUrl(productLast.img)" alt="Fotografia de muestra" class="image" width="400" height="400">
+  <div class="img" >
+    <img mat-card-image [src]="getImgUrl(productLast.img)" alt="Fotografia de muestra" >
   </div>
   
   <!--derecha-->
-  <div class="description  animated fadeIn" style="background-color:#AAAAAA; width: 700px; margin-top: 40px; float: right;"  >
-    <h4>{{ productLast.name }}</h4>
+  <div class="description  animated fadeIn"  >
+    <h2>{{ productLast.name }}</h2>
 
     <table class="">
       <tr>
-        <td> <h6>Precio: {{ productLast.price }}</h6> </td>
+        <td> <h4>Precio: {{ productLast.price }}</h4> </td>
       </tr>
       <tr>
-        <td> <h6>Disponible</h6> </td>
+        <td> <h4>Disponible</h4> </td>
       </tr>
       <tr class="texto-justificado">
-        <td> <h6 class="texto-justificado">Descripción del producto:</h6> {{ productLast.description }}</td>     
+        <td> <h4>Descripción del producto:</h4>
+             <h4> {{ productLast.description }} </h4>
+        </td>     
       </tr>
     </table>
     <hr>
@@ -30,12 +32,19 @@
 
 
   <!--datos de la tienda, abajo derecha-->
-  <div class="shop  animated fadeIn" style=" width: 700px; margin-top: 20px; float: right;"  >
+  <div class="shop  animated fadeIn"  >
     <h4>Tienda: {{productLast.shopId}}</h4>
     <h4>{{productLast.shopName}}</h4>
   </div>  
-
 </div>
+
+
+<div align="center">
+  <button class="btn btn-outline-primary w-100" color="primary"  (click)="close()" >Cerrar</button>
+</div>
+
+
+
 
 
 <!--INFO sin usar aun
