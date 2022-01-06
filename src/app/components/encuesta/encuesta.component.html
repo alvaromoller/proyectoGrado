@@ -41,6 +41,9 @@
 
 </div>
 
+<input type="checkbox" value="fruit" id="fruit" (change)="ModifyFilter($event, $event)"><label for="fruit">Fruits</label>
+<input type="checkbox" value="vegetable" id="vegetable" (change)="ModifyFilter($event, $event)"><label for="vegetable">Vegetables</label>
+
  <!--Buscador-->
  
  <div style="width: 100%; display: inline-block; text-align: right;">
@@ -62,32 +65,36 @@
 
 
  <!--PRODUCTOS-->
-<div style="clear: left;  width: 100%;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
-    <!-- Se pondra un pipe    | filter:filterPost -->
-    
-    <div fxFlex="20%" fxFlex.sm="50%" fxFlex.md="25%" *ngFor="let producto of productos | filter:filterPost" >
-      <mat-card class="matCarPro">
+<!--abajo-->
+<div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
+  <!-- Se pondra un pipe    | filter:filterPost -->
+  
+  <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos | filter:filterPost " >
+    <mat-card class="matCarPro">
 
-        <mat-card-header>
-          <mat-card-title> Laptop </mat-card-title>
-        </mat-card-header>
-        <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" >
+      <mat-card-header>
+        <mat-card-title> Laptop </mat-card-title>
+      </mat-card-header>
+     <!-- <img mat-card-image src= "assets/img/batman.png" class="card-img-top" alt="...">-->
+      <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
 
-        <mat-card-content align="center">
-          <h3> {{ producto.name }} </h3>
-          <hr>
-          <h6> {{ producto.description }} </h6>
-        </mat-card-content>
+      <mat-card-content class="texto-justificado">
+        <h3> {{ producto.name2 }} </h3>   <!--nombre opcional-->
+        <hr>
+        <h3> {{ producto.name }} </h3>
+      </mat-card-content>
 
-        <div class="card-footer">
-          <small class="text-muted"> precio: {{ producto.price }}</small>  <!--GARANTIA-->
-        </div>
-
-        <div align="center"  >
-          <button type="button" class="btn btn-outline-primary w-100 ">
-            ver más
-          </button>
-        </div>
-      </mat-card>
-    </div>
+      <div class="card-footer">
+        <small class="text-muted"> Precio:{{ producto.price }} </small>  <!--GARANTIA-->
+      </div>
+       <!--(click)="getProductId(producto.productId, producto.shopId)"--> 
+      <div class="button" align="center"  >
+        <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
+          ver más
+        </button>
+      </div>
+    </mat-card>
   </div>
+</div>
+
+<div></div>

@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   //Filter, para las busquedas
   filterPost = "";
-  
+
   //pagination
   public page: number=0;
 

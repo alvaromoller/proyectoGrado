@@ -1,0 +1,21 @@
+.contenedor{
+    clear: left;
+    width: 100%;
+}
+.matCarPro{
+    text-align: center;
+}
+
+.imageTr{
+    width: 100%;
+}
+
+.texto-justificado{
+    text-align: justify;
+    text-align: center;
+}
+
+.button{
+    padding-bottom: 40%; /* espacio abajo del boton */
+  }
+  
