@@ -4,6 +4,8 @@ import { TiendasService, tiendasInterface } from '../../../servicios/tiendas.ser
 import { DomSanitizer } from "@angular/platform-browser";
 import { ProductosTiendaService } from '../../../servicios/productosTienda.service';
 import { ProductosService } from '../../../servicios/productos.service';
+import { MatDialog } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -23,13 +25,15 @@ productos:any;
               private _tiendasService:ProductosTiendaService,
               private _productosService:ProductosService,
               private activeRoute:ActivatedRoute,
-              private sanitizer: DomSanitizer) { }
+              private sanitizer: DomSanitizer,
+              private dialog: MatDialog) { }
 
  
   ngOnInit(): void {
     this.getShopId();
     //this.getProducts();
     //this.getProductId();
+    this.getShopLastId();
   }
 
   //ID de tienda
@@ -67,6 +71,18 @@ productos:any;
   public getImgUrl(url : string) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
+  /////////////////////////////////////////////////////////////////////////////////////
+  //OBTENER ultimo producto
+  shopLast:any;
+  getShopLastId(){
+    this.shopLast = this._tiendasService.getLast();
+  }
+  close(){
+    this.dialog.closeAll();
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////  
 
 
 

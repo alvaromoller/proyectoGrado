@@ -79,6 +79,8 @@ export class ProductosComponent implements OnInit {
     console.log(this.tienda); 
     })
   }
+
+
 /////////////////////////////////////////////////////////////////////////////////////
   //OBTENER ultimo producto
   productLast:any;
@@ -88,7 +90,6 @@ export class ProductosComponent implements OnInit {
   close(){
     this.dialog.closeAll();
   }
-
 
   /////////////////////////////////////////////////////////////////////////////////////
 

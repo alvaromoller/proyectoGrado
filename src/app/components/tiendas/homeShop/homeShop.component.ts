@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductosTiendaService } from '../../../servicios/productosTienda.service';
 import { ProductosService } from '../../../servicios/productos.service';
+import { ListTiendasComponent } from '../../../components/tiendas/list-tiendas/list-tiendas.component';
+import { ProductosTienda } from '../../../components/productos/productosTienda';
+
 
 
 
@@ -49,14 +52,24 @@ export class homeShopComponent implements OnInit {
 
 
   //Redirige al componente list-tiendas con su shopId 
-  //falta ingresar productos que pertenecen a una tienda en especifico
-  //producto 1,2,3 pertenecen a tienda 1
-  //producto 4,5,6 pertenecen a tienda 2
-  //producto 7,8,9 pertenecen a tienda 3
   getShopId(id:number){
     this.router.navigate( ["/listaProductosTienda", id ] );
     console.log(id);
   }
+
+
+
+  /////////////////////////////////////////////////////////////////////////////////////
+  //nueva metodo ventana emergente
+  //metodo para ver inf. de nuestro producto
+  shopInfo(tienda: ProductosTienda) {
+    this._tiendasService.setLast(tienda);
+    const dialogRef = this.dialog.open(ListTiendasComponent,{
+      width: '1040px',height:'550px',disableClose: true 
+    });
+  }
+
+/////////////////////////////////////////////////////////////////////////////////////
 
 
 
