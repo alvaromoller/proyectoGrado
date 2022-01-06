@@ -5,7 +5,6 @@
     text-align: center;
 }
 
-
 .btn1{
     margin-right: 150px;
 }
@@ -21,6 +20,12 @@
     margin-top: 2em;
     width: 100%;
 }
+
+.contenedor{
+    clear: left;
+    width: 100%;
+}
+
 #imgPrin{
     width: 40%; 
     float: left;
@@ -56,6 +61,11 @@
     width:10%; 
     display: inline-block; 
     text-align: left;
+}
+
+.texto-justificado{
+    text-align: justify;
+    text-align: center;
 }
 
 /*Extra large device (laptops/desktops), 1200 and up */

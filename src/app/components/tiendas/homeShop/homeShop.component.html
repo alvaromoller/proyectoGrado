@@ -5,12 +5,12 @@
   <!--izquierda-->
     
   <!--abajo-->
-<div style="clear: left;  width: 100%;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
+<div class="contenedor animated fadeIn" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
     <!-- Se pondra un pipe    | filter:filterPost -->  
-    <div fxFlex="20%" fxFlex.sm="50%" fxFlex.md="25%" *ngFor="let tienda of tiendas " >
+    <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%" *ngFor="let tienda of tiendas " >
         <mat-card class="matCarPro">
             <mat-card-header>
-                <mat-card-title> Tienda </mat-card-title>
+                <mat-card-title>  </mat-card-title>
             </mat-card-header>
             <!-- <img mat-card-image src= "assets/img/batman.png" class="card-img-top" alt="...">-->
             <img class="imageTr" mat-card-image [src]="getImgUrl(tienda.img)" alt="Fotografia de muestra" >
@@ -20,7 +20,7 @@
             </mat-card-content>
 
             <div class="card-footer">
-                <small class="text-muted"> Tienda o precio: </small>  <!--GARANTIA-->
+                <small class="text-muted"> Tienda: {{tienda.shopId }} </small>  <!--GARANTIA-->
             </div>
 
             <div align="center" >

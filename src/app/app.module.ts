@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 
@@ -78,7 +79,8 @@ import { ListCategoriasComponent } from './components/categorias/list-categorias
     MatSnackBarModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ScrollingModule
   ],
   providers: 
   [
