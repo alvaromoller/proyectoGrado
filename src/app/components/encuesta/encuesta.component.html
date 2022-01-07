@@ -41,11 +41,32 @@
 
 </div>
 
-<input type="checkbox" value="fruit" id="fruit" (change)="ModifyFilter($event, $event)"><label for="fruit">Fruits</label>
-<input type="checkbox" value="vegetable" id="vegetable" (change)="ModifyFilter($event, $event)"><label for="vegetable">Vegetables</label>
+
+
+
+<!--PROBANDO Multi filter 
+  [(ngModel)] = "filterPost.name"
+  (ngModelChange)="updateFilters()"-->
+
+<!--Muestra las cajas del Array Checkbox -->  
+<br>
+<div class="container">
+  <div *ngFor="let caja of checkbox ">
+    <li>
+      <input type="{{ caja.type }}" value={{caja.id}}  (change)="ModifyFilter($event)"  >
+      {{caja.price}}
+    </li>
+  </div>
+
+  <!--Muestra los Items del Array Items -->
+  <div *ngFor="let item of items ">
+    {{ item.price }}
+  </div>
+</div>
+
+
 
  <!--Buscador-->
- 
  <div style="width: 100%; display: inline-block; text-align: right;">
     <div id= "txtBuscador" >
       <form class="example-form">
@@ -79,7 +100,7 @@
       <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
 
       <mat-card-content class="texto-justificado">
-        <h3> {{ producto.name2 }} </h3>   <!--nombre opcional-->
+        <h3> {{ producto.name2 }} is a {{ producto.name2 }} </h3>   <!--nombre opcional-->
         <hr>
         <h3> {{ producto.name }} </h3>
       </mat-card-content>

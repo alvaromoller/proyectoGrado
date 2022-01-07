@@ -66,6 +66,7 @@ export class CategoriasComponent implements OnInit {
     this._productosService.getProductsByCategory(categoryId)
     .subscribe(data => {
       this.productosByCategory = data;
+      console.log("Productos de la categoria"); 
       console.log(this.productosByCategory); 
     });
   } 
