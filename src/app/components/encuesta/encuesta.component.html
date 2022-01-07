@@ -48,19 +48,22 @@
   [(ngModel)] = "filterPost.name"
   (ngModelChange)="updateFilters()"-->
 
-<!--Muestra las cajas del Array Checkbox -->  
+<!--Muestra las cajas del Array Checkbox 
+(change)="ModifyFilter($event)"-->  
 <br>
 <div class="container">
   <div *ngFor="let caja of checkbox ">
-    <li>
+    <li class="li">
       <input type="{{ caja.type }}" value={{caja.id}}  (change)="ModifyFilter($event)"  >
-      {{caja.price}}
+      {{ caja.id }} {{ caja.price }}
     </li>
   </div>
 
   <!--Muestra los Items del Array Items -->
-  <div *ngFor="let item of items ">
-    {{ item.price }}
+  <div *ngFor="let item of array1 ">
+    <li>
+      {{ item.id }} {{ item.price }}
+    </li>
   </div>
 </div>
 
