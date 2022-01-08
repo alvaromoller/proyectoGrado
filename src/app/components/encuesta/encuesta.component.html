@@ -1,56 +1,44 @@
 <p>encuesta works..!</p>
 
 <div >
-  precio:
-  <select>
-      <option value="C02">1000Bs - 5000Bs </option>
-      <option value="C03">5000BS - 8000BS</option>
-  </select><br><br>
-
   Marca:
   <select name="filterPost" [(ngModel)] = "filterPost">
       <option >Hp  </option>
       <option >Dell </option>
       <option >Lenovo </option>
   </select><br><br>
-
   Memoria Ram:
   <select name="filterPost" [(ngModel)] = "filterPost">
       <option >4Gb</option>
       <option >8Gb</option>
       <option >16Gb</option>
   </select><br><br>
-
   Tarjeta de video:
   <select >
       <option value="C02">Delphi</option>
       <option value="C03">Power Builder</option>
   </select><br><br>
-
   Procesador:
   <select >
       <option >AMD Ryzen</option>
       <option >Intel</option>
   </select><br><br>
-
   Disco solido:
   <select  >
       <option >500 GB </option>
       <option >1TB </option>
   </select>
-
+  precio:
+  <select>
+      <option value="C02">1000Bs - 5000Bs </option>
+      <option value="C03">5000BS - 8000BS</option>
+  </select><br><br>
 </div>
 
-
-
-
-<!--PROBANDO Multi filter 
-  [(ngModel)] = "filterPost.name"
-  (ngModelChange)="updateFilters()"-->
-
-<!--Muestra las cajas del Array Checkbox 
-(change)="ModifyFilter($event)"-->  
-<br>
+<!--
+EJEMPLO FUNCIONAL 
+Muestra las cajas del Array Checkbox   
+<hr><p>Probando cuestionario ejemplo funcional</p>
 <div class="container">
   <div *ngFor="let caja of checkbox ">
     <li class="li">
@@ -58,14 +46,32 @@
       {{ caja.id }} {{ caja.price }}
     </li>
   </div>
-
-  <!--Muestra los Items del Array Items -->
+  Muestra los Items del Array Items 
   <div *ngFor="let item of array1 ">
     <li>
       {{ item.id }} {{ item.price }}
     </li>
   </div>
 </div>
+-->
+
+<!--PROBANDO Multi filter con MARCA -->
+<!--Muestra las cajas del Array Checkbox-->
+<hr><p>Probando cuestionario para obtener Marca name2</p>
+<div *ngFor="let caja of checkbox ">
+  <li class="li">
+    <input type="{{ caja.type }}" value={{caja.brand}}  (change)="ModifyFilterProducts($event)"  >  <!--value={{caja.marca}}, obtiene el valor a comparar-->
+    {{ caja.id }} :  {{ caja.brand }}
+  </li>
+</div>
+<!--Muestra los Items del Array Items -->
+<div *ngFor="let producto of productos ">
+  <li>
+    {{ producto.productId }} {{ producto.name2 }}, marca: {{ producto.brand }}
+  </li>
+</div>
+<!---->
+
 
 
 
@@ -92,7 +98,6 @@
 <!--abajo-->
 <div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
   <!-- Se pondra un pipe    | filter:filterPost -->
-  
   <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos | filter:filterPost " >
     <mat-card class="matCarPro">
 
@@ -103,7 +108,7 @@
       <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
 
       <mat-card-content class="texto-justificado">
-        <h3> {{ producto.name2 }} is a {{ producto.name2 }} </h3>   <!--nombre opcional-->
+        <h3> {{ producto.name2 }} </h3>   <!--nombre opcional-->
         <hr>
         <h3> {{ producto.name }} </h3>
       </mat-card-content>
@@ -121,4 +126,3 @@
   </div>
 </div>
 
-<div></div>

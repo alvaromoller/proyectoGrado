@@ -21,10 +21,9 @@ export class FilterPipe implements PipeTransform {
     if( arg.length < 2) return arrProductos;      //la busqueda debe tener por lo menos 3 letras
     if(arrProductos !== undefined ){
       for (const post of arrProductos){ //busqueda post por name, description, price
-        if (//post.name.toLowerCase().indexOf(arg.toLowerCase()) > -1  || 
-            //post.name2.toLowerCase().indexOf(arg.toLowerCase()) > -1 ||
-            //post.description.toLowerCase().indexOf(arg.toLowerCase()) > -1 
-            post.name2.indexOf(arg) > -1
+        if (post.name.toLowerCase().indexOf(arg.toLowerCase()) > -1  || 
+            post.name2.toLowerCase().indexOf(arg.toLowerCase()) > -1 ||
+            post.description.toLowerCase().indexOf(arg.toLowerCase()) > -1 
            ) {
 
             console.log("SI");

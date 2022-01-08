@@ -6,6 +6,7 @@ export interface Productos {
     "description": string,
     "img": string,
     "price": string,
+    "brand": string,
     "brandId": number,
     "shopId": number,
     "productTypeId": number
