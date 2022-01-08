@@ -7,6 +7,7 @@ export interface Productos {
     "img": string,
     "price": string,
     "brand": string,
+    "ram": string;
     "brandId": number,
     "shopId": number,
     "productTypeId": number
