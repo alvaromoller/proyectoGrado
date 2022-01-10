@@ -40,9 +40,8 @@
   <hr>
   <!--abajo-->
   <div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
-    <!-- Se pondra un pipe    | filter:filterPost -->
-    
-    <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos | filter:filterPost " >
+    <!-- Se pondra un pipe    | filter:filterPost --> 
+    <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productosSinFiltro | filter:filterPost " >
       <mat-card class="matCarPro">
 
         <mat-card-header>
@@ -72,9 +71,51 @@
 
 </div>
 
+
+
 <!--Segundo Div-->
 <hr>
 <div class="category">
   <h1>Categorias</h1>
 </div>
+<hr>
+<!--PROBANDO Multi filter con MARCA -->
+<!-- Brand: Muestra las cajas del Array Checkbox-->
+<p>Marca:</p>
 
+    <div  class="thead" >
+      <div  *ngFor="let caja of checkbox "  class="checkbox" >
+        <input type="{{ caja.type }}" value={{caja.brand}}  (change)="ModifyFilterBrand($event)"  >  <!--value={{caja.marca}}, obtiene el valor a comparar-->
+        {{ caja.id }} :  {{ caja.brand }}
+      </div>
+    </div>
+
+    <!--RESULTADO: Muestra Marca y Ram del Array Items -->
+    <div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
+      <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos | filter:filterPost " >
+        
+        <mat-card class="matCarPro">
+          <mat-card-header>
+            <mat-card-title> Laptop </mat-card-title>
+          </mat-card-header>
+          <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
+
+          <mat-card-content class="texto-justificado">
+            <h3> {{ producto.name2 }} </h3>   <!--nombre opcional-->
+            <hr>
+            <h3> {{ producto.name }} </h3>
+          </mat-card-content>
+
+          <div class="card-footer">
+            <small class="text-muted"> Precio:{{ producto.price }} </small>  <!--GARANTIA-->
+          </div>
+          <!--(click)="getProductId(producto.productId, producto.shopId)"--> 
+          <div class="button" align="center"  >
+            <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
+              ver más
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <!---->

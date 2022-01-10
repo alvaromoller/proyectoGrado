@@ -23,3 +23,24 @@
     list-style-type: none;
     display: inline-block;
 }
+
+
+table.header{
+    border-collapse: separate;
+    border: #b2b2b2 1px solid;
+}
+td, th {
+    border: black 1px solid;
+    padding: 15px;
+}
+
+.app-btn {
+    height: 32px;
+    width: 110px;
+    background: #f28100; 
+    border: none;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+  }
