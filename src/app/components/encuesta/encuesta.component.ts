@@ -16,7 +16,8 @@ export class EncuestaComponent implements OnInit {
 
 
   //Filter, para las busquedas
-  filterPost: any= [];
+  filterName:any=[];    //arg1
+  filterDescription:any=[];   //arg2
 
   constructor(private _productosService:ProductosService,
               private sanitizer: DomSanitizer,

@@ -30,24 +30,24 @@
 
 
   <!--PROBANDO NUEVO FILTRO-->
-  <input type="text" name="filterPost" ng-model = "filterPost.name2"  value={{productos.name2}}   placeholder="search Name">
-  <input type="text" name="filterPost" [(ngModel)] = "filterPost.description" placeholder="search City">
+  <input type="text" name="filterName"        [(ngModel)] = "filterName" placeholder="search Name">
+  <input type="text" name="filterDescription" [(ngModel)] = "filterDescription" placeholder="search Ram">
 
 
   <table class="header" >
     <thead >
       <tr>
         <th> Nombre</th>
-        <th> Descripción </th>
+        <th> Ram </th>
       </tr>
     </thead>
 
     <tbody>
-     <tr *ngFor="let producto of productos | filter:filterPost "  class="data"> 
-        <td> {{ producto.name2 }}  </td>
-        <td> {{ producto.description }} </td>
-        <td>  </td>
-        <td>  </td>
+     <tr *ngFor="let producto of productos | filter:filterName  | filter:filterDescription "> 
+        <td > {{ producto.brand }}  </td>
+        <td > {{ producto.ram }} </td>
+        <td>  {{ producto.name2}} </td>
+        <td>  {{ producto.description }} </td>
       </tr>
     </tbody>
 
@@ -62,7 +62,7 @@
       <form class="example-form">
         <mat-form-field id="matBuscador" class="example-full-width" appearance="fill">
           <mat-label>Buscar</mat-label>
-          <input matInput type="text"  autocomplete="off" placeholder="Buscar" name="filterPost" [(ngModel)] = "filterPost" >
+          <input matInput type="text"  autocomplete="off" placeholder="Buscar" name="filterName" [(ngModel)] = "filterName" >
         </mat-form-field>
       </form>
     </div>
@@ -79,7 +79,7 @@
 <!--abajo-->
 <div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
   <!-- Se pondra un pipe    | filter:filterPost -->
-  <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos | filter:filterPost " >
+  <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos | filter:filterName " >
     <mat-card class="matCarPro">
 
       <mat-card-header>
