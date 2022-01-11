@@ -16,8 +16,9 @@ export class EncuestaComponent implements OnInit {
 
 
   //Filter, para las busquedas
-  filterName:any=[];    //arg1
-  filterDescription:any=[];   //arg2
+  filterBrand:any=[];   // Marca
+  filterRam:any=[];     // MEmoria Ram
+  filterProcessor:any=[];   // Procesador  
 
   constructor(private _productosService:ProductosService,
               private sanitizer: DomSanitizer,

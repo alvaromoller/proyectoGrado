@@ -1,53 +1,73 @@
 
 <div>
   Marca: DELL, HP, Asus, Lenovo
-  Memoria Ram: 4Gb, 8Gb, 16Gb
-  Tarjeta de video: Delphi, Power Builder
+  Memoria Ram: 4Gb, 8Gb, 16Gb ///ram: 8,12,16GB todo junto, excepto 4 gb separado
+  Tarjeta de video: Delphi, Power Builder, AMD Radeon Vega 3 Graphics
   Procesador: AMD Ryzen, Intel
   Disco solido: 500 GB, 1TB
   precio: 1000Bs - 5000Bs
 </div>
 
-  <!--EJEMPLO FUNCIONAL 
-  Muestra las cajas del Array Checkbox   
-  <hr><p>Probando cuestionario ejemplo funcional</p>
-  <div class="container">
-    <div *ngFor="let caja of checkbox ">
-      <li class="li">
-        <input type="{{ caja.type }}" value={{caja.id}}  (change)="ModifyFilter($event)"  >
-        {{ caja.id }} {{ caja.price }}
-      </li>
-    </div>
-    Muestra los Items del Array Items 
-    <div *ngFor="let item of array1 ">
-      <li>
-        {{ item.id }} {{ item.price }}
-      </li>
-    </div>
-  </div>
-  -->
-
 
 
   <!--PROBANDO NUEVO FILTRO-->
-  <input type="text" name="filterName"        [(ngModel)] = "filterName" placeholder="search Name">
-  <input type="text" name="filterDescription" [(ngModel)] = "filterDescription" placeholder="search Ram">
+  <input type="text" name="filterBrand" [(ngModel)] = "filterBrand" placeholder="search Brand">
+  <input type="text" name="filterRam"   [(ngModel)] = "filterRam"   placeholder="search Ram">
+<br>
+  <!-- Búsqueda por marca -->
+  <select name="filterBrand" [(ngModel)] = "filterBrand">
+    <option value=""    > Eliga una marca </option>
+    <option value="HP"    > HP </option>
+    <option value="DELL"  > DELL</option>
+    <option value="Lenovo"> Lenovo</option>
+    <option value="Asus"  > Asus</option>
+  </select>
+  <!-- Búsqueda por Memoria Ram -->
+  <select name="filterRam" [(ngModel)] = "filterRam">
+    <option value=""    > Eliga una Ram </option>
+    <option value="4 GB"  > 4 GB </option>
+    <option value="8 GB"  > 8 GB</option>
+    <option value="12 GB" > 12 GB</option>
+    <option value="16 GB" > 16 GB</option>
+  </select>
+  <!-- Búsqueda por Procesador -->
+  <select name="filterProcessor" [(ngModel)] = "filterProcessor">
+    <option value=""    > Eliga un Procesador </option>
+    <option value="Intel"     > Intel </option>
+    <option value="AMD Ryzen" > AMD Ryzen</option>
+  </select>
 
 
   <table class="header" >
     <thead >
       <tr>
-        <th> Nombre</th>
-        <th> Ram </th>
+        <th> Marca</th>
+        <th> Memoria Ram </th>
+        <th> Procesador </th>
+
+        <th> Nombre2</th>
+        <th> Precio</th>
+        <th> Imagen</th>
       </tr>
     </thead>
 
     <tbody>
-     <tr *ngFor="let producto of productos | filter:filterName  | filter:filterDescription "> 
+     <tr *ngFor="let producto of productos | filter:filterBrand  | filter:filterRam | filter:filterProcessor "> 
+        <!--marca, ram, tarjeta video-->
         <td > {{ producto.brand }}  </td>
         <td > {{ producto.ram }} </td>
+        <td > {{ producto.processor }} </td>
+        
+        <!--Producto-->
         <td>  {{ producto.name2}} </td>
-        <td>  {{ producto.description }} </td>
+        <td>  {{ producto.price }} </td>
+        <td> <img class="" style="width: 70px; height: 70px; " mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)"> </td>
+        <td>
+          <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
+            ver más
+          </button>
+        </td>
+
       </tr>
     </tbody>
 
@@ -56,54 +76,4 @@
 
 
 
- <!--Buscador-->
- <div style="width: 100%; display: inline-block; text-align: right;">
-    <div id= "txtBuscador" >
-      <form class="example-form">
-        <mat-form-field id="matBuscador" class="example-full-width" appearance="fill">
-          <mat-label>Buscar</mat-label>
-          <input matInput type="text"  autocomplete="off" placeholder="Buscar" name="filterName" [(ngModel)] = "filterName" >
-        </mat-form-field>
-      </form>
-    </div>
-    <div id= "iconSearch" >
-      <button mat-raised-button color="primary"  style="height: 4em; vertical-align: 0.5em; background-color:#003cff3f; " disabled>
-        <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>  
-      </button>
-    </div>
-  </div>
-  <!--FIN Buscador-->
-
-
- <!--PRODUCTOS-->
-<!--abajo-->
-<div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
-  <!-- Se pondra un pipe    | filter:filterPost -->
-  <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos | filter:filterName " >
-    <mat-card class="matCarPro">
-
-      <mat-card-header>
-        <mat-card-title> Laptop </mat-card-title>
-      </mat-card-header>
-     <!-- <img mat-card-image src= "assets/img/batman.png" class="card-img-top" alt="...">-->
-      <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
-
-      <mat-card-content class="texto-justificado">
-        <h3> {{ producto.name2 }} </h3>   <!--nombre opcional-->
-        <hr>
-        <h3> {{ producto.name }} </h3>
-      </mat-card-content>
-
-      <div class="card-footer">
-        <small class="text-muted"> Precio:{{ producto.price }} </small>  <!--GARANTIA-->
-      </div>
-       <!--(click)="getProductId(producto.productId, producto.shopId)"--> 
-      <div class="button" align="center"  >
-        <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
-          ver más
-        </button>
-      </div>
-    </mat-card>
-  </div>
-</div>
 

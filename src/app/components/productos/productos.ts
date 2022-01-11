@@ -8,6 +8,7 @@ export interface Productos {
     "price": string,
     "brand": string,
     "ram": string;
+    "processor": string;
     "brandId": number,
     "shopId": number,
     "productTypeId": number
