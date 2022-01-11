@@ -1,8 +1,10 @@
 
 <div>
+  //nota agregar otro PIPE.ts para la busqueda en el home
+
   Marca: DELL, HP, Asus, Lenovo
   Memoria Ram: 4Gb, 8Gb, 16Gb ///ram: 8,12,16GB todo junto, excepto 4 gb separado
-  Tarjeta de video: Delphi, Power Builder, AMD Radeon Vega 3 Graphics
+  Tarjeta de video: Delphi, Power Builder, AMD Radeon Vega 3 Graphics// tarjeta dedicada,mas caro y tarjeta integrada
   Procesador: AMD Ryzen, Intel
   Disco solido: 500 GB, 1TB
   precio: 1000Bs - 5000Bs
@@ -16,7 +18,7 @@
 <br>
   <!-- Búsqueda por marca -->
   <select name="filterBrand" [(ngModel)] = "filterBrand">
-    <option value=""    > Eliga una marca </option>
+    <option value=""    >   Marca </option>
     <option value="HP"    > HP </option>
     <option value="DELL"  > DELL</option>
     <option value="Lenovo"> Lenovo</option>
@@ -24,7 +26,7 @@
   </select>
   <!-- Búsqueda por Memoria Ram -->
   <select name="filterRam" [(ngModel)] = "filterRam">
-    <option value=""    > Eliga una Ram </option>
+    <option value=""    >   Memoria Ram </option>
     <option value="4 GB"  > 4 GB </option>
     <option value="8 GB"  > 8 GB</option>
     <option value="12 GB" > 12 GB</option>
@@ -32,9 +34,18 @@
   </select>
   <!-- Búsqueda por Procesador -->
   <select name="filterProcessor" [(ngModel)] = "filterProcessor">
-    <option value=""    > Eliga un Procesador </option>
+    <option value=""    >       Procesador </option>
     <option value="Intel"     > Intel </option>
     <option value="AMD Ryzen" > AMD Ryzen</option>
+  </select>
+  <!-- Búsqueda por Almacenamiento -->
+  <select name="filterStorage" [(ngModel)] = "filterStorage">
+    <option value=""    > Almacenamiento </option>
+    <option value="1 TB"       > 1 TB </option>
+    <option value="SSD 128 GB" > SSD 128 GB </option>
+    <option value="SSD 256 GB" > SSD 256 GB</option>
+    <option value="SSD 512 GB" > SSD 512 GB</option>
+
   </select>
 
 
@@ -44,6 +55,7 @@
         <th> Marca</th>
         <th> Memoria Ram </th>
         <th> Procesador </th>
+        <th> Almacenamiento</th>
 
         <th> Nombre2</th>
         <th> Precio</th>
@@ -52,11 +64,12 @@
     </thead>
 
     <tbody>
-     <tr *ngFor="let producto of productos | filter:filterBrand  | filter:filterRam | filter:filterProcessor "> 
+     <tr *ngFor="let producto of productos | filter:filterBrand  | filter:filterRam | filter:filterProcessor | filter:filterStorage "> 
         <!--marca, ram, tarjeta video-->
         <td > {{ producto.brand }}  </td>
         <td > {{ producto.ram }} </td>
         <td > {{ producto.processor }} </td>
+        <td > {{ producto.storage }} </td>
         
         <!--Producto-->
         <td>  {{ producto.name2}} </td>

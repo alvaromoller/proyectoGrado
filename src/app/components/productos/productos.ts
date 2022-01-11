@@ -9,6 +9,7 @@ export interface Productos {
     "brand": string,
     "ram": string;
     "processor": string;
+    "storage": string;
     "brandId": number,
     "shopId": number,
     "productTypeId": number
