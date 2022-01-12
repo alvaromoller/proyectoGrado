@@ -1,22 +1,19 @@
-.combobox{
-    float: left;
-    width: 20%;
-}
-.selectButtom{
-    width: 170px;
-}
-.contenedor{
-    float: right;
-    width: 80%;
+
+.contenedorDescription{
+    width: 100%;
 }
 .checkbox{
+    margin-right: 150px;
     display: inline-block;
-    margin-right: 50px;
+}
+.tableDescription{
+    width: 100%;
 }
 .description:nth-child(even){
     text-align: justify;
     background: rgba(0, 255, 234, 0.911);
     border: burlywood 1px solid;
+    
 }
 .description:nth-child(odd){
     text-align: justify;
@@ -25,22 +22,37 @@
 }
 
 
+
+
+
+
+.encuesta{
+    width: 100%; 
+}
+.filtroEncuesta{
+    float: left;
+    width: 20%;
+}
+.filtroResultado{
+    float: right;
+    width: 80%;
+}
+.combobox{
+    float: left;
+    width: 20%;
+}
+.selectButtom{
+    width: 170px;
+}
 .imageTr{
     width: 70px;
     height: 70px; 
 }
-
-.texto-justificado{
-    text-align: justify;
-    text-align: center;
+h3{
+    margin: 0;
+    width: 400%;
 }
 
-
-  
-.li{
-    list-style-type: none;
-    display: inline-block;
-}
 
 
 table.header{
@@ -51,5 +63,11 @@ table.header{
 td, th {
     border: black 1px solid;
     padding: 15px;
+}
+tr {
+    border: black 1px solid;
+    padding: 15px;
+    text-align: justify;
+
 }
 
