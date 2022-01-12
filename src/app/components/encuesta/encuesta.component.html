@@ -1,9 +1,9 @@
 
-<div>
+<!--
   //nota agregar otro PIPE.ts para la busqueda en el home
 
   Marca: DELL, HP, Asus, Lenovo
-  Memoria Ram: 4Gb, 8Gb, 16Gb ///ram: 8,12,16GB todo junto, excepto 4 gb separado
+  Memoria Ram: 4Gb, 8Gb, 12Gb, 16Gb 
   Procesador: AMD Ryzen, Intel
   Almacenamiento: SSd 128, 256, 512 GB, 1TB
   
@@ -17,91 +17,120 @@
   //producto 8: Video: 2GB AMD Radeon 530 (GDDR5 - Dedicados) + Intel HD Graphics 620 (Integrada)
   //producto 9: Tarjeta de Video: AMD Radeon Vega 3 Graphics , integrado? creo que si
   precio: 1000Bs - 5000Bs
-</div>
+-->
 
-
-
+  <h1>ENCUESTA</h1><br>
   <!--PROBANDO NUEVO FILTRO-->
+  <!--
   <input type="text" name="filterBrand" [(ngModel)] = "filterBrand" placeholder="search Brand">
   <input type="text" name="filterRam"   [(ngModel)] = "filterRam"   placeholder="search Ram">
-<br>
-  <!-- Búsqueda por marca -->
-  <select name="filterBrand" [(ngModel)] = "filterBrand">
-    <option value=""    >   Marca </option>
-    <option value="HP"    > HP </option>
-    <option value="DELL"  > DELL</option>
-    <option value="Lenovo"> Lenovo</option>
-    <option value="Asus"  > Asus</option>
-  </select>
-  <!-- Búsqueda por Memoria Ram -->
-  <select name="filterRam" [(ngModel)] = "filterRam">
-    <option value=""    >   Memoria Ram </option>
-    <option value="Ram: 4 GB"  > 4 GB </option>
-    <option value="Ram: 8 GB"  > 8 GB</option>
-    <option value="Ram: 12 GB" > 12 GB</option>
-    <option value="Ram: 16 GB" > 16 GB</option>
-  </select>
-  <!-- Búsqueda por Procesador -->
-  <select name="filterProcessor" [(ngModel)] = "filterProcessor">
-    <option value=""    >       Procesador </option>
-    <option value="Intel"     > Intel </option>
-    <option value="AMD Ryzen" > AMD Ryzen</option>
-  </select>
-  <!-- Búsqueda por Almacenamiento -->
-  <select name="filterStorage" [(ngModel)] = "filterStorage">
-    <option value=""    > Almacenamiento </option>
-    <option value="1 TB"       > 1 TB </option>
-    <option value="SSD 128 GB" > SSD 128 GB </option>
-    <option value="SSD 256 GB" > SSD 256 GB</option>
-    <option value="SSD 512 GB" > SSD 512 GB</option>
-  </select>
-  <!-- Búsqueda por Tarjeta Gráfica o de video -->
-  <select name="filtertarjetaGrafica" [(ngModel)] = "filtertarjetaGrafica">
-    <option value=""                          > Tarjeta gráfica </option>
-    <option value="Tarjeta gráfica integrada" > Tarjeta gráfica integrada</option> 
-    <option value="Tarjeta gráfica dedicada"  > Tarjeta gráfica dedicada</option>
-  </select>
+  <br>
+  --> 
+  <div class="combobox" >
+    <br><br>
+    <!-- Búsqueda por marca -->
+    <select name="filterBrand" [(ngModel)] = "filterBrand" class="selectButtom">
+      <option value=""    >   Marca </option>
+      <option value="HP"    > HP </option>
+      <option value="DELL"  > DELL</option>
+      <option value="Lenovo"> Lenovo</option>
+      <option value="Asus"  > Asus</option>
+    </select><br>
+    <!-- Búsqueda por Memoria Ram -->
+    <select name="filterRam" [(ngModel)] = "filterRam"   class="selectButtom">
+      <option value=""    >   Memoria Ram </option>
+      <option value="Ram: 4 GB"  > 4 GB </option>
+      <option value="Ram: 8 GB"  > 8 GB</option>
+      <option value="Ram: 12 GB" > 12 GB</option>
+      <option value="Ram: 16 GB" > 16 GB</option>
+    </select><br>
+    <!-- Búsqueda por Procesador -->
+    <select name="filterProcessor" [(ngModel)] = "filterProcessor"  class="selectButtom">
+      <option value=""    >       Procesador </option>
+      <option value="Intel"     > Intel </option>
+      <option value="AMD Ryzen" > AMD Ryzen</option>
+    </select><br>
+    <!-- Búsqueda por Almacenamiento -->
+    <select name="filterStorage" [(ngModel)] = "filterStorage"    class="selectButtom">
+      <option value=""    > Almacenamiento </option>
+      <option value="1 TB"       > 1 TB </option>
+      <option value="SSD 128 GB" > SSD 128 GB </option>
+      <option value="SSD 256 GB" > SSD 256 GB</option>
+      <option value="SSD 512 GB" > SSD 512 GB</option>
+    </select><br>
+    <!-- Búsqueda por Tarjeta Gráfica o de video -->
+    <select name="filtertarjetaGrafica" [(ngModel)] = "filtertarjetaGrafica"   class="selectButtom">
+      <option value=""                          > Tarjeta gráfica </option>
+      <option value="Tarjeta gráfica integrada" > Tarjeta gráfica integrada</option> 
+      <option value="Tarjeta gráfica dedicada"  > Tarjeta gráfica dedicada</option>
+    </select>
+  </div>
+
+  
 
 
-  <table class="header" >
-    <thead >
-      <tr>
-        <th> Marca</th>
-        <th> Memoria Ram </th>
-        <th> Procesador </th>
-        <th> Almacenamiento</th>
-        <th> Tarjeta Gráfica</th>
 
-        <th> Nombre2</th>
-        <th> Precio</th>
-        <th> Imagen</th>
-      </tr>
-    </thead>
+  <!--Informacion de filtros-->
+  <div  class="contenedor" >
+    <!--Eliga una descripcion-->
+    <table>
+      <thead>
+        <div  *ngFor="let caja of checkbox "  class="checkbox" >
+          <input type="{{ caja.type }}" value={{caja.id}}  (change)="ModifyFilterDescription($event)"  >  <!--value={{caja.id}}, obtiene el valor a comparar-->
+            {{ caja.id }} :  {{ caja.info }}
+        </div>  
+      </thead>
+      <hr>
+      <!--muestra de una descripcion-->
+      <tbody>
+        <tr  *ngFor="let description of array1 "  class="description" >
+          {{ description.id }}. {{ description.description }}
+        </tr>
+      </tbody>
+    </table>
 
-    <tbody>
-     <tr *ngFor="let producto of productos | filter:filterBrand  | filter:filterRam | filter:filterProcessor | filter:filterStorage  | filter:filtertarjetaGrafica "> 
-        <!--marca, ram, tarjeta video-->
-        <td > {{ producto.brand }}  </td>
-        <td > {{ producto.ram }} </td>
-        <td > {{ producto.processor }} </td>
-        <td > {{ producto.storage }} </td>
-        <td > {{ producto.tarjetaGrafica }} </td>
-        
-        <!--Producto-->
-        <td>  {{ producto.name2}} </td>
-        <td>  {{ producto.price }} </td>
-        <td> <img class="" style="width: 70px; height: 70px; " mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)"> </td>
-        <td>
-          <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
-            ver más
-          </button>
-        </td>
 
-      </tr>
-    </tbody>
+    <!--Informacion de Encuesta-->
+    <hr>
+    <table class="header" >
+      <thead >
+        <tr>
+          <th> Marca</th>
+          <th> Memoria Ram </th>
+          <th> Procesador </th>
+          <th> Almacenamiento</th>
+          <th> Tarjeta Gráfica</th>
 
-  </table>
+          <th> Nombre2</th>
+          <th> Precio</th>
+          <th> Imagen</th>
+        </tr>
+      </thead>
 
+      <tbody>
+      <tr *ngFor="let producto of productos | filter:filterBrand  | filter:filterRam | filter:filterProcessor | filter:filterStorage  | filter:filtertarjetaGrafica "> 
+          <!--marca, ram, tarjeta video-->
+          <td > {{ producto.brand }}  </td>
+          <td > {{ producto.ram }} </td>
+          <td > {{ producto.processor }} </td>
+          <td > {{ producto.storage }} </td>
+          <td > {{ producto.tarjetaGrafica }} </td>
+          
+          <!--Producto-->
+          <td>  {{ producto.name2}} </td>
+          <td>  {{ producto.price }} </td>
+          <td> <img class="imageTr"  mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)"> </td>
+          <td>
+            <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
+              ver más
+            </button>
+          </td>
+
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
 
 
 

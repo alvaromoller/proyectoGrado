@@ -1,13 +1,33 @@
-.contenedor{
-    clear: left;
-    width: 100%;
+.combobox{
+    float: left;
+    width: 20%;
 }
-.matCarPro{
-    text-align: center;
+.selectButtom{
+    width: 170px;
+}
+.contenedor{
+    float: right;
+    width: 80%;
+}
+.checkbox{
+    display: inline-block;
+    margin-right: 50px;
+}
+.description:nth-child(even){
+    text-align: justify;
+    background: rgba(0, 255, 234, 0.911);
+    border: burlywood 1px solid;
+}
+.description:nth-child(odd){
+    text-align: justify;
+    background: rgba(0, 255, 234, 0.158);
+    border: burlywood 1px solid;
 }
 
+
 .imageTr{
-    width: 100%;
+    width: 70px;
+    height: 70px; 
 }
 
 .texto-justificado{
