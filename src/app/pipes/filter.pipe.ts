@@ -27,7 +27,8 @@ export class FilterPipe implements PipeTransform {
             post.brand.toLowerCase().indexOf(arg1.toLowerCase()) > -1   ||            //para la encuesta
             post.ram.toLowerCase().indexOf(arg1.toLowerCase()) > -1     ||           //para la encuesta
             post.processor.toLowerCase().indexOf(arg1.toLowerCase()) > -1 ||         //para la encuesta
-            post.storage.toLowerCase().indexOf(arg1.toLowerCase()) > -1 
+            post.storage.toLowerCase().indexOf(arg1.toLowerCase()) > -1   ||
+            post.tarjetaGrafica.toLowerCase().indexOf(arg1.toLowerCase()) > -1 
 
            ) {
 

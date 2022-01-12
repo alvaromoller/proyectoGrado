@@ -4,9 +4,18 @@
 
   Marca: DELL, HP, Asus, Lenovo
   Memoria Ram: 4Gb, 8Gb, 16Gb ///ram: 8,12,16GB todo junto, excepto 4 gb separado
-  Tarjeta de video: Delphi, Power Builder, AMD Radeon Vega 3 Graphics// tarjeta dedicada,mas caro y tarjeta integrada
   Procesador: AMD Ryzen, Intel
-  Disco solido: 500 GB, 1TB
+  Almacenamiento: SSd 128, 256, 512 GB, 1TB
+  
+  Tarjeta de video: Delphi, Power Builder,
+  // tarjeta dedicada,mas caro y tarjeta integrada
+  //producto 3: gráficos AMD Radeon integrados
+  //producto 4: GRÁFICOS INTEGRADOS: Intel Iris Plus Graphics
+  //producto 5: Video DEDICADO: 4GB Nvidia MX 230 GDDR5
+  //producto 6: GRAFICOS Intel UHD Graphics Integrado
+  //producto 7: Gráficos de vídeo Integrado: AMD Radeon Vega 3
+  //producto 8: Video: 2GB AMD Radeon 530 (GDDR5 - Dedicados) + Intel HD Graphics 620 (Integrada)
+  //producto 9: Tarjeta de Video: AMD Radeon Vega 3 Graphics , integrado? creo que si
   precio: 1000Bs - 5000Bs
 </div>
 
@@ -27,10 +36,10 @@
   <!-- Búsqueda por Memoria Ram -->
   <select name="filterRam" [(ngModel)] = "filterRam">
     <option value=""    >   Memoria Ram </option>
-    <option value="4 GB"  > 4 GB </option>
-    <option value="8 GB"  > 8 GB</option>
-    <option value="12 GB" > 12 GB</option>
-    <option value="16 GB" > 16 GB</option>
+    <option value="Ram: 4 GB"  > 4 GB </option>
+    <option value="Ram: 8 GB"  > 8 GB</option>
+    <option value="Ram: 12 GB" > 12 GB</option>
+    <option value="Ram: 16 GB" > 16 GB</option>
   </select>
   <!-- Búsqueda por Procesador -->
   <select name="filterProcessor" [(ngModel)] = "filterProcessor">
@@ -45,7 +54,12 @@
     <option value="SSD 128 GB" > SSD 128 GB </option>
     <option value="SSD 256 GB" > SSD 256 GB</option>
     <option value="SSD 512 GB" > SSD 512 GB</option>
-
+  </select>
+  <!-- Búsqueda por Tarjeta Gráfica o de video -->
+  <select name="filtertarjetaGrafica" [(ngModel)] = "filtertarjetaGrafica">
+    <option value=""                          > Tarjeta gráfica </option>
+    <option value="Tarjeta gráfica integrada" > Tarjeta gráfica integrada</option> 
+    <option value="Tarjeta gráfica dedicada"  > Tarjeta gráfica dedicada</option>
   </select>
 
 
@@ -56,6 +70,7 @@
         <th> Memoria Ram </th>
         <th> Procesador </th>
         <th> Almacenamiento</th>
+        <th> Tarjeta Gráfica</th>
 
         <th> Nombre2</th>
         <th> Precio</th>
@@ -64,12 +79,13 @@
     </thead>
 
     <tbody>
-     <tr *ngFor="let producto of productos | filter:filterBrand  | filter:filterRam | filter:filterProcessor | filter:filterStorage "> 
+     <tr *ngFor="let producto of productos | filter:filterBrand  | filter:filterRam | filter:filterProcessor | filter:filterStorage  | filter:filtertarjetaGrafica "> 
         <!--marca, ram, tarjeta video-->
         <td > {{ producto.brand }}  </td>
         <td > {{ producto.ram }} </td>
         <td > {{ producto.processor }} </td>
         <td > {{ producto.storage }} </td>
+        <td > {{ producto.tarjetaGrafica }} </td>
         
         <!--Producto-->
         <td>  {{ producto.name2}} </td>

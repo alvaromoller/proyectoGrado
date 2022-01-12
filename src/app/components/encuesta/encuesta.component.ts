@@ -20,6 +20,7 @@ export class EncuestaComponent implements OnInit {
   filterRam:any=[];         // Memoria Ram
   filterProcessor:any=[];   // Procesador  
   filterStorage:any=[];     // almacenamiento, SSD, TB
+  filtertarjetaGrafica:any=[]; //tarjeta grafica
 
   constructor(private _productosService:ProductosService,
               private sanitizer: DomSanitizer,

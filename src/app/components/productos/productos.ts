@@ -10,6 +10,7 @@ export interface Productos {
     "ram": string;
     "processor": string;
     "storage": string;
+    "tarjetaGrafica": string;
     "brandId": number,
     "shopId": number,
     "productTypeId": number
