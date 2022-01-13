@@ -47,6 +47,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { ListCategoriasComponent } from './components/categorias/list-categorias/list-categorias.component';
+import { FilterHomePipe } from './pipes/filter-home.pipe';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { ListCategoriasComponent } from './components/categorias/list-categorias
     FilterPipe,
     CategoriasComponent,
     ListCategoriasComponent,
+    FilterHomePipe,
   ],
   imports: [
     BrowserModule,
