@@ -22,7 +22,6 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HomeComponent implements OnInit {
 
-
   //Filter, para las busquedas
   filterPost = "";
 

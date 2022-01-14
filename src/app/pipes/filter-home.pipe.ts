@@ -7,7 +7,7 @@ export class FilterHomePipe implements PipeTransform {
 
   transform(arrProductos: any[], arg1:any): any {
     const resltadoPost = [];  // TODO  Array Vacio
-    if( arg1.length < 2) return arrProductos;      //la busqueda debe tener por lo menos 3 letras
+    if( arg1.length < 2) return arrProductos;      //la busqueda debe tener por lo menos 2 letras
     if(arrProductos !== undefined ){
       for (const post of arrProductos){ //busqueda post por name, description, price
         if (post.name.toLowerCase().indexOf(arg1.toLowerCase()) > -1  || 

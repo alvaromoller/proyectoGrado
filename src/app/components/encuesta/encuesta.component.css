@@ -40,6 +40,7 @@
 .combobox{
     float: left;
     width: 20%;
+    padding-bottom: 100px;
 }
 .selectButtom{
     width: 170px;

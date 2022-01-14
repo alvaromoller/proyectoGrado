@@ -61,9 +61,9 @@
 }
 #txtDescrip{
     width: 60%; 
-    background-color:#AAAAAA;
     margin-top: 40px; 
     float: right;
+    text-align: justify;
 }
 #imgCon{
     width: 60%;

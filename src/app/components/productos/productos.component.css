@@ -15,7 +15,6 @@
 }
 
 .description{
-  background-color:#AAAAAA;
   width: 70%;
   margin-top: 40px;
   float: right;
@@ -42,7 +41,7 @@ table
 { 
     width: 600px; 
     text-align: left; 
-    border : 1px solid gray; 
+    /*border : 1px solid gray; */
     border-spacing: 10px;
 } 
 
