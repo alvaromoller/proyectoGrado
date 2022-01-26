@@ -31,6 +31,8 @@
     "ngx-pagination": "^5.1.1",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
+    "sockjs-client": "^1.5.2",
+    "stompjs": "^2.3.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
