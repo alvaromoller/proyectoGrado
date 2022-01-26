@@ -2,7 +2,7 @@
 <h1>lista desde Categorias</h1>
 <hr>
 
-<div  style="clear: left;  width: 100%;" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid" class="contenedor animated fadeIn" fxLayoutAlign="flex-start">
+<div class="contenedor animated fadeIn" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="15px grid"  fxLayoutAlign="flex-start">
   <!-- getProductsByCategory()  desde  _productosService -->
   <div fxFlex="20%" fxFlex.sm="50%" fxFlex.md="25%" *ngFor="let categoria of categorias " >
       <mat-card class="matCarPro">
@@ -13,7 +13,7 @@
           <img class="imageTr" mat-card-image [src]="getImgUrl(pc.img)" alt="Fotografia de muestra" >
           --><br>
           <mat-card-content align="center">
-              <img class="imageTr" mat-card-image [src]="getImgUrl(categoria.img)" alt="Fotografia de muestra" width="196" height="180">
+              <img class="imageTr" mat-card-image [src]="getImgUrl(categoria.img)" alt="Fotografia de muestra" >
           </mat-card-content>
 
           <div class="card-footer">

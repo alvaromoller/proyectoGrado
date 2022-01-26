@@ -21,12 +21,151 @@
   /*background-color:#AAAAAA;*/
 }
 
+  
+.texto-justificado{
+  text-align: justify;
+}
+  
 .buttonShowProduct{
-    margin-top: 20px;    /* espacio arriba del boton */
-    padding-bottom: 10%; /* espacio abajo del boton */
+  margin-top: 20px;    /* espacio arriba del boton */
+  padding-bottom: 10%; /* espacio abajo del boton */
+}
+
+
+
+/*Extra large device (laptops/desktops), 1200 and up */
+@media only screen and (max-width: 1200px), screen and (max-device-width: 1200px ){
+
+}
+/*large device (laptops/desktops), 992 and up */
+@media only screen and (max-width: 992px), screen and (max-device-width: 992px ){
+
+  .fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  .icon {
+    cursor: pointer;
+  }
+  
+  .logoImg{
+    width: 90%;
+    height: 200px;
+    display:block;
+    margin:auto;
+  }
+  
+  .producto{
+    width: 100%
+  }
+  
+  .description{
+    margin-top: 40px;   /* espacio arriba del boton */
+    /*background-color:#AAAAAA;*/
+  }
+  
+    
+  .texto-justificado{
+    text-align: justify;
+  }
+    
+}
+
+/*Medium  device (landscape tablets), 768 and up */
+@media only screen and (max-width: 768px), screen and (max-device-width: 768px ){
+
+  .fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  .icon {
+    cursor: pointer;
+  }
+  
+  .logoImg{
+    width: 90%;
+    height: 200px;
+    display:block;
+    margin:auto;
+  }
+  
+  .producto{
+    width: 100%
+  }
+  
+  .description{
+    margin-top: 40px;   /* espacio arriba del boton */
+    /*background-color:#AAAAAA;*/
   }
   
   .texto-justificado{
     text-align: justify;
   }
+
+}
+
+
+/*Small  device (portrait phone), 600 and up */
+@media only screen and (max-width: 600px), screen and (max-device-width: 600px ){
+
+  .fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  .icon {
+    cursor: pointer;
+  }
   
+  .logoImg{
+    width: 90%;
+    height: 150px;
+    display:block;
+    margin:auto;
+  }
+  
+  .producto{
+    width: 100%
+  }
+  
+  .description{
+    margin-top: 40px;   /* espacio arriba del boton */
+    /*background-color:#AAAAAA;*/
+  }
+  
+    
+  .texto-justificado{
+    text-align: justify;
+  }
+
+}
+
+
+/*Small  device (portrait phone), 600 and up */
+@media only screen and (max-width: 422px), screen and (max-device-width: 600px ){
+
+  .fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  .icon {
+    cursor: pointer;
+  }
+  
+  .logoImg{
+    width: 90%;
+    height: 100px;
+    display:block;
+    margin:auto;
+  }
+  
+  .producto{
+    width: 100%
+  }
+  
+  .description{
+    margin-top: 40px;   /* espacio arriba del boton */
+    /*background-color:#AAAAAA;*/
+  }
+  
+    
+  .texto-justificado{
+    text-align: justify;
+  }
+
+}

@@ -2,9 +2,70 @@
   clear: left;
   width: 100%;
 }
+.imageTr{
+  width: 100%;
 
+}
 
 .matCarPro{
-    padding-bottom: 70%; /* espacio abajo del boton que activa el modal*/
+  padding-bottom: 70%; /* espacio abajo del boton */
+}
+
+
+/*Extra large device (laptops/desktops), 1200 and up */
+@media only screen and (max-width: 1200px), screen and (max-device-width: 1200px ){
+
+}
+/*large device (laptops/desktops), 992 and up */
+@media only screen and (max-width: 992px), screen and (max-device-width: 992px ){
+   
+  .contenedor{
+    clear: left;
+    width: 100%;
+  }
+  .imageTr{
+    width: 100%;
+  
+  }
+  
+  .matCarPro{
+    padding-bottom: 70%; /* espacio abajo del boton */
+  }
+  
+    
+}
+
+/*Medium  device (landscape tablets), 768 and up */
+@media only screen and (max-width: 768px), screen and (max-device-width: 768px ){
+
+  .contenedor{
+    clear: left;
+    width: 100%;
+  }
+  .imageTr{
+    width: 100%;
+  }
+  .matCarPro{
+    padding-bottom: 30%; /* espacio abajo del boton */
   }
 
+}
+
+
+/*Small  device (portrait phone), 600 and up */
+@media only screen and (max-width: 600px), screen and (max-device-width: 600px ){
+  .contenedor{
+    clear: left;
+    width: 100%;
+  }
+  .imageTr{
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: auto;
+  }
+  .matCarPro{
+    padding-bottom: 30%; /* espacio abajo del boton */
+  }
+
+}
