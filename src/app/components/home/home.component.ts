@@ -5,14 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductosComponent } from '../../components/productos/productos.component';
 import { ProductosService } from '../../servicios/productos.service';
 import { Productos } from '../../components/productos/productos';
-
 import { TiendasComponent } from '../../components/tiendas/tiendas.component';
 import { ProductosTiendaService } from '../../servicios/productosTienda.service';
 import { ProductosTienda } from '../../components/productos/productosTienda';
-
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -34,7 +33,8 @@ export class HomeComponent implements OnInit {
               private activeRoute:ActivatedRoute,
               private sanitizer: DomSanitizer,
               private http:HttpClient,
-              public dialog: MatDialog ) { }
+              public dialog: MatDialog,
+                            ) { }
 
  
   ngOnInit(): void {
@@ -148,6 +148,11 @@ export class HomeComponent implements OnInit {
     }
   }
   //////////////////////////////////////////////
+
+
+
+
+
 
 
 }
