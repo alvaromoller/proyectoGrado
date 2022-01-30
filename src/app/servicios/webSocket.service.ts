@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Productos } from '../../app/components/productos/productos';
 import {Observable} from "rxjs";
 import { WebSocketComponent } from '../components/webSocket/web-socket/web-socket.component';
 
@@ -17,18 +18,19 @@ import { Client, Message } from '@stomp/stompjs';
 export class WebSocketService {    
 
     
-
+    //websocket
     webSocketEndPoint: string = 'http://localhost:8080/ws';
-    topic: string = "/topic/greetings";
+    topic: string = "/topic/greetings";         // topic, pertenece a la clase controller donde se llama al saludo
     stompClient: any;
     webSocket: WebSocketComponent;
-    //appComponent: AppComponent;
     
-    constructor(webSocket:WebSocketComponent) { 
-                    this.webSocket = webSocket;
-                }
+    constructor(webSocket:WebSocketComponent) 
+        { 
+            this.webSocket = webSocket;
+        }
 
-    /** */
+
+    //
 
     _connect() {
         console.log("Initialize WebSocket Connection");
@@ -38,7 +40,7 @@ export class WebSocketService {
         const _this = this;
 
         _this.stompClient.connect({}, function (frame:any) {
-            _this.stompClient.subscribe(_this.topic, function (sdkEvent:any) {
+            _this.stompClient.subscribe(_this.topic, function (sdkEvent:any) {  //TOPIC llama al metodo de backend
                 _this.onMessageReceived(sdkEvent);
             });
             //_this.stompClient.reconnect_delay = 2000;
@@ -46,7 +48,24 @@ export class WebSocketService {
         
     };
 
-    
+
+    topic2: string = "/topic/products";         // topic, pertenece a la clase controller donde se llama al saludo
+    _connect2() {
+        console.log("Initialize WebSocket Connection With Products");
+        let ws = new SockJS(this.webSocketEndPoint);
+
+        this.stompClient = Stomp.over(ws);
+        const _this = this;
+
+        _this.stompClient.connect({}, function (frame:any) {
+            _this.stompClient.subscribe(_this.topic2, function (sdkEvent:any) {  //TOPIC llama al metodo de backend
+                _this.onMessageReceived(sdkEvent);          //llamamos al metodo onMessageReceived    
+            });
+            //_this.stompClient.reconnect_delay = 2000;
+        }, this.errorCallBack);
+        
+    };
+
 
     _disconnect() {
         if (this.stompClient !== null) {
@@ -80,6 +99,11 @@ export class WebSocketService {
         this.webSocket.handleMessage(JSON.stringify(message.body));
     }
     
+    //LLamar los productos
+    onMessageReceivedProducts(product:any) {
+        console.log("Message Recieved from Server :: " + product);
+        this.webSocket.handleMessage(JSON.stringify(product.body));     //llamar a los productos desde backend para el update        
+    }
 
 
 }

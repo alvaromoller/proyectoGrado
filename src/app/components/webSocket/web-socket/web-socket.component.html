@@ -1,6 +1,7 @@
 <p>web-socket works!</p>
 
 <!--The content below is only a placeholder and can be replaced.-->
+<!---->
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
     enabled. Please enable
     Javascript and reload this page!</h2>
@@ -10,7 +11,7 @@
   
     <div class="row">
         <div class="col-md-12">
-            {{ greeting }}, Buscando greeting
+            {{ greeting }}
         </div>
     </div>
       
@@ -38,8 +39,52 @@
             </form>
         </div>
   
-        <p> {{ greeting }}, Buscando greeting</p>
+        <p> {{ greeting }}</p>
     </div>
    
 </div>
   <router-outlet></router-outlet>
+<br><br><br><br>
+
+-->
+
+
+<p>Boton productos</p>
+<button (click)="connect2()" class="btn btn-default" type="submit">Connect2</button>
+
+<!--Lista prueba de productos-->
+<!--PRUEBA Lista de productos sin Base de datos-->
+<h1 >Productos</h1>
+<hr>
+<!--abajo-->
+<div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
+  <!-- Se pondra un pipe    | filter:filterPost --> 
+  <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos" >
+        <mat-card class="matCarPro">
+
+        <mat-card-header>
+            <mat-card-title> Laptop </mat-card-title>
+        </mat-card-header>
+        <!-- <img mat-card-image src= "assets/img/batman.png" class="card-img-top" alt="...">-->
+        <!--<img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" > -->
+
+        <mat-card-content class="texto-justificado">
+            <h3> {{ producto.name2 }} </h3>   <!--nombre opcional-->
+            <hr>
+            <h3> {{ producto.name }} </h3>
+        </mat-card-content>
+
+        <div class="card-footer">
+            <small class="text-muted"> Precio:{{ producto.price }} </small>  <!--GARANTIA-->
+        </div>
+        <!--(click)="getProductId(producto.productId, producto.shopId)"--> 
+        <div align="center"  >
+            <button type="button" class="btn btn-outline-primary w-100"  >
+            ver más
+            </button>
+        </div>
+        </mat-card>
+  </div>
+</div>
+
+<br><br>
