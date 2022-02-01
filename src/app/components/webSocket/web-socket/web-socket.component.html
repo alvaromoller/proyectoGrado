@@ -1,7 +1,7 @@
 <p>web-socket works!</p>
 
 <!--The content below is only a placeholder and can be replaced.-->
-<!---->
+<!--
 <noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
     enabled. Please enable
     Javascript and reload this page!</h2>
@@ -45,21 +45,24 @@
 </div>
   <router-outlet></router-outlet>
 <br><br><br><br>
-
 -->
 
-
-<p>Boton productos</p>
-<button (click)="connect2()" class="btn btn-default" type="submit">Connect2</button>
-
+<p>Prueba </p>
+<h1>
+    Conexion 3: 
+</h1>
 <!--Lista prueba de productos-->
-<!--PRUEBA Lista de productos sin Base de datos-->
 <h1 >Productos</h1>
 <hr>
+<!--Agregando loader.gif-->
+<div class="loading"  *ngIf="loading">
+    <img src="assets/img/loader.gif" alt="">
+</div>
+
 <!--abajo-->
 <div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
   <!-- Se pondra un pipe    | filter:filterPost --> 
-  <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos" >
+  <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos2" >
         <mat-card class="matCarPro">
 
         <mat-card-header>

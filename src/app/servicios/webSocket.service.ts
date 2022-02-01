@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Productos } from '../../app/components/productos/productos';
-import {Observable} from "rxjs";
+import {Observable, BehaviorSubject, ReplaySubject} from "rxjs";
 import { WebSocketComponent } from '../components/webSocket/web-socket/web-socket.component';
 
 //import * as Stomp from '@stomp/stompjs';
@@ -17,20 +17,19 @@ import { Client, Message } from '@stomp/stompjs';
 
 export class WebSocketService {    
 
-    
+    //Productos
+    ProductUrl:string = 'http://localhost:8080/v1/product';         //direccion
     //websocket
     webSocketEndPoint: string = 'http://localhost:8080/ws';
     topic: string = "/topic/greetings";         // topic, pertenece a la clase controller donde se llama al saludo
     stompClient: any;
     webSocket: WebSocketComponent;
     
-    constructor(webSocket:WebSocketComponent) 
+    constructor(webSocket:WebSocketComponent, private http:HttpClient) 
         { 
             this.webSocket = webSocket;
         }
 
-
-    //
 
     _connect() {
         console.log("Initialize WebSocket Connection");
@@ -48,23 +47,35 @@ export class WebSocketService {
         
     };
 
-
     topic2: string = "/topic/products";         // topic, pertenece a la clase controller donde se llama al saludo
-    _connect2() {
+    _connect2(): Observable<Productos[]> {
         console.log("Initialize WebSocket Connection With Products");
+        let productos:any=[];
         let ws = new SockJS(this.webSocketEndPoint);
 
         this.stompClient = Stomp.over(ws);
         const _this = this;
 
         _this.stompClient.connect({}, function (frame:any) {
-            _this.stompClient.subscribe(_this.topic2, function (sdkEvent:any) {  //TOPIC llama al metodo de backend
-                _this.onMessageReceived(sdkEvent);          //llamamos al metodo onMessageReceived    
+            _this.stompClient.subscribe(_this.topic2, function (sdkEvent:any) {  //TOPIC2 llama al metodo de backend
+                // _this.onMessageReceived(sdkEvent);          //llamamos al metodo onMessageReceived    
+                if(!_this.onMessageReceived){
+                    alert("Error en el servidor!");
+                }else {
+                    productos = _this.onMessageReceived(sdkEvent);
+                    console.log("hola Alvarin");
+                    console.log(productos);
+                }
+
             });
             //_this.stompClient.reconnect_delay = 2000;
         }, this.errorCallBack);
         
+        return this.http.get<Productos[]>(this.ProductUrl);
     };
+
+
+
 
 
     _disconnect() {
@@ -99,11 +110,7 @@ export class WebSocketService {
         this.webSocket.handleMessage(JSON.stringify(message.body));
     }
     
-    //LLamar los productos
-    onMessageReceivedProducts(product:any) {
-        console.log("Message Recieved from Server :: " + product);
-        this.webSocket.handleMessage(JSON.stringify(product.body));     //llamar a los productos desde backend para el update        
-    }
+
 
 
 }

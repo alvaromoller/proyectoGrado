@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { WebSocketService } from '../../../servicios/webSocket.service';
 import { ProductosComponent } from '../../productos/productos.component';
 import { ProductosService } from '../../../servicios/productos.service';
+import { Console } from 'console';
+import { Productos } from '../../productos/productos';
 
 
 
@@ -13,15 +15,23 @@ import { ProductosService } from '../../../servicios/productos.service';
 })
 export class WebSocketComponent implements OnInit {
 
-  constructor(private _productosService:ProductosService) { }
+  //Loading Gif
+  public loading:boolean;
+
+  constructor(private _productosService:ProductosService, private http:HttpClient) {
+    this.loading = true;
+   }
 
   ngOnInit(): void {
     this.webSocket();
-    this.connect();
-    this.connect2();
+    //this.connect();   //Mesagge prueba
+    this.connect2();  //Message products
 
     this.getProducts();
+
   }
+
+
 
   //LLamando a producto, lista de productos
   productos:any = [];
@@ -31,7 +41,10 @@ export class WebSocketComponent implements OnInit {
       this.productos = data;
     });
   } 
-  
+
+
+
+
   //////////////////////////////////////////////
   //Probando Websocket
   title = 'angular8-springboot-websocket';
@@ -43,7 +56,7 @@ export class WebSocketComponent implements OnInit {
   //Llamar al ngOnit
   webSocket(){
     //this._webSocketService = new WebSocketService(new WebSocketComponent());
-    this._webSocketService = new WebSocketService(new WebSocketComponent(this._productosService));
+    this._webSocketService = new WebSocketService(new WebSocketComponent(this._productosService, this.http), this.http);
   }
 
 
@@ -51,11 +64,31 @@ export class WebSocketComponent implements OnInit {
     this._webSocketService._connect();
   }
 
+  
+  productos2:any = [];
   connect2(){
-    this._webSocketService._connect2();
+    this._webSocketService._connect2()    //llamando al metodo connect2() del _webSocketService 
+    .subscribe((data: Productos[]) => {     
+      this.productos2 = data;
+
+      //Loading
+      if(!this.productos2){
+        alert("Error en el servidor!");
+      }else{
+        this.loading = false;
+      }
+      console.log("----------------------------------");
+      console.log("Metodo connect2()");
+      console.log(this.productos2);
+      console.log("----------------------------------");
+    });
   }
 
-  disconnect(){
+
+
+  
+
+ disconnect(){
     this._webSocketService._disconnect();
   }
 
