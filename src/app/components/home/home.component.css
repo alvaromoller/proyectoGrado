@@ -29,7 +29,7 @@
 
 
 .category{
-    width: 1000px;
+    width: 100%;
     text-align: center;
 }
 
@@ -112,14 +112,13 @@
         width: 30%;
     }
     #txtDescrip{
-        background-color:#AAAAAA; 
         margin-top: 0px; 
         width: 100%; 
-        float: right;
+        text-align: center;
     }
 
     #txtBuscador{
-        width:86%;
+        width:90%;
         display: inline-block;
     }
 
@@ -140,7 +139,7 @@
 @media only screen and (max-width: 768px), screen and (max-device-width: 768px ){
 
     #txtBuscador{
-        width:86%;
+        width:90%;
         display: inline-block;
     }
 
