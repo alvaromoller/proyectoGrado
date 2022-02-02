@@ -3,10 +3,22 @@
       <a class="navbar-brand" href="#">
           <img src="assets/img/A-64.png">
       </a>
-      
+
+      <!--boton desplegable-->
+      <!--Primer boton oculta el boton desplegable -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <button mat-button [matMenuTriggerFor]="menu">Menu
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button  mat-menu-item    [routerLink]="['home']"            > Home</button>
+          <button  mat-menu-item    [routerLink]="['encuesta']"        > Encuesta</button>
+          <button  mat-menu-item    [routerLink]="['listaCategorias']" > Sugerencias</button>
+          <button  mat-menu-item    [routerLink]="['tiendas']"         > Tiendas</button>
+        </mat-menu>
       </button>
+      <!--FIN boton desplegable-->
+
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -18,7 +30,7 @@
             <a class="nav-link" [routerLink]="['encuesta']">Encuesta</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['listaCategorias']">Recomendaciones</a>
+            <a class="nav-link" [routerLink]="['listaCategorias']">Sugerencias</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['tiendas']">Tiendas</a>
@@ -31,3 +43,6 @@
       </div>
     </div>
   </nav>
+
+
+  
