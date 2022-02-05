@@ -41,10 +41,15 @@
   <!--PRUEBA Lista de productos sin Base de datos-->
   <h1 >Productos</h1>
   <hr>
+  <!--Agregando loader.gif-->
+  <div class="loading"  *ngIf="loading">
+      <img src="assets/img/loader.gif" alt="">
+  </div>
+
   <!--abajo-->
   <div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
     <!-- Se pondra un pipe    | filter:filterPost --> 
-    <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productosSinFiltro | filterHome:filterPost  | paginate: { itemsPerPage: 4, currentPage: page }" >
+    <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productosSocket | filterHome:filterPost  | paginate: { itemsPerPage: 4, currentPage: page }" >
       <mat-card class="matCarPro">
 
         <mat-card-header>

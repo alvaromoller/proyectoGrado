@@ -11,6 +11,10 @@ import { ProductosTienda } from '../../components/productos/productosTienda';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+//
+import { WebSocketHomeService } from '../../servicios/webSocketHome.service';
+import { WebSocketComponent } from '../../components/webSocket/web-socket/web-socket.component';
+
 
 
 
@@ -23,23 +27,32 @@ export class HomeComponent implements OnInit {
 
   //Filter, para las busquedas
   filterPost = "";
-
   //pagination
   public page: number=0;
 
-  constructor(private _productosService:ProductosService,
-              private _tiendaService:ProductosTiendaService,
-              private router:Router,
-              private activeRoute:ActivatedRoute,
-              private sanitizer: DomSanitizer,
-              private http:HttpClient,
-              public dialog: MatDialog,
-                            ) { }
+  //WebSockets gif loading
+  public loading:boolean;
+
+  constructor(
+    private _productosService:ProductosService,
+    private _tiendaService:ProductosTiendaService,
+    private router:Router,
+    private activeRoute:ActivatedRoute,
+    private sanitizer: DomSanitizer,
+    private http:HttpClient,
+    public dialog: MatDialog)
+  {
+    this.loading = true;
+  }
 
  
   ngOnInit(): void {
     this.getProducts();
     this.getProducts2();
+    
+    //webSocket
+    this._webSocket();
+    this.connect();
 
   }
 
@@ -152,6 +165,67 @@ export class HomeComponent implements OnInit {
 
 
 
+  //////////////////////////////////////////////
+  //Probando Websocket
+  greeting: any;
+  _webSocketHomeService: any = WebSocketHomeService;
+
+  //Llamar al ngOnit
+  //creacion de un _webSocketHomeService
+  _webSocket(){
+    this._webSocketHomeService = new WebSocketHomeService(
+      new HomeComponent(this._productosService, this._tiendaService, this.router, this.activeRoute, this.sanitizer , this.http, this.dialog),
+      this.http);
+  }
+
+   //Metodo para llamar a los productos
+  productosSocket:any = [];
+  connect(){
+    //Primera Conexion
+    this._webSocketHomeService._connect()    //llamando al metodo connect2() del _webSocketService 
+    .subscribe((data: Productos[]) => {     
+      this.productosSocket = data;
+
+      //Loading
+      if(!this.productosSocket){
+        alert("Error en el servidor!");
+      }else{
+        this.loading = false;  
+      }
+
+      console.log("----------------------------------");
+      console.log("Metodo connect()");
+      console.log(this.productosSocket);
+      console.log("----------------------------------");
+    });
+
+    /// SUBJECT
+    this._webSocketHomeService._subject
+    .subscribe((data: Productos[]) => {  
+      this.productosSocket = data;   //pasamos update de los productos
+
+      //Loading 
+      /** */
+      this.loading = true;
+      setTimeout(()=>{                  //delay de 3 segundos, 
+      this.productosSocket = data;   //pasamos update de los productos
+      this.loading = false;           // activamos el gif
+      },3000)                       // durante 3 segundos
+      //
+    
+
+      console.log("----------------------------------");
+      console.log("Metodo connect(), Subject");
+      console.log(this.productosSocket);
+      console.log("----------------------------------");
+    });
+    
+  }
+
+
+  handleMessage(message:any){
+    this.greeting = message;
+  }
 
 
 
