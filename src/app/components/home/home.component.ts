@@ -107,9 +107,10 @@ export class HomeComponent implements OnInit {
   getProducts2(){
     this._productosService.getProducts()
     .subscribe(data => {
-      this.productos = data;
-      this.productos2 = data;
+        this.productos = data;
+        this.productos2 = data;
     });
+
   } 
 
 
@@ -182,10 +183,10 @@ export class HomeComponent implements OnInit {
   productosSocket:any = [];
   connect(){
     //Primera Conexion
-    this._webSocketHomeService._connect()    //llamando al metodo connect2() del _webSocketService 
+    this._webSocketHomeService._connect()    //llamando al metodo connect() del _webSocketService 
     .subscribe((data: Productos[]) => {     
       this.productosSocket = data;
-
+      
       //Loading
       if(!this.productosSocket){
         alert("Error en el servidor!");
@@ -194,7 +195,7 @@ export class HomeComponent implements OnInit {
       }
 
       console.log("----------------------------------");
-      console.log("Metodo connect()");
+      console.log("Metodo connect(), NUEVOS PRODUCTOS");
       console.log(this.productosSocket);
       console.log("----------------------------------");
     });
