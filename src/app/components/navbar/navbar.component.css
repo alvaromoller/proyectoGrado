@@ -1,0 +1,97 @@
+.navbar2{
+    width: 100%;
+    height: 70px;
+    /*posicionamiento del toolbar*/
+    position: fixed;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0;
+    z-index: 1000; /* Aseguresede de que el contenido no se sobre ponga adelante del toolbar */
+}
+
+
+.nav-link{
+    color:white;
+}
+
+.desplegable{
+    flex: 1 1 auto;
+}
+
+
+/*Extra large device (laptops/desktops), 1200 and up */
+@media only screen and (max-width: 1200px), screen and (max-device-width: 1200px ){
+
+}
+/*large device (laptops/desktops), 992 and up */
+@media only screen and (max-width: 992px), screen and (max-device-width: 992px ){
+   
+    .navbar2{
+        width: 100%;
+        height: 70px;
+        /*posicionamiento del toolbar*/
+        position: fixed;
+        position: -webkit-sticky; /* For macOS/iOS Safari */
+        top: 0;
+        z-index: 1000; /* Aseguresede de que el contenido no se sobre ponga adelante del toolbar */
+    }
+    
+    .nav-link{
+        color:white;
+    }
+    
+    .desplegable{
+        flex: 1 1 auto;
+    }    
+    
+}
+
+/*Medium  device (landscape tablets), 768 and up */
+@media only screen and (max-width: 768px), screen and (max-device-width: 768px ){
+
+    .navbar2{
+        width: 100%;
+        height: 70px;
+        /*posicionamiento del toolbar*/
+        position: fixed;
+        position: -webkit-sticky; /* For macOS/iOS Safari */
+        top: 0;
+        z-index: 1000; /* Aseguresede de que el contenido no se sobre ponga adelante del toolbar */
+    }
+    
+    .nav-link{
+        font-size: 18px;
+        color:white;
+    }
+    
+    .desplegable{
+        flex: 1 1 auto;
+    }    
+
+
+}
+
+
+/*Small  device (portrait phone), 600 and up */
+@media only screen and (max-width: 600px), screen and (max-device-width: 600px ){
+    
+    .navbar2{
+        width: 100%;
+        height: 70px;
+        /*posicionamiento del toolbar*/
+        position: fixed;
+        position: -webkit-sticky; /* For macOS/iOS Safari */
+        top: 0;
+        z-index: 1000; /* Aseguresede de que el contenido no se sobre ponga adelante del toolbar */
+    }
+    
+    .nav-link{
+        color:white;
+        font-size: 15px;
+    }
+    
+    .desplegable{
+        flex: 1 1 auto;
+    }    
+
+}
+

@@ -13,12 +13,19 @@ export class ProductosService {
     constructor(private http:HttpClient) { }
 
     ProductUrl:string = 'http://localhost:8080/v1/product';         //direccion
+    ProductsPcUrl:string = 'http://localhost:8080/v1/product/productsPc';         //direccion
+
     pcUrl:string = 'http://localhost:8080/v1/productCategory/productsByCategory';      //direccion de productos de tiendas 4, 5, 3
 
     //conexión con el backend, 
     //lista de productos    
     getProducts(): Observable<Productos[]>{
         return this.http.get<Productos[]>(this.ProductUrl);
+    }
+
+    //PC.COM, lista de productos    
+    getProductsPc(): Observable<Productos[]>{
+        return this.http.get<Productos[]>(this.ProductsPcUrl);
     }
 
     //listado de productos por categoria,

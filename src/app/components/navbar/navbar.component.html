@@ -1,48 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-          <img src="assets/img/A-64.png">
-      </a>
+<!--MENU-->
+<mat-toolbar class="navbar2" color="primary">
+  <a class="navbar-brand" href="#">
+    <img src="assets/img/A-64.png">
+  </a>
+   
+  <a class="nav-link active" [routerLink]="['home']" > Home</a>
+  <a class="nav-link"        [routerLink]="['encuesta']">Encuesta</a>
+  <a class="nav-link"        [routerLink]="['listaCategorias']">Sugerencias</a>
+  <a class="nav-link"        [routerLink]="['tiendas']">Tiendas</a>
+ 
+  <span class="desplegable"></span>
 
-      <!--boton desplegable-->
-      <!--Primer boton oculta el boton desplegable -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <button mat-button [matMenuTriggerFor]="menu">Menu
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <mat-menu #menu="matMenu">
-          <button  mat-menu-item    [routerLink]="['home']"            > Home</button>
-          <button  mat-menu-item    [routerLink]="['encuesta']"        > Encuesta</button>
-          <button  mat-menu-item    [routerLink]="['listaCategorias']" > Sugerencias</button>
-          <button  mat-menu-item    [routerLink]="['tiendas']"         > Tiendas</button>
-        </mat-menu>
-      </button>
-      <!--FIN boton desplegable-->
+  <!--menu desplegable-->
+  <button  mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button  mat-menu-item    [routerLink]="['home']"            > Home</button>
+    <button  mat-menu-item    [routerLink]="['encuesta']"        > Encuesta</button>
+    <button  mat-menu-item    [routerLink]="['listaCategorias']" > Sugerencias</button>
+    <button  mat-menu-item    [routerLink]="['tiendas']"         > Tiendas</button>
+  </mat-menu>
 
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          
-          <li class="nav-item" >
-            <a class="nav-link active" [routerLink]="['home']" >Home</a>
-          </li>
-          <li class="nav-item" >
-            <a class="nav-link" [routerLink]="['encuesta']">Encuesta</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['listaCategorias']">Sugerencias</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['tiendas']">Tiendas</a>
-          </li>
-          
-          
-        </ul>
+</mat-toolbar>
 
 
-      </div>
-    </div>
-  </nav>
+<!--
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>My App</span>
+    <span class="desplegable"></span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+-->
 
 
-  
+

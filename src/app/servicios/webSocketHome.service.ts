@@ -23,6 +23,7 @@ export class WebSocketHomeService {
 
     //Productos
     ProductUrl:string = 'http://localhost:8080/v1/product';         //direccion
+    
     //websocket
     webSocketEndPoint: string = 'http://localhost:8080/ws';
     topic: string = "/topic/products";                              // topic, pertenece a la clase controller donde se llama al saludo
@@ -48,7 +49,7 @@ export class WebSocketHomeService {
         _this.stompClient.connect({}, function (frame:any) {
             _this.stompClient.subscribe(_this.topic, function (sdkEvent:any) {  //TOPIC2 llama al metodo de backend        
                 _this.onMessageReceivedHome(sdkEvent);          //llamamos al metodo onMessageReceived    
-                console.log("hello Word");
+                console.log("hello Word CompuCenter");
                 console.log("-------------");
 
             });
@@ -59,7 +60,6 @@ export class WebSocketHomeService {
     };
 
 
-    
     // on error, schedule a reconnection attempt
     //llamamos al metodo _connect()
     errorCallBack(error:any) {

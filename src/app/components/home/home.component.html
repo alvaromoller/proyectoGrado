@@ -1,9 +1,5 @@
 <div id ="contendorProd">
-  <!--  <mat-toolbar style="width: 100%" color="primary">
-    <h1>Bienvenido</h1>
-  </mat-toolbar>
-  -->
-
+  <br>
   <div id="contPadre">
     <!--Izquierda-->
     <div id = "imgPrin">
@@ -59,9 +55,9 @@
         <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
 
         <mat-card-content class="texto-justificado">
-          <h3> {{ producto.name2 }} </h3>   <!--nombre opcional-->
+          <h3> {{ producto.name }} </h3>   <!--nombre opcional-->
           <hr>
-          <h3> {{ producto.name }} </h3>
+          <h3> {{ producto.name2 }} </h3>
         </mat-card-content>
 
         <div class="card-footer">
@@ -116,9 +112,9 @@
           <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
 
           <mat-card-content class="texto-justificado">
-            <h3> {{ producto.name2 }} </h3>   <!--nombre opcional-->
+            <h3> {{ producto.name }} </h3>   <!--nombre opcional-->
             <hr>
-            <h3> {{ producto.name }} </h3>
+            <h3> {{ producto.name2 }} </h3>
           </mat-card-content>
 
           <div class="card-footer">

@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
     
     //webSocket
     this._webSocket();
-    this.connect();
+    this.connectCompuCenter();
 
   }
 
@@ -105,7 +105,7 @@ export class HomeComponent implements OnInit {
   productos:any = [];
   productos2:any = [];
   getProducts2(){
-    this._productosService.getProducts()
+    this._productosService.getProductsPc()
     .subscribe(data => {
         this.productos = data;
         this.productos2 = data;
@@ -179,9 +179,10 @@ export class HomeComponent implements OnInit {
       this.http);
   }
 
-   //Metodo para llamar a los productos
+  //Metodo para llamar a los productos
+  //CompuCenter
   productosSocket:any = [];
-  connect(){
+  connectCompuCenter(){
     //Primera Conexion
     this._webSocketHomeService._connect()    //llamando al metodo connect() del _webSocketService 
     .subscribe((data: Productos[]) => {     
@@ -211,7 +212,7 @@ export class HomeComponent implements OnInit {
       setTimeout(()=>{                  //delay de 3 segundos, 
       this.productosSocket = data;   //pasamos update de los productos
       this.loading = false;           // activamos el gif
-      },3000)                       // durante 3 segundos
+      },4000)                       // durante 3 segundos
       //
     
 
@@ -227,6 +228,7 @@ export class HomeComponent implements OnInit {
   handleMessage(message:any){
     this.greeting = message;
   }
+  
 
 
 
