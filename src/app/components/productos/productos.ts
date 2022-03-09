@@ -5,7 +5,9 @@ export interface Productos {
     "shopName":string,
     "description": string,
     "img": string,
+    "img2": Array<String>,
     "price": string,
+    "stock": string,
     "brand": string,
     "ram": string;
     "processor": string;

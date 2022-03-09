@@ -49,6 +49,7 @@ import { CategoriasComponent } from './components/categorias/categorias.componen
 import { ListCategoriasComponent } from './components/categorias/list-categorias/list-categorias.component';
 import { FilterHomePipe } from './pipes/filter-home.pipe';
 import { WebSocketComponent } from './components/webSocket/web-socket/web-socket.component';
+import { FilterRamPipe } from './pipes/filter-ram.pipe';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { WebSocketComponent } from './components/webSocket/web-socket/web-socket
     ListCategoriasComponent,
     FilterHomePipe,
     WebSocketComponent,
+    FilterRamPipe,
   ],
   imports: [
     BrowserModule,

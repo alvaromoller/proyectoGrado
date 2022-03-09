@@ -14,7 +14,6 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class EncuestaComponent implements OnInit {
 
-
   //Filter, para las busquedas
   filterBrand:any=[];       // Marca
   filterRam:any=[];         // Memoria Ram

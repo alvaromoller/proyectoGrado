@@ -70,9 +70,9 @@
         <!-- Búsqueda por marca -->
         <h3>Marca:</h3>
         <select name="filterBrand" [(ngModel)] = "filterBrand" class="selectButtom">
-          <option value=""    >   Marca </option>
-          <option value="HP"    > HP </option>
-          <option value="DELL"  > DELL</option>
+          <option value=""      >   Marca </option>
+          <option value="HP"    >HP</option>
+          <option value="Dell"  > DELL</option>
           <option value="Lenovo"> Lenovo</option>
           <option value="Asus"  > Asus</option>
           <option value="Huawei"> Huawei</option>
@@ -81,34 +81,40 @@
         <h3>Memoria Ram:</h3>
         <select name="filterRam" [(ngModel)] = "filterRam"   class="selectButtom">
           <option value=""    >   Memoria Ram </option>
-          <option value="Ram: 4 GB"  > 4 GB </option>
-          <option value="Ram: 8 GB"  > 8 GB</option>
-          <option value="Ram: 12 GB" > 12 GB</option>
-          <option value="Ram: 16 GB" > 16 GB</option>
+          <option value="4GB"  > 4GB </option>
+          <option value="8GB"  > 8GB</option>
+          <option value="12GB" > 12GB</option>
+          <option value="16GB" > 16GB</option>
         </select><br><br>
         <!-- Búsqueda por Procesador -->
         <h3>Procesador:</h3>
         <select name="filterProcessor" [(ngModel)] = "filterProcessor"  class="selectButtom">
           <option value=""    >       Procesador </option>
           <option value="Intel"     > Intel </option>
-          <option value="AMD Ryzen" > AMD Ryzen</option>
+          <option value="Ryzen"     >  Ryzen</option>
         </select><br><br>
         <!-- Búsqueda por Almacenamiento -->
         <h3>Almacenamiento:</h3>
         <select name="filterStorage" [(ngModel)] = "filterStorage"    class="selectButtom">
           <option value=""    > Almacenamiento </option>
-          <option value="1 TB"       > 1 TB </option>
-          <option value="SSD 128 GB" > SSD 128 GB </option>
-          <option value="SSD 256 GB" > SSD 256 GB</option>
-          <option value="SSD 512 GB" > SSD 512 GB</option>
+          <option value="1TB"   >  1TB </option>
+          <option value="1.0TB" >  1.0TB </option>
+          <option value="128GB" >  128 GB </option>
+          <option value="240GB" >  240 GB</option>
+          <option value="256GB" >  256 GB</option>
+          <option value="500GB" >  500 GB</option>
+          <option value="512GB" >  512 GB</option>
         </select><br><br>
         <!-- Búsqueda por Tarjeta Gráfica o de video -->
+        <!--
         <h3>Tarjeta Gráfica:</h3>
         <select name="filtertarjetaGrafica" [(ngModel)] = "filtertarjetaGrafica"   class="selectButtom">
           <option value=""                          > Tarjeta gráfica </option>
           <option value="Tarjeta gráfica integrada" > Tarjeta gráfica integrada</option> 
           <option value="Tarjeta gráfica dedicada"  > Tarjeta gráfica dedicada</option>
         </select>
+         -->
+         
       </div>  
     </div>
 
@@ -122,25 +128,25 @@
             <th> Memoria Ram </th>
             <th> Procesador </th>
             <th> Almacenamiento</th>
-            <th> Tarjeta Gráfica</th>
+            <!--<th> Tarjeta Gráfica</th>-->
 
-            <th> Nombre2</th>
+            <th> Nombre</th>
             <th> Precio</th>
             <th> Imagen</th>
           </tr>
         </thead>
 
         <tbody>
-        <tr *ngFor="let producto of productos | filter:filterBrand  | filter:filterRam | filter:filterProcessor | filter:filterStorage  | filter:filtertarjetaGrafica "> 
-            <!--marca, ram, tarjeta video-->
+        <tr *ngFor="let producto of productos  | filter:filterBrand | filterRam:filterRam | filter:filterProcessor | filter:filterStorage  | filter:filtertarjetaGrafica ">
+            <!--marca, ram, processor,storage, tarjeta video-->
             <td > {{ producto.brand }}  </td>
             <td > {{ producto.ram }} </td>
             <td > {{ producto.processor }} </td>
             <td > {{ producto.storage }} </td>
-            <td > {{ producto.tarjetaGrafica }} </td>
+            <!--<td > {{ producto.tarjetaGrafica }} </td>-->
             
             <!--Producto-->
-            <td>  {{ producto.name2}} </td>
+            <td>  {{ producto.name}} </td>
             <td>  {{ producto.price }} </td>
             <td> <img class="imageTr"  mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)"> </td>
             <td>
@@ -155,6 +161,10 @@
     </div>
 
   </div>
+
+
+  
+
 
 
 
