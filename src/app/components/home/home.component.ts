@@ -2,16 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { DomSanitizer } from "@angular/platform-browser";
 import { ActivatedRoute } from '@angular/router';
-import { ProductosComponent } from '../../components/productos/productos.component';
-import { ProductosService } from '../../servicios/productos.service';
-import { Productos } from '../../components/productos/productos';
-import { TiendasComponent } from '../../components/tiendas/tiendas.component';
-import { ProductosTiendaService } from '../../servicios/productosTienda.service';
-import { ProductosTienda } from '../../components/productos/productosTienda';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
-//
+import { Productos } from '../../components/productos/productos';
+import { ProductosTienda } from '../../components/productos/productosTienda';
+import {MatSnackBar} from '@angular/material/snack-bar';
+//Components
+import { ProductosComponent } from '../../components/productos/productos.component';
+import { TiendasComponent } from '../../components/tiendas/tiendas.component';
+//Service
+import { ProductosService } from '../../servicios/productos.service';
+import { ProductosTiendaService } from '../../servicios/productosTienda.service';
+import { CarritoServiceService } from '../../servicios/carrito-service.service';
+
+//Websocket
 import { WebSocketHomeService } from '../../servicios/webSocketHome.service';
 import { WebSocketComponent } from '../../components/webSocket/web-socket/web-socket.component';
 
@@ -40,7 +45,9 @@ export class HomeComponent implements OnInit {
     private activeRoute:ActivatedRoute,
     private sanitizer: DomSanitizer,
     private http:HttpClient,
-    public dialog: MatDialog)
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    public carritoService:CarritoServiceService)
   {
     this.loading = true;
   }
@@ -86,8 +93,18 @@ export class HomeComponent implements OnInit {
       width: '1040px',height:'550px',disableClose: true 
     });
   }
-  /////////////////////////////////////////////////////////////////////////////////////
 
+  //////////////////////////////////////////////
+  //Añadir al carrito
+  addToCart(product: Productos){
+    this.carritoService.addProduct(product);
+    let sb = this.snackBar.open("Producto añadido","Ver carrito", {
+      duration: 2000,
+    });
+    sb.onAction().subscribe(() => {
+       this.router.navigateByUrl('/carrito')
+    });
+  }
 
 
   //////////////////////////////////////////////
@@ -112,7 +129,6 @@ export class HomeComponent implements OnInit {
     });
 
   } 
-
 
   //Comparacion con MARCA
   filter1: any= [];
@@ -161,7 +177,8 @@ export class HomeComponent implements OnInit {
 
     }
   }
-  //////////////////////////////////////////////
+
+
 
 
 
@@ -172,10 +189,10 @@ export class HomeComponent implements OnInit {
   _webSocketHomeService: any = WebSocketHomeService;
 
   //Llamar al ngOnit
-  //creacion de un _webSocketHomeService
+  //creacion de un _webSocketHomeService, se esta llamando al constructor de HomeComponent
   _webSocket(){
     this._webSocketHomeService = new WebSocketHomeService(
-      new HomeComponent(this._productosService, this._tiendaService, this.router, this.activeRoute, this.sanitizer , this.http, this.dialog),
+      new HomeComponent(this._productosService, this._tiendaService, this.router, this.activeRoute, this.sanitizer , this.http, this.dialog,this.snackBar, this.carritoService),
       this.http);
   }
 
@@ -196,7 +213,7 @@ export class HomeComponent implements OnInit {
       }
 
       console.log("----------------------------------");
-      console.log("Metodo connect(), NUEVOS PRODUCTOS");
+      console.log("Metodo connect(),  PRODUCTOS Home");
       console.log(this.productosSocket);
       console.log("----------------------------------");
     });

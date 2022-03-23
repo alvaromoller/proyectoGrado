@@ -9,12 +9,13 @@ import * as SockJS from 'sockjs-client';
 
 import { Subject } from 'rxjs';
 import { HomeComponent } from '../components/home/home.component';
+import { EncuestaComponent } from '../components/encuesta/encuesta.component';
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class WebSocketHomeService {    
+export class WebSocketEncuestaService {    
 
     //prueba, usar el subject para el metodo onMessageReceivedHome
     public _subject: Subject<any> = new BehaviorSubject<any>([]);
@@ -30,18 +31,18 @@ export class WebSocketHomeService {
     stompClient: any;
 
     //para el metodo onMessageReceivedHome
-    homeSocket: HomeComponent;
+    encuestaSocket: EncuestaComponent;
 
-    constructor(homeSocket:HomeComponent, 
+    constructor(encuestaSocket:EncuestaComponent, 
                 private http:HttpClient) 
         { 
-            this.homeSocket = homeSocket;
+            this.encuestaSocket = encuestaSocket;
         }
 
 
     //Conexion para llamar a los productos 
     _connect(): Observable<Productos[]> {
-        console.log("Initialize WebSocket Connection With Products Home");
+        console.log("Initialize WebSocket Connection With Products Encuesta");
         let ws = new SockJS(this.webSocketEndPoint);
         this.stompClient = Stomp.over(ws);
         const _this = this;
@@ -49,7 +50,7 @@ export class WebSocketHomeService {
         _this.stompClient.connect({}, function (frame:any) {
             _this.stompClient.subscribe(_this.topic, function (sdkEvent:any) {  //TOPIC llama al metodo de backend        
                 _this.onMessageReceivedHome(sdkEvent);          //llamamos al metodo onMessageReceived    
-                console.log("hello Word WebSocket Home");
+                console.log("hello Word WebSocket Encuesta");
                 console.log("-------------");
 
             });
@@ -73,7 +74,7 @@ export class WebSocketHomeService {
     //onMessageReceived enviamos al metodo _connect()
     onMessageReceivedHome(message:any) {
         console.log("Message Recieved from Server :: " + message);
-        this.homeSocket.handleMessage(JSON.stringify(message.body));
+        this.encuestaSocket.handleMessage(JSON.stringify(message.body));
         this._subject.next(message.body);    //Subject
     }
 

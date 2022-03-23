@@ -11,6 +11,7 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { CategoriasComponent } from './components/categorias/categorias.component';
 import { ListCategoriasComponent } from './components/categorias/list-categorias/list-categorias.component';
 
+import { CarritoComponent } from './components/carrito/carrito.component';
 import { WebSocketComponent } from './components/webSocket/web-socket/web-socket.component';
 
 
@@ -32,6 +33,9 @@ const APP_ROUTES: Routes = [
     { path: 'tiendas', component: homeShopComponent },                  //lista de tiendas
     { path: 'listaProductosTienda/:tiendaId', component: ListTiendasComponent }, //lista de productos desde tienda
     { path: 'productoTienda', component: TiendasComponent },       //producto individual desde tienda
+
+    //Carrito
+    { path: 'carrito', component: CarritoComponent },
 
     //Probando webSocket
     { path: 'webSocket', component: WebSocketComponent },

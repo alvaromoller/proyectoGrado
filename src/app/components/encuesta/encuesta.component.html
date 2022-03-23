@@ -104,6 +104,7 @@
           <option value="256GB" >  256 GB</option>
           <option value="500GB" >  500 GB</option>
           <option value="512GB" >  512 GB</option>
+          <option value="1000GB"> 1000 GB</option>
         </select><br><br>
         <!-- Búsqueda por Tarjeta Gráfica o de video -->
         <!--
@@ -149,9 +150,14 @@
             <td>  {{ producto.name}} </td>
             <td>  {{ producto.price }} </td>
             <td> <img class="imageTr"  mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)"> </td>
+            
+            <!--BOTON ver mas y añadir al carrito-->
             <td>
               <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
                 ver más
+              </button>
+              <button type="button" class="btn btn-outline-primary w-100" (click)="addToCart(producto)"> <!---->
+                Añadir al carrito
               </button>
             </td>
 

@@ -6,6 +6,12 @@
     </h1>
 </div>
 <!---->
+  
+<!--Agregando loader.gif-->
+<div class="loading"  *ngIf="loading" style="float: fixed;" >
+  <img src="assets/img/loader.gif" alt="">
+</div>
+<br><br><br><br>
 
 <div  class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
     <!-- getProductsByCategory()  desde  _productosService -->
@@ -26,10 +32,14 @@
                 <small class="text-muted"> Precio: {{ pc.price }}</small>  <!--GARANTIA-->
             </div>
 
+            <!--Botones ver mas y añadir al carrito-->
             <div align="center"  >
-            <button type="button" class="btn btn-outline-primary w-100" (click)="productInfo(pc)">
-                ver más
-            </button>
+                <button type="button" class="btn btn-outline-primary w-100" (click)="productInfo(pc)">
+                    ver más
+                </button>
+                <button type="button" class="btn btn-outline-primary w-100" (click)="addToCart(pc)"> <!---->
+                Añadir al carrito
+              </button>
             </div>
             
         </mat-card>

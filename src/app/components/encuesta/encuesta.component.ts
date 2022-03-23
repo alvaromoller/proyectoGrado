@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser";
-import { ProductosService } from '../../servicios/productos.service';
-import { ProductosComponent } from '../../components/productos/productos.component';
 import { Productos } from '../../components/productos/productos';
 import { MatDialog } from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+//Components
+import { ProductosComponent } from '../../components/productos/productos.component';
+//Services
+import { ProductosService } from '../../servicios/productos.service';
+import { CarritoServiceService } from '../../servicios/carrito-service.service';
+//Websocket
+import { WebSocketEncuestaService } from '../../servicios/webSocketEncuesta.service';
 
 
 @Component({
@@ -21,14 +29,26 @@ export class EncuestaComponent implements OnInit {
   filterStorage:any=[];     // almacenamiento, SSD, TB
   filtertarjetaGrafica:any=[]; //tarjeta grafica
 
+
+  public loading:boolean;
   constructor(private _productosService:ProductosService,
               private sanitizer: DomSanitizer,
-              public dialog: MatDialog) { }
+              public dialog: MatDialog,
+              private http:HttpClient,
+              private router:Router,
+              private snackBar: MatSnackBar,
+              public carritoService:CarritoServiceService )
+  {
+    this.loading = true;
+   }
 
   ngOnInit(): void {
     this.getProducts();
 
     this.getDescription();
+
+    this._webSocket();
+    this.connect();
   }
 
   //lista de productos
@@ -59,8 +79,18 @@ export class EncuestaComponent implements OnInit {
       width: '1040px',height:'550px',disableClose: true 
     });
   }  
+  
   /////////////////////////////////////////////////////////////////////////////////////
-
+  //Añadir al carrito
+  addToCart(product: Productos){
+    this.carritoService.addProduct(product);
+    let sb = this.snackBar.open("Producto añadido","Ver carrito", {
+      duration: 2000,
+    });
+    sb.onAction().subscribe(() => {
+       this.router.navigateByUrl('/carrito')
+    });
+  }
 
 
   //////////////////////////////////////////////
@@ -133,9 +163,75 @@ export class EncuestaComponent implements OnInit {
 
     }
   }
-  //////////////////////////////////////////////
 
 
+
+ //////////////////////////////////////////////
+  //Probando Websocket
+  greeting: any;
+  _webSocketEncuestaService: any = WebSocketEncuestaService;
+
+  //Llamar al ngOnit,
+  //creacion de un _webSocket, se esta llamando al constructor de EncuestaComponent
+  _webSocket(){
+    this._webSocketEncuestaService = new WebSocketEncuestaService(
+      new EncuestaComponent(this._productosService, this.sanitizer , this.dialog,this.http, this.router, this.snackBar, this.carritoService),
+      this.http);
+  }
+
+
+  //Metodo para llamar a los productos
+  //CompuCenter
+  productosSocket:any = [];
+  connect(){
+    //Primera Conexion
+    this._webSocketEncuestaService._connect()    //llamando al metodo connect() del _webSocketService 
+    .subscribe((data: Productos[]) => {     
+      this.productosSocket = data;
+      
+      //Loading
+      if(!this.productosSocket){
+        alert("Error en el servidor!");
+      }else{
+        this.loading = false;  
+      }
+
+      console.log("----------------------------------");
+      console.log("Metodo connect(), PRODUCTOS ENCUESTA");
+      console.log(this.productosSocket);
+      console.log("----------------------------------");
+    });
+
+    /// SUBJECT
+    this._webSocketEncuestaService._subject
+    .subscribe((data: Productos[]) => {  
+      this.productosSocket = data;   //pasamos update de los productos
+
+      //Loading 
+      /** */
+      this.loading = true;
+      setTimeout(()=>{                  //delay de 3 segundos, 
+      this.productosSocket = data;   //pasamos update de los productos
+      this.loading = false;           // activamos el gif
+      },4000)                       // durante 3 segundos
+      //
+    
+
+      console.log("----------------------------------");
+      console.log("Metodo connect(), Subject");
+      console.log(this.productosSocket);
+      console.log("----------------------------------");
+    });
+    
+  }
+
+
+  handleMessage(message:any){
+    this.greeting = message;
+  }
+  
+
+  
 
   
 

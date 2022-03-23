@@ -44,8 +44,8 @@
 
   <!--abajo-->
   <div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
-    <!-- Se pondra un pipe    | filter:filterPost --> 
-    <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productosSocket | filterHome:filterPost  | paginate: { itemsPerPage: 20, currentPage: page }" >
+    <!-- Se pondra un pipe    | filter:filterPost --> <!--*ngFor="let producto of productosSocket-->
+    <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productosSinFiltro | filterHome:filterPost  | paginate: { itemsPerPage: 20, currentPage: page }" >
       <mat-card class="matCarPro">
 
         <mat-card-header>
@@ -63,10 +63,14 @@
         <div class="card-footer">
           <small class="text-muted"> Precio:{{ producto.price }} </small>  <!--GARANTIA-->
         </div>
-         <!--(click)="getProductId(producto.productId, producto.shopId)"--> 
-        <div align="center"  >
+        
+         <!--Botones ver mas y añadir al carrito-->
+         <div align="center"  >
           <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
-            ver más
+            Ver más
+          </button>
+          <button type="button" class="btn btn-outline-primary w-100" (click)="addToCart(producto)"> <!---->
+            Añadir al carrito
           </button>
         </div>
       </mat-card>
@@ -120,12 +124,17 @@
           <div class="card-footer">
             <small class="text-muted"> Precio:{{ producto.price }} </small>  <!--GARANTIA-->
           </div>
-          <!--(click)="getProductId(producto.productId, producto.shopId)"--> 
+          
+           <!--Botones ver mas y añadir al carrito-->
           <div class="button" align="center"  >
             <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
               ver más
             </button>
+            <button type="button" class="btn btn-outline-primary w-100" (click)="addToCart(producto)"> <!---->
+              Añadir al carrito
+            </button>
           </div>
+          
         </mat-card>
       </div>
     </div>
