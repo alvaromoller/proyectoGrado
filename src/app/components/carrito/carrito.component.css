@@ -1,3 +1,10 @@
+.toolbarCarrito{
+    margin-top: 50px;      /* espacio arriba del toolbar carrito */
+}
+.footerCarrito{
+    margin-bottom: 50px; /* espacio abajo del footer carrito */
+}
+
 .contenedor{
     padding: 30px 8%;
 }
