@@ -1,0 +1,40 @@
+.contenedor{
+    padding: 30px 8%;
+}
+
+table {
+    width: 100%;
+}
+
+/**
+.mat-elevation-z8 {
+    font-size: xx-large;
+}
+*/
+th{
+    font-size: large;
+    font-weight: 800;
+}
+
+td{
+    font-size: large;
+    font-weight: 800;
+    
+    height: 170px;
+    width: 150px;
+    font-size: small;
+    text-align: center;
+    justify-content: center;
+}
+
+/** Boton de cantidad producto*/
+.cantidadProducto{
+    width: 70px;
+}
+
+img{
+    /**
+    max-width: 350px;
+    height: 245px;*/
+    width: 70%;
+}
