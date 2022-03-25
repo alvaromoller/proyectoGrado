@@ -44,8 +44,7 @@
     width: 170px;
 }
 .imageTr{
-    width: 70px;
-    height: 70px; 
+    width: 100%;
 }
 h3{
     margin: 0;
@@ -54,18 +53,16 @@ h3{
 
 
 
-table.header{
-    border-collapse: separate;
-    border: #b2b2b2 1px solid;
-    
+table.headerResultado{
     padding-bottom: 100px;
+    width: 100%;
 }
-td, th {
-    border: black 1px solid;
+table.headerResultado td, th {
+    /**border: black 1px solid;*/
     padding: 15px;
 }
-tr {
-    border: black 1px solid;
+table.headerResultado tr {
+    /**border: black 1px solid;*/
     padding: 15px;
     text-align: justify;
 

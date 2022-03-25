@@ -23,9 +23,7 @@
     justify-content: center;
 }
 
-.button{
-    padding-bottom: 30%; /* espacio abajo del boton */
-}
+
 
 
 .category{
@@ -52,6 +50,8 @@
 .contenedor{
     clear: left;
     width: 100%;
+    padding-bottom: 80px; /* espacio abajo del boton */
+
 }
 
 #imgPrin{

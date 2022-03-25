@@ -121,12 +121,12 @@
 
     <!--Derecha-->
     <div class="filtroResultado">
-      <!--Informacion de Encuesta-->
-      <table class="header" >
+      <!--Informacion de Encuesta,    (mat-elevation-z8) , (table table-hover), es el estilo de tabla-->
+      <table class="headerResultado   table table-hover   mat-elevation-z8" >
         <thead >
           <tr>
             <th> Marca</th>
-            <th> Memoria Ram </th>
+            <th> Ram </th>
             <th> Procesador </th>
             <th> Almacenamiento</th>
             <!--<th> Tarjeta Gráfica</th>-->
@@ -134,6 +134,7 @@
             <th> Nombre</th>
             <th> Precio</th>
             <th> Imagen</th>
+            <th> Opciones</th>
           </tr>
         </thead>
 
@@ -147,7 +148,7 @@
             <!--<td > {{ producto.tarjetaGrafica }} </td>-->
             
             <!--Producto-->
-            <td>  {{ producto.name}} </td>
+            <td>  {{ producto.name2}} </td>
             <td>  {{ producto.price }} </td>
             <td> <img class="imageTr"  mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)"> </td>
             
@@ -167,10 +168,7 @@
     </div>
 
   </div>
-
-
   
-
 
 
 
