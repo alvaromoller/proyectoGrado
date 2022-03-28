@@ -32,11 +32,11 @@
     </div>
     <br><br>
     <!--Derecha-->
-    <div class="tableDescription">
-      <table>
+    <div class="descripcion">
+      <table class="tableDescription">
         <thead>
           <tr>
-            Descripción
+            <th>Descripción</th>
           </tr>
         </thead>      
         <!--muestra de una descripcion-->
@@ -148,17 +148,19 @@
             <!--<td > {{ producto.tarjetaGrafica }} </td>-->
             
             <!--Producto-->
-            <td>  {{ producto.name2}} </td>
+            <td>  {{ producto.name}} <br> {{ producto.name2}} </td>
             <td>  {{ producto.price }} </td>
             <td> <img class="imageTr"  mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)"> </td>
             
             <!--BOTON ver mas y añadir al carrito-->
             <td>
-              <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
-                ver más
+              <button type="button" class="verMas btn btn-outline-primary w-100"  (click)="productInfo(producto)">
+                Ver más
               </button>
-              <button type="button" class="btn btn-outline-primary w-100" (click)="addToCart(producto)"> <!---->
-                Añadir al carrito
+            </td>
+            <td>
+              <button type="button" class="carrito btn btn-outline-primary w-100" (click)="addToCart(producto)"> <!---->
+                Añadir carrito
               </button>
             </td>
 
