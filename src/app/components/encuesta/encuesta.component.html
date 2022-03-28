@@ -25,24 +25,29 @@
   <!--Informacion de filtros-->
   <div  class="contenedorDescription" >
     
-    <!--Izquierda-->
+    <!--Arriba-->
     <div  *ngFor="let caja of checkbox "  class="checkbox" >
       <input type="{{ caja.type }}" value={{caja.id}}  (change)="ModifyFilterDescription($event)"  >  <!--value={{caja.id}}, obtiene el valor a comparar-->
         {{ caja.info }}
     </div>
     <br><br>
-    <!--Derecha-->
+
+    <!--Abajo-->
+    <!--Descripcion,    (mat-elevation-z8) , (table table-hover), es el estilo de tabla-->
     <div class="descripcion">
-      <table class="tableDescription">
+      <table class="tableDescription  mat-elevation-z8  table table-hover">
         <thead>
           <tr>
             <th>Descripción</th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>      
         <!--muestra de una descripcion-->
         <tbody>
             <tr>
-              <td *ngFor="let description of array1 "  class="description">
+              <td *ngFor="let description of array1 ">
                 {{ description.info }} <br>
                 {{ description.id }}. {{ description.description }}
               </td>

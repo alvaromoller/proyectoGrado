@@ -8,22 +8,27 @@
 }
 .descripcion{
     width: 100%;
-    background: yellow;
 }
-.tableDescription{
+table.tableDescription{
     width: 100%;
+    text-align: justify;
 }
-.description:nth-child(even){
+table.tableDescription td,th{
+    padding: 15px;
+}
+/**
+table.tableDescription:nth-child(even){
     text-align: justify;
     background: rgba(0, 255, 234, 0.911);
     border: burlywood 1px solid;
-    
-}
-.description:nth-child(odd){
+}*/
+
+/**
+table.tableDescription:nth-child(odd){
     text-align: justify;
     background: rgba(0, 255, 234, 0.158);
     border: burlywood 1px solid;
-}
+}*/
 
 
 
