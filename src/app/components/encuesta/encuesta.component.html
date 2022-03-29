@@ -47,7 +47,7 @@
         <!--muestra de una descripcion-->
         <tbody>
             <tr>
-              <td *ngFor="let description of array1 ">
+              <td  *ngFor="let description of array1 ">
                 {{ description.info }} <br>
                 {{ description.id }}. {{ description.description }}
               </td>
@@ -58,8 +58,7 @@
 
   </div>
   <hr>
-
-
+  
 
   <!--Encuesta-->
   <div class="encuesta">
@@ -73,33 +72,33 @@
       --> 
       <div class="combobox" >
         <!-- Búsqueda por marca -->
-        <h3>Marca:</h3>
+        <!-- <h3 class="titulosEncuesta">Marca</h3 -->
         <select name="filterBrand" [(ngModel)] = "filterBrand" class="selectButtom">
           <option value=""      >   Marca </option>
-          <option value="HP"    >HP</option>
+          <option value="HP"    > HP</option>
           <option value="Dell"  > DELL</option>
           <option value="Lenovo"> Lenovo</option>
           <option value="Asus"  > Asus</option>
           <option value="Huawei"> Huawei</option>
         </select><br><br>
         <!-- Búsqueda por Memoria Ram -->
-        <h3>Memoria Ram:</h3>
+        <!--<h3 class="titulosEncuesta">Ram</h3>  -->
         <select name="filterRam" [(ngModel)] = "filterRam"   class="selectButtom">
-          <option value=""    >   Memoria Ram </option>
+          <option value=""    >  Ram </option>
           <option value="4GB"  > 4GB </option>
           <option value="8GB"  > 8GB</option>
           <option value="12GB" > 12GB</option>
           <option value="16GB" > 16GB</option>
         </select><br><br>
         <!-- Búsqueda por Procesador -->
-        <h3>Procesador:</h3>
+        <!--<h3 class="titulosEncuesta">Procesador</h3> -->
         <select name="filterProcessor" [(ngModel)] = "filterProcessor"  class="selectButtom">
           <option value=""    >       Procesador </option>
           <option value="Intel"     > Intel </option>
           <option value="Ryzen"     >  Ryzen</option>
         </select><br><br>
         <!-- Búsqueda por Almacenamiento -->
-        <h3>Almacenamiento:</h3>
+        <!--<h3 class="titulosEncuesta">Almacenamiento</h3> -->
         <select name="filterStorage" [(ngModel)] = "filterStorage"    class="selectButtom">
           <option value=""    > Almacenamiento </option>
           <option value="1TB"   >  1TB </option>
@@ -140,6 +139,7 @@
             <th> Precio</th>
             <th> Imagen</th>
             <th> Opciones</th>
+            <th></th>
           </tr>
         </thead>
 

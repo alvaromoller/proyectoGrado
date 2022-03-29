@@ -93,7 +93,7 @@ table.headerResultado tr {
 }
 /*large device (laptops/desktops), 992 and up */
 @media only screen and (max-width: 992px), screen and (max-device-width: 992px ){
-   
+    
     .contenedorDescription{
         width: 100%;
     }
@@ -101,25 +101,69 @@ table.headerResultado tr {
         margin-right: 120px;
         display: inline-block;
     }
+    .descripcion{
+        width: 100%;
+    }
+    table.tableDescription{
+        width: 100%;
+        text-align: justify;
+    }
+    table.tableDescription td,th{
+        padding: 15px;
+    }
 
+  .encuesta{
+        width: 100%; 
+    }
     .filtroEncuesta{
         float: left;
-        width: 15%;
+        width: 12%;
     }
     .filtroResultado{
         float: right;
-        width: 85%;
+        width: 88%;
     }
     .combobox{
         float: left;
         width: 20%;
         padding-bottom: 100px;
     }
+    .titulosEncuesta{
+        font-size: small;
+    }
     .selectButtom{
-        width: 135px;
+        width: 105px;
+    }
+    .imageTr{
+        width: 100%;
+    }
+    h3{
+        margin: 0;
+        width: 400%;
+    }    
+
+
+    table.headerResultado{
+        margin-bottom: 100px;
+        width: 100%;
+    }
+    table.headerResultado td, th {
+        /**border: black 1px solid;*/
+        padding: 5px;
+    }
+    table.headerResultado tr {
+        /**border: black 1px solid;*/
+        padding: 15px;
+        text-align: justify;
+        text-align: center;
     }
 
-
+    .verMas{
+        font-size: small;
+    }
+    .carrito{
+        font-size: small;
+    }
 
     
 }
@@ -129,30 +173,86 @@ table.headerResultado tr {
 
     .contenedorDescription{
         width: 100%;
+        margin-top: 50px;
     }
     .checkbox{
         margin-right: 55px;
         display: inline-block;
+        margin-bottom: 50px;
     }
-
-    .filtroEncuesta{
-        display: inline-block;
+    .descripcion{
         width: 100%;
     }
+    table.tableDescription{
+        width: 100%;
+        text-align: justify;
+    }
+    table.tableDescription td,th{
+        padding: 15px;
+    }
+
+    .encuesta{
+        width: 100%; 
+    }
+    /***/
+    .filtroEncuesta{
+        float: left;
+        width: 100%;
+    }
+    /***/
     .filtroResultado{
         float: right;
         width: 100%;
     }
-    .combobox{
-        display: inline-block;
+    .combobox {
         width: 100%;
-        padding-bottom: 100px;
-        
+        padding-bottom: 50px; 
+    }
+    br{
+        display: none;  /** quita los BR, quita los saltos de linea */
+    }
+    
+    .titulosEncuesta{
+        font-size: small;
     }
     .selectButtom{
-        width: 135px;
+        width: 130px;
+        margin-right: 40px;
     }
 
+    .imageTr{
+        width: 100%;
+    }
+    h3{
+        margin: 0;
+        width: 400%;
+    }    
+
+
+    table.headerResultado{
+        margin-bottom: 100px;
+        width: 100%;
+    }
+    table.headerResultado td, th {
+        /**border: black 1px solid;*/
+        padding: 5px;
+    }
+    table.headerResultado tr {
+        /**border: black 1px solid;*/
+        padding: 15px;
+        text-align: justify;
+        text-align: center;
+    }
+
+    .verMas{
+        font-size: small;
+    }
+    .carrito{
+        font-size: small;
+    }
+
+    /************************************************/
+    /***/
 
 }
 
@@ -162,28 +262,82 @@ table.headerResultado tr {
     
     .contenedorDescription{
         width: 100%;
+        margin-top: 50px;
     }
     .checkbox{
         margin-right: 20px;
         display: inline-block;
+        margin-bottom: 50px;
     }
-
-    .filtroEncuesta{
-        display: inline-block;
+    .descripcion{
         width: 100%;
     }
+    table.tableDescription{
+        width: 100%;
+        text-align: justify;
+    }
+    table.tableDescription td,th{
+        padding: 15px;
+    }
+
+    .encuesta{
+        width: 100%; 
+    }
+    /***/
+    .filtroEncuesta{
+        float: left;
+        width: 100%;
+    }
+    /***/
     .filtroResultado{
         float: right;
         width: 100%;
     }
-    .combobox{
-        display: inline-block;
+    .combobox {
         width: 100%;
-        padding-bottom: 100px;
-        
+        padding-bottom: 50px; 
+    }
+    br{
+        display: none;  /** quita los BR, quita los saltos de linea */
+    }
+    
+    .titulosEncuesta{
+        font-size: small;
     }
     .selectButtom{
-        width: 135px;
+        width: 85px;
+        margin-right: 40px;
+    }
+
+    .imageTr{
+        width: 100%;
+    }
+    h3{
+        margin: 0;
+        width: 400%;
+    }    
+
+
+    table.headerResultado{
+        margin-bottom: 100px;
+        width: 100%;
+    }
+    table.headerResultado td, th {
+        /**border: black 1px solid;*/
+        padding: 5px;
+    }
+    table.headerResultado tr {
+        /**border: black 1px solid;*/
+        padding: 15px;
+        text-align: justify;
+        text-align: center;
+    }
+
+    .verMas{
+        font-size: small;
+    }
+    .carrito{
+        font-size: small;
     }
 
 
