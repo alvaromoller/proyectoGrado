@@ -6,10 +6,9 @@
 }
 
 .logoImg{
-  width: 90%;
-  height: 200px;
-  display:block;
-  margin:auto;
+  width: 50%;
+  display:block; /**para centrear la img*/
+  margin:auto;  /**para centrear la img*/
 }
 
 .producto{
@@ -18,7 +17,9 @@
 
 .description{
   margin-top: 40px;   /* espacio arriba del boton */
-  /*background-color:#AAAAAA;*/
+  width: 80%;
+  display:block; /**para centrear El div*/
+  margin:auto;  /**para centrear El div*/
 }
 
   

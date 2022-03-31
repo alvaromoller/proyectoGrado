@@ -52,8 +52,12 @@ table.tableDescription:nth-child(odd){
 .selectButtom{
     width: 170px;
 }
-.imageTr{
+.contenedorImg{
     width: 100%;
+}
+.imageTr{
+    width: 95%;
+    margin-top: 15px;
 }
 h3{
     margin: 0;
@@ -134,8 +138,12 @@ table.headerResultado tr {
     .selectButtom{
         width: 105px;
     }
-    .imageTr{
+    .contenedorImg{
         width: 100%;
+    }
+    .imageTr{
+        width: 95%;
+        margin-top: 15px;
     }
     h3{
         margin: 0;
@@ -220,8 +228,12 @@ table.headerResultado tr {
         margin-right: 40px;
     }
 
-    .imageTr{
+    .contenedorImg{
         width: 100%;
+    }
+    .imageTr{
+        width: 95%;
+        margin-top: 15px;
     }
     h3{
         margin: 0;
@@ -309,8 +321,12 @@ table.headerResultado tr {
         margin-right: 40px;
     }
 
-    .imageTr{
+    .contenedorImg{
         width: 100%;
+    }
+    .imageTr{
+        width: 95%;
+        margin-top: 15px;
     }
     h3{
         margin: 0;

@@ -155,7 +155,9 @@
             <!--Producto-->
             <td>  {{ producto.name}} <br> {{ producto.name2}} </td>
             <td>  {{ producto.price }} </td>
-            <td> <img class="imageTr"  mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)"> </td>
+            <td class="contenedorImg"> 
+              <img class="imageTr"  mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)"> 
+            </td>
             
             <!--BOTON ver mas y añadir al carrito-->
             <td>

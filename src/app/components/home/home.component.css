@@ -164,4 +164,7 @@
     .imageTr{
         width: 50%;
     }
+    .container h2{
+        font-size: medium;
+    }
 }

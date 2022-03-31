@@ -1,14 +1,12 @@
 .contenedor{
-    clear: left;
     width: 100%;
 }
-
+.matCarPro{
+    text-align: center;
+    margin-bottom: 50px;
+}
 .imageTr{
-    width: 230px;
-    height: 100px;
-    display:block;
-    margin:auto;
-    
+    width: 100%;
 }
 
 
@@ -20,15 +18,15 @@
 @media only screen and (max-width: 992px), screen and (max-device-width: 992px ){
    
   .contenedor{
-        clear: left;
         width: 100%;
+    }
+    .matCarPro{
+        text-align: center;
+        margin-bottom: 50px;
     }
 
     .imageTr{
-        width: 230px;
-        height: 100px;
-        display:block;
-        margin:auto;
+        width: 100%;
     }
     
 }
@@ -37,16 +35,15 @@
 @media only screen and (max-width: 768px), screen and (max-device-width: 768px ){
 
     .contenedor{
-        clear: left;
         width: 100%;
-        padding-bottom: 70px;
+    }
+    .matCarPro{
+        text-align: center;
+        margin-bottom: 50px;
     }
 
     .imageTr{
-        width: 230px;
-        height: 100px;
-        display:block;
-        margin:auto;
+        width: 100%;
     }
 }
 
@@ -55,15 +52,15 @@
 @media only screen and (max-width: 600px), screen and (max-device-width: 600px ){
 
     .contenedor{
-        clear: left;
         width: 100%;
+    }
+    .matCarPro{
+        text-align: center;
+        margin-bottom: 50px;
     }
 
     .imageTr{
-        width: 230px;
-        height: 100px;
-        display:block;
-        margin:auto;
+        width: 100%;
     }
 
 }

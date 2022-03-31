@@ -8,20 +8,20 @@
   <!--izquierda-->
   
   <div  class="producto" >
-    <!--izquierda-->
+    <!--Logo de la tienda-->
     <div>
       <img mat-card-image [src]="getImgUrl(shopLast.img)" class="logoImg" alt="Fotografia de muestra" >
     </div>
     
-    <!--derecha-->
+    <!--Descripcion-->
     <div class="description  animated fadeIn" >
-      <h3>Tienda : {{ shopLast.shopId }}</h3>
+      <h3> <b>Tienda: </b> {{ shopLast.shopId }}</h3>
       <table>
         <tr class="texto-justificado">
-          <td> <h3 class="texto-justificado">Descripción: <br> {{ shopLast.description }}</h3></td>     
-        </tr> <br>
+          <td> <h3 class="texto-justificado">   <b>Descripción</b>  <br> {{ shopLast.description }}</h3></td>     
+        </tr>
         <tr class="texto-justificado">
-            <td> <h3 class="texto-justificado">Ubicación: <br>{{ shopLast.location }}</h3> </td>     
+            <td> <h3 class="texto-justificado"> <b>Ubicación:</b>  <br>{{ shopLast.location }}</h3> </td>     
           </tr>
       </table>
       <hr>

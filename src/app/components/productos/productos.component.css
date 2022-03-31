@@ -9,9 +9,12 @@
   width: 100%
 }
 
-.img{
+.contenedorImg{
   width: 30%; 
   float: left;
+}
+.img{
+  width: 100%;
 }
 
 .description{
@@ -26,11 +29,12 @@
   float: right;
 }
 
-.texto-justificado{
-  text-align: justify;
-}
-
-
+  /*table*/
+  .texto-justificado{
+    width: 100%;
+    text-align: justify;
+  }
+  
 
 
 .buttonModal{
@@ -56,3 +60,156 @@ table
 .azul {
     background-color: black;
   }
+
+
+  
+/*Extra large device (laptops/desktops), 1200 and up */
+@media only screen and (max-width: 1200px), screen and (max-device-width: 1200px ){
+
+}
+
+
+/*large device (laptops/desktops), 992 and up */
+@media only screen and (max-width: 992px), screen and (max-device-width: 992px ){
+  .fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  .icon {
+    cursor: pointer;
+  }
+  
+  .producto{
+    width: 100%
+  }
+  
+  .contenedorImg{
+    width: 100%; 
+    /*float: left;*/
+  }
+  .img{
+    width: 55%;
+    margin-top: 30px;
+    display: block; /*Para centrear img*/
+    margin: auto;   /*Para centrear img*/
+  }
+  
+  .description{
+    width: 100%;
+    margin-top: 35px;
+   /*float: right;*/
+  }
+  
+  .shop{
+    width: 100%;
+    margin-top: 20px;
+    /*float: right;*/
+  }
+
+  /*table*/
+  .texto-justificado{
+    width: 100%;
+    text-align: justify;
+  }
+  
+  
+  
+  .buttonModal{
+    padding-bottom: 10%; /* espacio abajo del boton que activa el modal*/
+  }
+  
+  table 
+  { 
+      width: 600px; 
+      text-align: left; 
+      /*border : 1px solid gray; */
+      border-spacing: 10px;
+  } 
+  
+  .oscuro .modal-content {
+      background-color: #021f2e;
+      color: white;
+    }
+    .oscuro .close {
+      color: black;
+    }
+  
+  .azul {
+      background-color: black;
+    }  
+}
+
+/*Medium  device (landscape tablets), 768 and up */
+@media only screen and (max-width: 768px), screen and (max-device-width: 768px ){
+  .fill-remaining-space {
+    flex: 1 1 auto;
+  }
+  .icon {
+    cursor: pointer;
+  }
+  
+  .producto{
+    width: 100%
+  }
+  
+  .contenedorImg{
+    width: 100%; 
+    /*float: left;*/
+  }
+  .img{
+    width: 55%;
+    margin-top: 30px;
+    display: block; /*Para centrear img*/
+    margin: auto;   /*Para centrear img*/
+  }
+  
+  .description{
+    width: 100%;
+    margin-top: 35px;
+   /*float: right;*/
+  }
+  
+  .shop{
+    width: 100%;
+    margin-top: 20px;
+    /*float: right;*/
+  }
+
+  /*table*/
+  .texto-justificado{
+    width: 100%;
+    text-align: justify;
+  }
+  
+  
+  
+  .buttonModal{
+    padding-bottom: 10%; /* espacio abajo del boton que activa el modal*/
+  }
+  
+  table 
+  { 
+      width: 600px; 
+      text-align: left; 
+      /*border : 1px solid gray; */
+      border-spacing: 10px;
+  } 
+  
+  .oscuro .modal-content {
+      background-color: #021f2e;
+      color: white;
+    }
+    .oscuro .close {
+      color: black;
+    }
+  
+  .azul {
+      background-color: black;
+    }
+
+}
+
+
+/*Small  device (portrait phone), 600 and up */
+@media only screen and (max-width: 600px), screen and (max-device-width: 600px ){
+
+}
