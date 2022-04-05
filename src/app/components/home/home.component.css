@@ -51,7 +51,6 @@
     clear: left;
     width: 100%;
     padding-bottom: 80px; /* espacio abajo del boton */
-
 }
 
 #imgPrin{
@@ -72,9 +71,18 @@
 
 .matCarPro{
     text-align: center;
+    /*min-width: 250px;*/    /**ancho de la tarjeta*/
+    /*min-height: 650px;*/      /**Alto de la tarjeta*/
+}
+.contenedorImg{         /*<div class="contenedorImg" mat-card-avatar >  mat-card-avatar = sirve para tener la imagen del contenedor de un mismo tamaño   */
+    width: 100%;
+    /*height: 20%;*/
+    padding-top: 15px;
+    padding-bottom: 170px;
+    background: skyblue;
 }
 .imageTr{
-    width: 100%;
+    width: 70%;
 }
 
 #txtBuscador{
@@ -92,10 +100,40 @@
     text-align: left;
 }
 
-.texto-justificado{
-    text-align: justify;
-    text-align: center;
+
+.matCardContent { /*Cambiar el estilo de Scrollable */
+    /*para el scrollable, barra desplazable*/
+    width: 100%;
+    height: 100px;
+    overflow-x: hidden; 
+    overflow-y: auto;   
+    /*para el scrollable, barra desplazable*/
+    background: yellowgreen;
 }
+
+.scroll {
+    /*
+    width: 500px;
+    height: 110px;
+    overflow-x: hidden; para el scrollable, barra desplazable
+    overflow-y: auto;   para el scrollable, barra desplazable
+    
+    margin:4px, 4px;
+    padding:4px;
+    background-color: green;
+    text-align:justify;
+    */
+
+    /*para el scrollable, barra desplazable*/
+    width: 500px;
+    height: 110px;
+    overflow-x: hidden; 
+    overflow-y: auto;   
+    /*para el scrollable, barra desplazable*/
+
+}
+
+
 
 /*Extra large device (laptops/desktops), 1200 and up */
 @media only screen and (max-width: 1200px), screen and (max-device-width: 1200px ){
