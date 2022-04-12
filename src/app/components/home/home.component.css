@@ -100,8 +100,8 @@
     text-align: left;
 }
 
-
-.matCardContent { /*Cambiar el estilo de Scrollable */
+/*Estilo de Scrollable, barra vertical de desplazamiento para ver todo el contenido */
+.matCardContent{ 
     /*para el scrollable, barra desplazable*/
     width: 100%;
     height: 100px;
@@ -110,28 +110,41 @@
     /*para el scrollable, barra desplazable*/
     background: yellowgreen;
 }
+/*Desaparece la barra vertical, manteniendo el movimiento hacia abajo para ver todo el contenido*/
+.matCardContent::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width:10px;
+}
 
-.scroll {
-    /*
-    width: 500px;
-    height: 110px;
-    overflow-x: hidden; para el scrollable, barra desplazable
-    overflow-y: auto;   para el scrollable, barra desplazable
-    
-    margin:4px, 4px;
-    padding:4px;
-    background-color: green;
-    text-align:justify;
-    */
 
+
+/**----------------------------*/
+/*
+<div class="scrollUno">
+It is a good platform to learn programming. 
+It is an educational website. Prepare for the Recruitment drive
+</div>
+*/
+/* Scroll bar, barra vetical prueba  */
+.scrollUno {
     /*para el scrollable, barra desplazable*/
     width: 500px;
     height: 110px;
     overflow-x: hidden; 
     overflow-y: auto;   
     /*para el scrollable, barra desplazable*/
-
 }
+.scrollUno::-webkit-scrollbar {
+    /* -webkit-appearance: none;*/  /*Desaparece la barra vertical, manteniendo el movimiento hacia abajo para ver todo el contenido*/
+    width:10px;
+}
+.scrollUno::-webkit-scrollbar-thumb {  /*estilo de barra vertical*/
+    background-color: #797979;
+    border-radius: 20px;
+    border: px solid #f1f2f3;
+}
+/**----------------------------*/
+
 
 
 
