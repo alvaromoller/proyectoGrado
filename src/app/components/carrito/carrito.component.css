@@ -39,9 +39,11 @@ td{
     width: 70px;
 }
 
-img{
-    /**
-    max-width: 350px;
-    height: 245px;*/
+.imageTr{
     width: 70%;
 }
+
+.btnImprimir{
+    margin:  750px; 
+}
+

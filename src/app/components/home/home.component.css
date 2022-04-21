@@ -108,7 +108,6 @@
     overflow-x: hidden; 
     overflow-y: auto;   
     /*para el scrollable, barra desplazable*/
-    background: yellowgreen;
 }
 /*Desaparece la barra vertical, manteniendo el movimiento hacia abajo para ver todo el contenido*/
 .matCardContent::-webkit-scrollbar {

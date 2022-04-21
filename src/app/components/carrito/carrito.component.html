@@ -1,12 +1,17 @@
 <!--<p>carrito works!</p>-->
+<br><br><br>
 
-<div class="contenedor">
+<div class="contenedor" id="productsCarrito">
+    
+
     <mat-toolbar class="toolbarCarrito" color="primary">
-      <span> Carrito</span>
+        <span> Carrito</span>
+        <!--boton para imprimir contenido en PDF-->
+        <button (click)="getPrintJsPdf()"  class="btnImprimir btn btn-outline-primary">Imprimir </button> 
     </mat-toolbar>
     <br>
 
-    <table mat-table [dataSource]="productsCantidad" class="mat-elevation-z8">    <!--[dataSource]="productsCantidad"-->
+    <table mat-table [dataSource]="productsCantidad" class="mat-elevation-z8" >    <!--[dataSource]="productsCantidad"-->
     
             <!-- Name Column -->
             <ng-container matColumnDef="name">
@@ -62,6 +67,7 @@
                     </button> 
                 </td>
             </ng-container>
+
             <br>     
           <!-- Header and Row Declarations -->
           <!--Nos sirve para mostrar las filas de la tabla -->

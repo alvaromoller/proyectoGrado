@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from "@angular/platform-browser"
 import { MatDialog } from '@angular/material/dialog';
 //import { CheckoutComponent } from '../../checkout/checkout.component';
@@ -10,6 +10,11 @@ import { ProductosComponent } from '../../components/productos/productos.compone
 //Servicios
 import { ProductosService } from '../../servicios/productos.service';
 import { CarritoServiceService } from '../../servicios/carrito-service.service';
+
+//html2pdf
+import * as html2pdf from 'html2pdf.js';
+//printJS
+import * as printJS from 'print-js';
 
 @Component({
   selector: 'app-carrito',
@@ -25,6 +30,7 @@ export class CarritoComponent implements OnInit {
   //Sirve para mostrar las filas de la tabla
  displayedColumns: string[] = ['name','price', 'name2', 'img','cantidad', 'details', 'delete'];
 
+
   constructor(public carritoService:CarritoServiceService , private sanitizer: DomSanitizer, public productosService:ProductosService, private dialog:MatDialog,private router:Router) { }
 
   ngOnInit(): void {
@@ -36,7 +42,37 @@ export class CarritoComponent implements OnInit {
   //cantidad
   getProducts (){
     //this.products = this.carritoService.getProducts();
-    this.productsCantidad = this.carritoService.getProductsCantidad();
+    this.productsCantidad = this.carritoService.getProductsCantidad(); 
+    return this.productsCantidad;
+  }
+
+
+  //convierte a PDF pero sin IMAGEN
+  getPdfProducts(){  //id="productsCarrito"
+    const options = {
+      filename: 'doc.pdf',
+      image: {type: 'jpg'},  //jpeg,jpg, png,webp
+      html2canvas: {},
+      jsPDF: { orientation: 'landscape' } //portrait = vertical, landscape = horizontal
+    };
+
+    const content: Element = document.getElementById('productsCarrito');
+    html2pdf()
+      .from(content)
+      .set(options)
+      .save();
+  }
+
+  //convierte a PDF con IMAGEN
+  getPrintJsPdf(){  //id="productsCarrito"
+    printJS({
+      printable:'productsCarrito',
+      type: 'html',
+      targetStyle: ['*'],
+      imageStyle: 'width:20%',
+      header: 'pdf con printJs'
+
+    })
   }
 
 

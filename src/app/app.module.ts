@@ -12,7 +12,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { GenericListFilterModule } from 'generic-list-filter';
+//PDFMAKE
+import pdfMake from 'pdfmake/build/pdfmake';
 
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+PdfMakeWrapper.setFonts(pdfFonts);
 
 
 // ngBootstrap
