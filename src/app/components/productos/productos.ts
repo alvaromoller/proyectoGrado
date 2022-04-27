@@ -4,6 +4,7 @@ export interface Productos {
     "name2": string,
     "shopName":string,
     "description": string,
+    "description2": string,
     "img": string,
     "img2": Array<String>,
     "price": string,
