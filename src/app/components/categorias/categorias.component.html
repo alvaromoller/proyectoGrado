@@ -1,4 +1,4 @@
-<br><br><br>
+<br><br><br><br>
 <div >
     <h1> Categoria: 
         {{ categoria.categoryId }}, 
@@ -20,9 +20,13 @@
             <mat-card-header>
                 <mat-card-title> Laptop </mat-card-title>
             </mat-card-header>
-            <img class="imageTr" mat-card-image [src]="getImgUrl(pc.img)" alt="Fotografia de muestra" (click)="productInfo(pc)" >
 
-            <mat-card-content align="center">
+            <div class="contenedorImg" mat-card-avatar>
+                <!--mat-card-avatar = sirve para tener la imagen del contenedor de un mismo tamaño -->      
+                <img class="imageTr" mat-card-image [src]="getImgUrl(pc.img)" alt="Fotografia de muestra" (click)="productInfo(pc)" >
+            </div>
+            
+            <mat-card-content class="matCardContent">
                 <h3> {{ pc.name }} </h3>   <!--nombre opcional-->
                 <hr>
                 <h3> {{ pc.name2 }} </h3>

@@ -102,12 +102,10 @@
 
 /*Estilo de Scrollable, barra vertical de desplazamiento para ver todo el contenido */
 .matCardContent{ 
-    /*para el scrollable, barra desplazable*/
     width: 100%;
     height: 100px;
     overflow-x: hidden; 
     overflow-y: auto;   
-    /*para el scrollable, barra desplazable*/
 }
 /*Desaparece la barra vertical, manteniendo el movimiento hacia abajo para ver todo el contenido*/
 .matCardContent::-webkit-scrollbar {
