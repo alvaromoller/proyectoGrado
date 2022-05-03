@@ -82,7 +82,8 @@
     background: skyblue;
 }
 .imageTr{
-    width: 70%;
+    padding-top: 25px;
+    width: 60%;
 }
 
 #txtBuscador{
