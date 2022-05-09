@@ -12,9 +12,13 @@
             <mat-card-header>
                 <mat-card-title>  </mat-card-title>
             </mat-card-header>
-            <img class="imageTr" mat-card-image [src]="getImgUrl(tienda.img)" alt="Fotografia de muestra" (click)="shopInfo(tienda)">
 
-            <mat-card-content>
+            <div class="contenedorImg" mat-card-avatar>
+                <!--mat-card-avatar = sirve para tener la imagen del contenedor de un mismo tamaño -->
+                <img class="imageTr" mat-card-image [src]="getImgUrl(tienda.img)" alt="Fotografia de muestra" (click)="shopInfo(tienda)">
+            </div>
+
+            <mat-card-content  class="matCardContent">
                 <h3> {{ tienda.name }} </h3>
             </mat-card-content>
 

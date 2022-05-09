@@ -5,8 +5,24 @@
     text-align: center;
     margin-bottom: 50px;
 }
-.imageTr{
+
+.contenedorImg{         /*<div class="contenedorImg" mat-card-avatar >  mat-card-avatar = sirve para tener la imagen del contenedor de un mismo tamaño   */
     width: 100%;
+    /*height: 20%;*/
+    padding-top: 15px;
+    padding-bottom: 170px;
+}
+.imageTr{
+    padding-top: 40px;
+    width: 90%;
+}
+
+/*Estilo de Scrollable, barra vertical de desplazamiento para ver todo el contenido */
+.matCardContent{ 
+    width: 100%;
+    height: 70px;
+    overflow-x: hidden; 
+    overflow-y: auto;   
 }
 
 
