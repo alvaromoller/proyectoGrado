@@ -12,10 +12,11 @@ export class ProductosService {
     
     constructor(private http:HttpClient) { }
 
-    ProductUrl:string = 'http://localhost:8080/v1/product';         //direccion
-    ProductsPcUrl:string = 'http://localhost:8080/v1/product/productsPc';         //direccion
+    ProductUrl:string = 'http://localhost:8080/v1/product';                         //direccion
+    ProductsPcUrl:string = 'http://localhost:8080/v1/product/productsPc';           //direccion
 
-    pcUrl:string = 'http://localhost:8080/v1/productCategory/productsByCategory';      //direccion de productos de tiendas 4, 5, 3
+    pcUrl:string = 'http://localhost:8080/v1/productCategory/productsByCategory';   //direccion de productos de tiendas 4, 5, 3
+    ProductUrlByStore:string = 'http://localhost:8080/v1/product/productsByStore';  //productos por tienda
 
     //conexión con el backend, 
     //lista de productos    
@@ -32,6 +33,11 @@ export class ProductosService {
     //JOIN de tabla product con productCategory
     getProductsByCategory(categoryId:any): Observable<Productos[]>{
         return this.http.get<Productos[]>(this.pcUrl + "/" + categoryId);
+    }
+
+    //lista de productos por tienda
+    getProductsByStore(storeId:any): Observable<Productos[]>{
+        return this.http.get<Productos[]>(this.ProductUrlByStore + "/" + storeId);
     }
 
     //Encontrar producto por ID

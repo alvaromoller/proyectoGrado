@@ -69,6 +69,7 @@ export class CategoriasComponent implements OnInit {
     let categoryId = this.activeRoute.snapshot.paramMap.get('categoryId'); //'categoryId' desde la ruta
     this._categoriasService.getCategoryId(categoryId).subscribe(data =>{   
     this.categoria = data;  
+    console.log("Categoria: "); 
     console.log(this.categoria); 
     })
   }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable} from "rxjs";
 import { ProductosTienda } from '../../app/components/productos/productosTienda';
+import { Productos } from '../../app/components/productos/productos';
 
 @Injectable({
     providedIn: 'root'
@@ -33,6 +34,8 @@ export class ProductosTiendaService {
     getLast(): ProductosTienda{
         return this.last;
     }
+
+
     
 
 

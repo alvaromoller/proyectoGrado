@@ -3,5 +3,6 @@ export interface ProductosTienda {
     "name": string,
     "description": string,
     "location": string,
+    "location2": Array<String>,
     "img": string
 }

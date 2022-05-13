@@ -5,6 +5,8 @@ import { HomeComponent } from './components/home/home.component';
 import { EncuestaComponent } from './components/encuesta/encuesta.component';
 import { TiendasComponent } from './components/tiendas/tiendas.component';
 import { ListTiendasComponent } from './components/tiendas/list-tiendas/list-tiendas.component';
+import { ProductsByStoreComponent } from './components/tiendas/products-by-store/products-by-store.component';
+
 import { homeShopComponent } from './components/tiendas/homeShop/homeShop.component';
 import { ListProductosComponent } from './components/productos/list-productos/list-productos.component';
 import { ProductosComponent } from './components/productos/productos.component';
@@ -31,8 +33,9 @@ const APP_ROUTES: Routes = [
 
     //Mejorar tiendas
     { path: 'tiendas', component: homeShopComponent },                  //lista de tiendas
-    { path: 'listaProductosTienda/:tiendaId', component: ListTiendasComponent }, //lista de productos desde tienda
-    { path: 'productoTienda', component: TiendasComponent },       //producto individual desde tienda
+    //{ path: 'productoPorTienda', component: ProductsByStoreComponent },   //lista de productos, probando el html 
+    { path: 'productoPorTienda/:storeId', component: ProductsByStoreComponent },   //lista de productos por tienda, get tiendaId
+    //{ path: 'productoTienda', component: TiendasComponent },       //producto individual desde tienda
 
     //Carrito
     { path: 'carrito', component: CarritoComponent },

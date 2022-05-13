@@ -68,7 +68,13 @@ export class homeShopComponent implements OnInit {
       width: '1040px',height:'550px',disableClose: true 
     });
   }
+/////////////////////////////////////////////////////////////////////////////////////
 
+  //Redireccionar al component Productos por Tiendacon storeId
+  getStoreId(storeId:number){    //no pasamos la llave primaria, enviamos las llaves foraneas
+    this.router.navigate( ["/productoPorTienda", storeId ] );
+    console.log("storeId:"+ storeId );
+  }
 /////////////////////////////////////////////////////////////////////////////////////
 
 

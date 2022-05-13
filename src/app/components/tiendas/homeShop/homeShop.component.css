@@ -13,8 +13,9 @@
     padding-bottom: 170px;
 }
 .imageTr{
-    padding-top: 40px;
-    width: 90%;
+    padding-top: 15px;
+    width: 180px;
+    height: 150px;
 }
 
 /*Estilo de Scrollable, barra vertical de desplazamiento para ver todo el contenido */

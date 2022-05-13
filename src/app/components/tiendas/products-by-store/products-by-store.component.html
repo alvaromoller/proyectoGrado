@@ -1,0 +1,73 @@
+<br><br><br><br><br>
+<p>products-by-store works!</p>
+
+<div id ="contendorProd">
+    <br>
+    <!--Buscador-->
+      
+  
+    <!--PRUEBA Lista de productos sin Base de datos-->
+    <h1 >Productos</h1>
+  
+    <hr>
+    <!--Agregando loader.gif-->
+    <!--
+    <div class="loading"  *ngIf="loading">
+        <img src="assets/img/loader.gif" alt="">
+    </div>
+    -->
+    <!--abajo-->
+    <div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="start stretch">
+      <!-- Se pondra un pipe    | filter:filterPost --> <!--*ngFor="let producto of productosSocket-->
+      <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productsByStore " >
+        <mat-card class="matCarPro">
+          <!-- -->
+          <mat-card-header>
+            <mat-card-title> Laptop </mat-card-title>
+          </mat-card-header>
+          
+          <div class="contenedorImg" mat-card-avatar>
+            <!--mat-card-avatar = sirve para tener la imagen del contenedor de un mismo tamaño -->
+            <!-- <img mat-card-image src= "assets/img/batman.png" class="card-img-top" alt="...">-->
+            <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
+          </div>
+  
+          <mat-card-content class="matCardContent" >
+            {{ producto.name }} 
+            <!--nombre opcional-->
+            <hr>
+            {{ producto.name2 }}
+          </mat-card-content>
+  
+          <div class="card-footer">
+            <small class="text-muted"> Precio:{{ producto.price }} </small>  <!--GARANTIA-->
+          </div>
+          
+           <!--Botones ver mas y añadir al carrito-->
+           <div align="center"  >
+            <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
+              Ver más
+            </button>
+            <button type="button" class="btn btn-outline-primary w-100" (click)="addToCart(producto)"> <!---->
+              Añadir al carrito
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <br><br>
+    <!--Paginacion-->
+    <pagination-controls 
+      (pageChange)="page = $event"
+      previousLabel="Anterior"
+      nextLabel="Siguiente" >
+    </pagination-controls>
+    <hr>
+    <br><br>
+  
+  
+  
+  
+      <!---->
+  

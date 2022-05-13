@@ -56,6 +56,7 @@ import { FilterHomePipe } from './pipes/filter-home.pipe';
 import { WebSocketComponent } from './components/webSocket/web-socket/web-socket.component';
 import { FilterRamPipe } from './pipes/filter-ram.pipe';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { ProductsByStoreComponent } from './components/tiendas/products-by-store/products-by-store.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     WebSocketComponent,
     FilterRamPipe,
     CarritoComponent,
+    ProductsByStoreComponent,
   ],
   imports: [
     BrowserModule,
