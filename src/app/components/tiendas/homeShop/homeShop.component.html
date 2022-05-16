@@ -37,7 +37,12 @@
                 <button type="button" class="btn btn-outline-primary w-100 ">
                     ver Productos de tienda
                 </button>
-                </div>
+            </div>
+            <a href="/" target="_blank">            <!--target="_blank" , sirve para abrir un enlace en una nueva ventana-->
+                <button class="btn btn-outline-primary w-100" (click)="getStoreId(tienda.shopId)"  target="_blank">
+                    ver Productos de tienda, 2
+                </button>
+              </a>
       </mat-card>
     </div>
 </div>
