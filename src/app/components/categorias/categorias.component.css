@@ -32,6 +32,13 @@
   width:10px;
 }
 
+/*Loading*/
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /*Extra large device (laptops/desktops), 1200 and up */
 @media only screen and (max-width: 1200px), screen and (max-device-width: 1200px ){

@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Productos } from '../../components/productos/productos';
 import { ProductosTienda } from '../../components/productos/productosTienda';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {interval, timer} from 'rxjs';
 //Components
 import { ProductosComponent } from '../../components/productos/productos.component';
 import { TiendasComponent } from '../../components/tiendas/tiendas.component';
@@ -19,6 +20,7 @@ import { CarritoServiceService } from '../../servicios/carrito-service.service';
 //Websocket
 import { WebSocketHomeService } from '../../servicios/webSocketHome.service';
 import { WebSocketComponent } from '../../components/webSocket/web-socket/web-socket.component';
+import { NumberSymbol } from '@angular/common';
 
 
 
@@ -54,6 +56,7 @@ export class HomeComponent implements OnInit {
 
  
   ngOnInit(): void {
+    //this.setInterval2();
     this.getProducts();
     this.getProducts2();
     
@@ -63,13 +66,29 @@ export class HomeComponent implements OnInit {
 
   }
 
+
+
+  intervalId:any;
+  setInterval2(){
+    this.intervalId = setInterval( () => {
+      console.log('contador');
+      console.log("data");
+    },1000);
+  }
+
+
+
   //lista de productos
   productosSinFiltro:any = [];
   getProducts(){
+    /** */
     this._productosService.getProducts()
     .subscribe(data => {
       this.productosSinFiltro = data;
+      console.log('Productos');
+      console.log(this.productosSinFiltro);
     });
+
   } 
 
   //Redirige al componente PRODUCTOS con su productId y sus llaves foraneas tiendaId,marcaId,tipoProductoId
@@ -139,13 +158,13 @@ export class HomeComponent implements OnInit {
       this.filter1 = this.productos2.filter((e:any) => e.brand == event.target.value )            // si el productos2.marca == caja.marca mostrar el arreglo item{id,marca}
       //console.log(this.filter1);           // obtiene el id y precio del arreglo Items
 
-      this.productos =[];                      // se utiliza en linea 116
-      this.newfilter2.push(this.filter1);   // captura los checkbox que se seleccionan
+      this.productos =[];                      
+      this.newfilter2.push(this.filter1);     // captura los checkbox que se seleccionan
       //console.log(this.newfilter2);         // muestra los checkbox en un solo arreglo
 
       for(let i=0; i < this.newfilter2.length; i++){    //recorrido de todos los checkbox seleccionados
         var auxArray = this.newfilter2[i];              // guardamos en un auxArray
-        //console.log(auxArray);                          // muestra los items en arreglos separados []
+        //console.log(auxArray);                        // muestra los items en arreglos separados []
       
         for(let i=0; i < auxArray.length; i++){
           var auxArray2 = auxArray[i];
@@ -157,21 +176,21 @@ export class HomeComponent implements OnInit {
 
     }
     else{
-      this.filter1 = this.productos.filter((e:any) => e.brand != event.target.value )            // si el item.ID == caja.ID mostrar el arreglo item{id,precio}
+      this.filter1 = this.productos.filter((e:any) => e.brand != event.target.value )            // si el item.ID != caja.ID mostrar el arreglo item{id,precio}
       this.newfilter2 = [];
       this.productos = [];
       this.newfilter2.push(this.filter1);
-      //console.log(this.filter1);      // al desmarcar un checkbox debe desaparecer el dato obtenido
+      //console.log(this.filter1);                       // al desmarcar un checkbox debe desaparecer el dato obtenido
 
       for(let i=0; i < this.newfilter2.length; i++){    //recorrido de todos los checkbox seleccionados
         var auxArray = this.newfilter2[i];              // guardamos en un auxArray
-        //console.log(auxArray);                          // muestra los items en arreglos separados []
+        //console.log(auxArray);                        // muestra los items en arreglos separados []
       
         for(let i=0; i < auxArray.length; i++){
           var auxArray2 = auxArray[i];
           //console.log(auxArray2);                     //muestra los items en arreglos separados {}
-          this.productos.push(auxArray2);                  //captura y muestra en el frontend los checkbox que se seleccionan
-          //console.log(this.productos);                     //muestra los items en arreglos separados {}
+          this.productos.push(auxArray2);               //captura y muestra en el frontend los checkbox que se seleccionan
+          //console.log(this.productos);                //muestra los items en arreglos separados {}
         }//For
       }//For
 
@@ -196,6 +215,14 @@ export class HomeComponent implements OnInit {
       this.http);
   }
 
+  /**    
+     this._productosService.getProducts()
+    .subscribe(data => {
+      this.productosSinFiltro = data;
+      console.log('Productos');
+      console.log(this.productosSinFiltro);
+    });
+     */
   //Metodo para llamar a los productos
   //CompuCenter
   productosSocket:any = [];
@@ -206,12 +233,12 @@ export class HomeComponent implements OnInit {
       this.productosSocket = data;
       
       //Loading
-      if(!this.productosSocket){
+      if(!this.productosSocket){           //si es distinto a productosSocket
         alert("Error en el servidor!");
       }else{
-        this.loading = false;  
+        this.loading = false;             //si no, false dejara de mostrar el gif
       }
-
+      
       console.log("----------------------------------");
       console.log("Metodo connect(),  PRODUCTOS Home");
       console.log(this.productosSocket);
@@ -224,13 +251,12 @@ export class HomeComponent implements OnInit {
       this.productosSocket = data;   //pasamos update de los productos
 
       //Loading 
-      /** */
       this.loading = true;
-      setTimeout(()=>{                  //delay de 3 segundos, 
-      this.productosSocket = data;   //pasamos update de los productos
-      this.loading = false;           // activamos el gif
-      },4000)                       // durante 3 segundos
-      //
+      setTimeout(()=>{                  //delay de 5 segundos, 
+      this.productosSocket = data;      //pasamos update de los productos
+      this.loading = false;             // deja de mostrar el gif
+      },5000)                           // durante 3 segundos
+      
     
 
       console.log("----------------------------------");
