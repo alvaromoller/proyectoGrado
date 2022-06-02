@@ -1,18 +1,14 @@
-<div id ="contendorProd">
+<div id ="contPadre">
 
-  <div id="contPadre">
+  <div id="logo-descripcion">
     <!--Izquierda-->
     <div id = "imgPrin">
       <img id = "imgCon" mat-card-image src= "assets/img/imgHome.jpg" class="card-img-top" >
     </div>
-
     <!--derecha-->
     <div id="txtDescrip" class="container animated fadeIn" >
-      <h2>
-      Busca la mejor computadora de acuerdo a tus requerimientos. <br> 
-      </h2>
+      <h2>Busca la mejor computadora de acuerdo a tus requerimientos.</h2>
     </div>
-
   </div>
 
   <!--Buscador-->
@@ -38,146 +34,87 @@
   <!--PRUEBA Lista de productos sin Base de datos-->
   <h1 >Productos</h1>
   <hr>
-  <div class="card-deck" style=" display: flex; background: skyblue;" >
-    
-    <div class="card"  style=" width: 25%; display: inline-block;  margin: 10px; ">
-      <div  style=" width: 100%; background: yellow;">
-        <img class="card-img-top" style="width: 50%; height: 25vh;" src= "assets/img/imgHome.jpg"  alt="Card image cap">
-      </div>
-
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-
-    <div class="card" style=" width: 25%; display: inline-block;  margin: 10px; ">
-      <div style=" background: yellow; ">
-        <img class="card-img-top" style="width: 50%; height: 25vh;" src= "assets/img/logo.jpg" alt="Card image cap">
-      </div>
-
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-
-  </div>
   <!--Agregando loader.gif-->
   <div class="loading"  *ngIf="loading">
-      <img src="assets/img/loader.gif" alt="">
+    <img src="assets/img/loader.gif" alt="">
   </div>
 
-  <!--abajo-->
-  <div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="start stretch">
-    <!-- Se pondra un pipe    | filter:filterPost --> <!--*ngFor="let producto of  productosSocket -->
-    <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productosSinFiltro | filterHome:filterPost  | paginate: { itemsPerPage: 4, currentPage: page }" >
-      <mat-card class="matCarPro">
-        <!-- -->
-        <mat-card-header>
-          <mat-card-title> Laptop </mat-card-title>
-        </mat-card-header>
-        
-        <div class="contenedorImg" mat-card-avatar>
-          <!--mat-card-avatar = sirve para tener la imagen del contenedor de un mismo tamaño -->
-          <!-- <img mat-card-image src= "assets/img/batman.png" class="card-img-top" alt="...">-->
-          <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
-        </div>
+  <!--Productos-->
+  <div class="contenedor-card  animated fadeIn" fxLayout="row wrap" >
+    
+    <mat-card class="card" fxFlex="23%"   *ngFor="let producto of productosSinFiltro | filterHome:filterPost  | paginate: { itemsPerPage: 4, currentPage: page }">
+      <!--Img-->
+      <div class="contenedor-card-img" >
+        <!--<img class="card-img" src= "assets/img/imgHome.jpg"  alt="Card image cap">-->
+        <img class="card-img" [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
+      </div>
+      <!--Body-->
+      <mat-card-content class="card-body" >
+        <h5 class="card-title" style="text-align: center;">{{ producto.name }} </h5>
+        <hr><!--nombre opcional-->
+        <p class="card-text" style="text-align: justify;">  {{ producto.name2 }}</p>
+      </mat-card-content>
+      <!--Footer-->
+      <div class="card-footer">
+        <small class="text-muted">Precio:{{ producto.price }}</small>
+      </div>
+      <!-- Botones-->
+      <div>
+        <button class=" btn btn-outline-primary w-100" type="button"  (click)="productInfo(producto)">Ver más</button>
+        <button class=" btn btn-outline-primary w-100" type="button"  (click)="addToCart(producto)">Añadir al carrito</button>
+      </div>
+    </mat-card>
 
-        <mat-card-content class="matCardContent" >
-          {{ producto.name }} 
-          <!--nombre opcional-->
-          <hr>
-          {{ producto.name2 }}
-        </mat-card-content>
-
-        <div class="card-footer">
-          <small class="text-muted"> Precio:{{ producto.price }} </small>  <!--GARANTIA-->
-        </div>
-        
-         <!--Botones ver mas y añadir al carrito-->
-         <div align="center"  >
-          <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
-            Ver más
-          </button>
-          <button type="button" class="btn btn-outline-primary w-100" (click)="addToCart(producto)"> <!---->
-            Añadir al carrito
-          </button>
-        </div>
-      </mat-card>
-    </div>
   </div>
 </div>
 <br><br>
-  <!--Paginacion-->
-  <pagination-controls 
-    (pageChange)="page = $event"
-    previousLabel="Anterior"
-    nextLabel="Siguiente" >
-  </pagination-controls>
-  <hr>
-  <br><br>
-
-
+<!--Paginacion-->
+<pagination-controls 
+  (pageChange)="page = $event"
+  previousLabel="Anterior"
+  nextLabel="Siguiente" >
+</pagination-controls>
+<hr>
+<br><br>
 
 
 <!--Segundo Div-->
 <div class="category">
   <h1>Elige una marca</h1>
+  <hr>
+
+  <!--PROBANDO Multi filter con MARCA -->
+  <!-- Brand: Muestra las cajas del Array Checkbox-->
+  <div  class="contenedor-checkbox" >
+    <div  class="checkbox"   *ngFor="let caja of checkbox " >
+      <input type="{{ caja.type }}" value={{caja.brand}}  (change)="ModifyFilterBrand($event)"  >  <!--value={{caja.marca}}, obtiene el valor a comparar-->
+      {{ caja.brand }}
+    </div>
+  </div>
+
+  <!--RESULTADO: Muestra Marca del Array Items -->
+  <div class="contenedor-card animated fadeIn"  fxLayout="row wrap">
+    <mat-card class="card" fxFlex="23%" *ngFor="let producto of productos | filterHome:filterPost " >
+      <!--Img-->
+      <div class="contenedor-card-img">
+        <img class="card-img" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
+      </div>
+      <!--Body-->
+      <mat-card-content class="card-body" >
+        <h5 class="card-title" style="text-align: center;">{{ producto.name }} </h5>
+        <hr><!--nombre opcional-->
+        <p class="card-text" style="text-align: justify;">  {{ producto.name2 }}</p>
+      </mat-card-content>
+      <!--Footer-->
+      <div class="card-footer">
+        <small class="text-muted">Precio:{{ producto.price }}</small>
+      </div>
+      <!-- Botones-->
+      <div>
+        <button class=" btn btn-outline-primary w-100" type="button"  (click)="productInfo(producto)">Ver más</button>
+        <button class=" btn btn-outline-primary w-100" type="button"  (click)="addToCart(producto)">Añadir al carrito</button>
+      </div>
+    </mat-card>
+  </div>
+
 </div>
-<hr>
-<!--PROBANDO Multi filter con MARCA -->
-<!-- Brand: Muestra las cajas del Array Checkbox-->
-
-    <div  class="thead" >
-      <div  *ngFor="let caja of checkbox "  class="checkbox" >
-        <input type="{{ caja.type }}" value={{caja.brand}}  (change)="ModifyFilterBrand($event)"  >  <!--value={{caja.marca}}, obtiene el valor a comparar-->
-        {{ caja.brand }}
-      </div>
-    </div>
-
-    <!--RESULTADO: Muestra Marca del Array Items -->
-    <div class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
-      <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%"   *ngFor="let producto of productos | filterHome:filterPost " >
-        <!---->
-        <mat-card class="matCarPro">
-          <mat-card-header>
-            <mat-card-title> Laptop </mat-card-title>
-          </mat-card-header>
-          <!--mat-card-avatar-->
-          <div class="contenedorImg" mat-card-avatar>
-            <img class="imageTr" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
-          </div>
-
-          <mat-card-content class="matCardContent">
-            {{ producto.name }}   
-            <hr> <!--nombre opcional -->
-            {{ producto.name2 }}
-          </mat-card-content>
-
-          <div class="card-footer">
-            <small class="text-muted"> Precio:{{ producto.price }} </small>  <!--GARANTIA-->
-          </div>
-          
-           <!--Botones ver mas y añadir al carrito-->
-          <div class="button" align="center"  >
-            <button type="button" class="btn btn-outline-primary w-100"  (click)="productInfo(producto)">
-              Ver más
-            </button>
-            <button type="button" class="btn btn-outline-primary w-100" (click)="addToCart(producto)"> <!---->
-              Añadir al carrito
-            </button>
-          </div>
-          
-        </mat-card>
-      </div>
-    </div>
-    <!---->
