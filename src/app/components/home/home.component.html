@@ -39,14 +39,17 @@
     <img src="assets/img/loader.gif" alt="">
   </div>
 
-  <!--Productos-->
-  <div class="contenedor-card  animated fadeIn" fxLayout="row wrap" >
+  <!--Productos-->   
+  <!--fxLayout.xs="column",  pantalla 521 X 538, pantalla de celular-->
+  <!--fxFlex.sm="45%", tamaño para pantalla 768px-->
+  <div class="contenedor-card  animated fadeIn" fxLayout="row wrap"  fxLayout.xs="column">
     
-    <mat-card class="card" fxFlex="23%"   *ngFor="let producto of productosSinFiltro | filterHome:filterPost  | paginate: { itemsPerPage: 4, currentPage: page }">
+    <mat-card class="card" fxFlex="23%"  fxFlex.sm="45%" 
+    *ngFor="let producto of productosSinFiltro | filterHome:filterPost  | paginate: { itemsPerPage: 4, currentPage: page }">
       <!--Img-->
       <div class="contenedor-card-img" >
         <!--<img class="card-img" src= "assets/img/imgHome.jpg"  alt="Card image cap">-->
-        <img class="card-img" [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
+        <img class="card-img" mat-card-img [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
       </div>
       <!--Body-->
       <mat-card-content class="card-body" >
@@ -92,9 +95,10 @@
     </div>
   </div>
 
-  <!--RESULTADO: Muestra Marca del Array Items -->
-  <div class="contenedor-card animated fadeIn"  fxLayout="row wrap">
-    <mat-card class="card" fxFlex="23%" *ngFor="let producto of productos | filterHome:filterPost " >
+  <!--RESULTADO: Muestra Marca del Array Items  fxFlex.sm="45%"  -->
+  <div class="contenedor-card animated fadeIn"  fxLayout="row wrap"  fxLayout.xs="column">
+    <mat-card class="card" fxFlex="23%"  fxFlex.sm="45%"
+    *ngFor="let producto of productos | filterHome:filterPost " >
       <!--Img-->
       <div class="contenedor-card-img">
         <img class="card-img" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">

@@ -17,6 +17,10 @@
 
 .matCarPro{
   text-align: center;
+  margin: 10px;   /*espacio entre card*/
+  border-radius: 30px; 
+  border-width: 2px;
+background: yellowgreen;
 }
 
 /*Estilo de Scrollable, barra vertical de desplazamiento para ver todo el contenido */

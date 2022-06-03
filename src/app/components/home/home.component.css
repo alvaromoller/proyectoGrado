@@ -57,7 +57,6 @@
     background-color:#003cff3f;
 }
 
-
 /*--------Loading----------*/
 .loading{
     display: flex;
@@ -70,7 +69,6 @@
     width: 100%;
 }
 .card{
-    width: 24%; 
     margin: 10px;
     border-radius: 30px; 
     border-width: 2px;
@@ -123,70 +121,137 @@
 }
 
 
-/**----------------------------*/
-/*
-<div class="scrollUno">
-It is a good platform to learn programming. 
-It is an educational website. Prepare for the Recruitment drive
-</div>
-*/
-/* Scroll bar, barra vetical prueba  */
-.scrollUno {
-    /*para el scrollable, barra desplazable*/
-    width: 500px;
-    height: 110px;
-    overflow-x: hidden; 
-    overflow-y: auto;   
-    /*para el scrollable, barra desplazable*/
-}
-.scrollUno::-webkit-scrollbar {
-    /* -webkit-appearance: none;*/  /*Desaparece la barra vertical, manteniendo el movimiento hacia abajo para ver todo el contenido*/
-    width:10px;
-}
-.scrollUno::-webkit-scrollbar-thumb {  /*estilo de barra vertical*/
-    background-color: #797979;
-    border-radius: 20px;
-    border: px solid #f1f2f3;
-}
-/**----------------------------*/
-
-
 
 
 /*Extra large device (laptops/desktops), 1200 and up */
 @media only screen and (max-width: 1200px), screen and (max-device-width: 1200px ){
 
+   
 }
 /*large device (laptops/desktops), 992 and up */
 @media only screen and (max-width: 992px), screen and (max-device-width: 992px ){
-   
+  
+    #contPadre{
+        width: 100%;
+        padding-top:50px;
+    }
+    #logo-descripcion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 75vh;
+    }
     #imgPrin{
-        width: 100%; 
-        float: left;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+        height: 70vh;
+        /*float: left;*/
     }
     #imgCon{
-        width: 30%;
+        width: 100%;
+        opacity: 0.7;
     }
     #txtDescrip{
-        margin-top: 0px; 
+        /*width: 60%;  */
+        /*float: right;*/
+        width: 80%;
+        text-align: justify;
+        position: absolute;
+        top: 75%;
+        left: 3%;
+        color: black;
+    }
+    
+    
+    /*--------BUSCADOR----------*/
+    .buscador{
         width: 100%; 
-        text-align: center;
+        display: inline-block; 
+        text-align: right;
     }
-
     #txtBuscador{
-        width:90%;
-        display: inline-block;
+        width:17%;
+        display: inline-block;    
     }
-
     #matBuscador{
         width: 100%;
     }
-    
     #iconSearch{
-        width:10%; 
+        width:7%; 
         display: inline-block; 
         text-align: left;
+    }
+    .iconBottton{
+        height: 4em;
+        vertical-align: 0.5em; 
+        background-color:#003cff3f;
+    }
+    
+    /*--------Loading----------*/
+    .loading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /**----------PRODUCTOS------------------*/
+    .contenedor-card{
+        width: 100%;
+
+    }
+    .card{
+        margin: 7px;
+        border-radius: 30px; 
+        border-width: 2px;
+    }
+    .contenedor-card-img{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-img{
+        width: 75%;
+        height: 25vh;
+        padding-top: 10px;
+    }
+    /*Estilo de Scrollable, barra vertical de desplazamiento para ver todo el contenido */
+    .card-body{
+        width: 100%; 
+        height: 20vh;  
+        overflow-x: hidden;  
+        overflow-y: auto;
+    }
+    /*Desaparece la barra vertical, manteniendo el movimiento hacia abajo para ver todo el contenido*/
+    .card-body::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width:10px;
+    }
+    .card-footer{
+        width: 100%;
+        text-align: center;
+    }
+    
+    /**-------CATEGORY--------------------*/
+    .category{
+        width: 100%;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    .contenedor-checkbox{
+       /* transform: translate(20%, 0%);*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 30px; /* espacio abajo del boton */
+      }
+    .checkbox{
+        width: 20%;
+        padding: 5px;
     }
 
     
@@ -195,21 +260,127 @@ It is an educational website. Prepare for the Recruitment drive
 /*Medium  device (landscape tablets), 768 and up */
 @media only screen and (max-width: 768px), screen and (max-device-width: 768px ){
 
-    #txtBuscador{
-        width:90%;
-        display: inline-block;
+    #contPadre{
+        width: 100%;
+        padding-top:50px;
     }
-
+    #logo-descripcion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 75vh;
+    }
+    #imgPrin{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+        height: 70vh;
+        /*float: left;*/
+    }
+    #imgCon{
+        width: 100%;
+        opacity: 0.7;
+    }
+    #txtDescrip{
+        /*width: 60%;  */
+        /*float: right;*/
+        width: 80%;
+        text-align: justify;
+        position: absolute;
+        top: 75%;
+        left: 3%;
+        color: black;
+    }
+    
+    
+    /*--------BUSCADOR----------*/
+    .buscador{
+        width: 100%; 
+        display: inline-block; 
+        text-align: right;
+    }
+    #txtBuscador{
+        width:25%;
+        display: inline-block;    
+    }
     #matBuscador{
         width: 100%;
     }
-    
     #iconSearch{
-        width:10%; 
+        width:9%; 
         display: inline-block; 
         text-align: left;
     }
-
+    .iconBottton{
+        height: 4em;
+        vertical-align: 0.5em; 
+        background-color:#003cff3f;
+    }
+    
+    /*--------Loading----------*/
+    .loading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /**----------PRODUCTOS------------------*/
+    .contenedor-card{
+        width: 100%;
+    }
+    .card{
+        margin: 10px;   /*espacio entre card*/
+        border-radius: 30px; 
+        border-width: 2px;
+    }
+    .contenedor-card-img{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-img{
+        width: 75%;
+        height: 30vh;
+        padding-top: 10px;
+    }
+    /*Estilo de Scrollable, barra vertical de desplazamiento para ver todo el contenido */
+    .card-body{
+        width: 100%; 
+        height: 20vh;  
+        overflow-x: hidden;  
+        overflow-y: auto;
+    }
+    /*Desaparece la barra vertical, manteniendo el movimiento hacia abajo para ver todo el contenido*/
+    .card-body::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width:10px;
+    }
+    .card-footer{
+        width: 100%;
+        text-align: center;
+    }
+    
+    /**-------CATEGORY--------------------*/
+    .category{
+        width: 100%;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    .contenedor-checkbox{
+       /* transform: translate(20%, 0%);*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 30px; /* espacio abajo del boton */
+      }
+    .checkbox{
+        width: 20%;
+        padding: 5px;
+    }
 
 
 }
@@ -217,10 +388,134 @@ It is an educational website. Prepare for the Recruitment drive
 
 /*Small  device (portrait phone), 600 and up */
 @media only screen and (max-width: 600px), screen and (max-device-width: 600px ){
-    .imageTr{
+  
+    #contPadre{
+        width: 100%;
+        padding-top:50px;
+    }
+    #logo-descripcion{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 75vh;
+    }
+    #imgPrin{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+        height: 70vh;
+        /*float: left;*/
+    }
+    #imgCon{
+        width: 100%;
+        opacity: 0.7;
+    }
+    #txtDescrip{
+        /*width: 60%;  */
+        /*float: right;*/
+        width: 80%;
+        text-align: justify;
+        position: absolute;
+        top: 70%;
+        left: 7%;
+        color: black;
+    }
+    
+    
+    /*--------BUSCADOR----------*/
+    .buscador{
+        width: 100%; 
+        display: inline-block; 
+        text-align: right;
+    }
+    #txtBuscador{
+        width:25%;
+        display: inline-block;    
+    }
+    #matBuscador{
+        width: 100%;
+    }
+    #iconSearch{
+        width:12%; 
+        display: inline-block; 
+        text-align: left;
+    }
+    .iconBottton{
+        height: 4em;
+        vertical-align: 0.5em; 
+        background-color:#003cff3f;
+    }
+    
+    /*--------Loading----------*/
+    .loading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /**----------PRODUCTOS------------------*/
+    .contenedor-card{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .card{
+        width: 85%;
+        margin: 10px;   /*espacio entre card*/
+        border-radius: 30px; 
+        border-width: 2px;
+    }
+    .contenedor-card-img{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-img{
         width: 50%;
+        height: 35vh;
+        padding-top: 10px;
     }
-    .container h2{
-        font-size: medium;
+    /*Estilo de Scrollable, barra vertical de desplazamiento para ver todo el contenido */
+    .card-body{
+        width: 100%; 
+        height: 20vh;  
+        overflow-x: hidden;  
+        overflow-y: auto;
     }
+    /*Desaparece la barra vertical, manteniendo el movimiento hacia abajo para ver todo el contenido*/
+    .card-body::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width:10px;
+    }
+    .card-footer{
+        width: 100%;
+        text-align: center;
+    }
+    
+    /**-------CATEGORY--------------------*/
+    .category{
+        width: 100%;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    .contenedor-checkbox{
+       /* transform: translate(20%, 0%);*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 30px; /* espacio abajo del boton */
+      }
+    .checkbox{
+        width: 20%;
+        padding: 5px;
+    }
+
 }
+
+
+
