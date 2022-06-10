@@ -8,30 +8,40 @@
   width: 100%;
   /*height: 20%;*/
   padding-top: 15px;
-  padding-bottom: 170px;
 }
 .imageTr{
   padding-top: 20px;
   width: 60%;
+  height: 25vh;
 }
 
-.matCarPro{
+.card{
   text-align: center;
   margin: 10px;   /*espacio entre card*/
   border-radius: 30px; 
   border-width: 2px;
-background: yellowgreen;
 }
 
 /*Estilo de Scrollable, barra vertical de desplazamiento para ver todo el contenido */
 .matCardContent{ 
   width: 100%;
-  height: 100px;
+  height: 15vh;  
   overflow-x: hidden; 
   overflow-y: auto;   
 }
 /*Desaparece la barra vertical, manteniendo el movimiento hacia abajo para ver todo el contenido*/
 .matCardContent::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width:10px;
+}
+
+.name1{
+  width: 100%;
+  height: 25px;
+  overflow-x: hidden; 
+  overflow-y: auto;   
+}
+.name1::-webkit-scrollbar {
   -webkit-appearance: none;
   width:10px;
 }
@@ -60,7 +70,7 @@ background: yellowgreen;
   
   }
   
-  .matCarPro{
+  .card{
     padding-bottom: 70%; /* espacio abajo del boton */
   }
   
@@ -77,7 +87,7 @@ background: yellowgreen;
   .imageTr{
     width: 100%;
   }
-  .matCarPro{
+  .card{
     padding-bottom: 30%; /* espacio abajo del boton */
   }
 
@@ -96,7 +106,7 @@ background: yellowgreen;
     display: block;
     margin: auto;
   }
-  .matCarPro{
+  .card{
     padding-bottom: 30%; /* espacio abajo del boton */
   }
 

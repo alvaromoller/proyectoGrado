@@ -15,6 +15,7 @@ import { ProductosService } from '../../servicios/productos.service';
 import { CategoriasService } from '../../servicios/categorias.service';
 import { CategoriaProductosService } from '../../servicios/categoriaProductos.service';
 import { CarritoServiceService } from '../../servicios/carrito-service.service';
+
 //Websocket
 import { WebSocketSugerenciasService } from '../../servicios/webSocketSugerencias.service';
 
@@ -26,7 +27,6 @@ import { WebSocketSugerenciasService } from '../../servicios/webSocketSugerencia
   styleUrls: ['./categorias.component.css']
 })
 export class CategoriasComponent implements OnInit {
-
 
   //WebSockets gif loading
   public loading:boolean;
@@ -53,16 +53,37 @@ export class CategoriasComponent implements OnInit {
     //this.getProducts();
     this.getProductsByCategory();
 
+    //categorias
+    this.getCategoriesExpasionPanel();
+
     //webSocket
     this._webSocket();
     this.connectCategories();
 
   }
 
-
-    
+  //Expasion Panel
+  //lista de categorias, 
+  categorias:any;
+  getCategoriesExpasionPanel(){
+    this._categoriasService.getCategories()
+    .subscribe(data => {
+      this.categorias = data;
+    });
+  } 
+  //Redireccionar al component categoria con categoryId
+  getCategoryIdExpasionPanel1(categoryId:number){    
+    this.router.navigate( ["/categoriaExpasionPanel1", categoryId ] );
+    console.log("categoryId desde ExpasionPanel1: "+ categoryId );
+  }
+  getCategoryIdExpasionPanel2(categoryId:number){    
+    this.router.navigate( ["/categoriaExpasionPanel2", categoryId ] );
+    console.log("categoryId desde ExpasionPanel2: "+ categoryId );
+  }
+  //FIN Expasion Panel
 
   
+
   //obtener categoryId 
   categoria:any={};
   getCategoryId(){
@@ -73,8 +94,6 @@ export class CategoriasComponent implements OnInit {
     console.log(this.categoria); 
     })
   }
-
-
   //Lista de productos
   productos:any=[]; 
   getProducts(){

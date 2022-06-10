@@ -20,9 +20,13 @@
         <tr class="texto-justificado">
           <td> <h3 class="texto-justificado">   <b>Descripción</b>  <br> {{ shopLast.description }}</h3></td>     
         </tr>
-        <tr class="texto-justificado">
-            <td> <h3 class="texto-justificado"> <b>Ubicación:</b>  <br>{{ shopLast.location }} {{ shopLast.location2 }} </h3> </td>     
-          </tr>
+        <tr>
+          <td> 
+              <a href="{{ shopLast.location }}"  target="_blank">            <!--target="_blank" , sirve para abrir un enlace en una nueva ventana-->
+                <button class=" btn btn-outline-primary"> Ver tienda</button>
+              </a>
+          </td>
+        </tr>
       </table>
       <hr>
     </div>

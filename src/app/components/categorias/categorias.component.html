@@ -5,7 +5,36 @@
         {{ categoria.categoryName }}  
     </h1>
 </div>
-<!---->
+
+<mat-accordion>
+    <mat-expansion-panel >
+        <!--Header-->
+      <mat-expansion-panel-header>
+            <mat-panel-title style="width: 35%; float: left; ">
+                <h2>Categorias</h2>
+            </mat-panel-title>
+            <mat-panel-description style="width: 65%; float: right;">
+            <h2>:)</h2> 
+            </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <!--Body  -->
+      <div class=""  *ngFor="let categoria of categorias"  style="width: 100%;" >
+            <!--Categoria 1,2,3 Para el hogar, Para Gamers, Para el trabajo (click)="getCategoryIdExpasionPanel(categoria.categoryId)"-->
+            
+            <div style="width: 35%; float: left; " (click)="getCategoryIdExpasionPanel1(categoria.categoryId)" (click)="getCategoryIdExpasionPanel2(categoria.categoryId)">
+                <h4>Categoria {{ categoria.categoryId }} </h4>
+            </div>
+            <div style="width: 65%; float: right; opacity: 0.7;" >
+                <h4> {{ categoria.categoryName }} </h4> 
+            </div>
+
+
+
+      </div>
+    </mat-expansion-panel>
+</mat-accordion>
+
   
 <!--Agregando loader.gif-->
 <div class="loading"  *ngIf="loading" style="float: fixed;" >
@@ -13,21 +42,17 @@
 </div>
 <br><br><br><br>
 
-<div  class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="20px grid"  fxLayoutAlign="flex-start">
+<div  class="contenedor animated fadeIn"  fxLayout="row wrap" fxLayout.xs="column"  fxLayoutAlign="flex-start">
     <!-- getProductsByCategory()  desde  _productosService -->
-    <div fxFlex="25%" fxFlex.sm="50%" fxFlex.md="25%" *ngFor="let pc of productosByCategory " >
-        <mat-card class="matCarPro">
-            <mat-card-header>
-                <mat-card-title> Laptop </mat-card-title>
-            </mat-card-header>
+    <div fxFlex="25%" fxFlex.sm="50%"  *ngFor="let pc of productosByCategory " >
+        <mat-card class="card">
 
-            <div class="contenedorImg" mat-card-avatar>
-                <!--mat-card-avatar = sirve para tener la imagen del contenedor de un mismo tamaño -->      
+            <div class="contenedorImg" >
                 <img class="imageTr" mat-card-image [src]="getImgUrl(pc.img)" alt="Fotografia de muestra" (click)="productInfo(pc)" >
             </div>
             
             <mat-card-content class="matCardContent">
-                <h3> {{ pc.name }} </h3>   <!--nombre opcional-->
+                <h3 class="name1"> {{ pc.name }} </h3>   <!--nombre opcional-->
                 <hr>
                 <h3> {{ pc.name2 }} </h3>
             </mat-card-content>

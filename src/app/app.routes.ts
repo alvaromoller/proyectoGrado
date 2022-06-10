@@ -27,7 +27,9 @@ const APP_ROUTES: Routes = [
     //recomendaciones por categorias
     { path: 'listaCategorias', component: ListCategoriasComponent },
     { path: 'categoria/:categoryId', component: CategoriasComponent },   //get ID
-    
+    { path: 'categoriaExpasionPanel1/:categoryId', component: CategoriasComponent },   //get ID desde expansion panel 1
+    { path: 'categoriaExpasionPanel2/:categoryId', component: CategoriasComponent },   //get ID desde expansion panel 2
+
     //encuesta
     { path: 'encuesta', component: EncuestaComponent },
 
