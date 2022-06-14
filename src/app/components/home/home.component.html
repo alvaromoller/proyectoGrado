@@ -1,16 +1,28 @@
 <div id ="contPadre">
-
+  <!-- Primer logo y descripcion
   <div id="logo-descripcion">
-    <!--Izquierda-->
     <div id = "imgPrin">
       <img id = "imgCon" mat-card-image src= "assets/img/imgHome.jpg" class="card-img-top" >
     </div>
-    <!--derecha-->
     <div id="txtDescrip" class="container animated fadeIn" >
       <h2>Busca la mejor computadora de acuerdo a tus requerimientos.</h2>
     </div>
   </div>
+-->
+  <ngb-carousel>
+    <ng-template ngbSlide  *ngFor="let imgLogo of imgLogos">
+      <!--Imagen-->
+      <div class="contenedorLogos">
+        <img  class="logos" src= " {{ imgLogo.img }} " >
+      </div>
+      <!--Descripcion-->
+      <div class="carousel-caption">
+        <h2>{{ imgLogo.description }}</h2>
+      </div>
+    </ng-template>
+  </ngb-carousel>
 
+<br>
   <!--Buscador-->
   <div class="buscador" >
     <div id= "txtBuscador" >

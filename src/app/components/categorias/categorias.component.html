@@ -1,7 +1,7 @@
 <br><br><br><br>
-<div >
-    <h1> Categoria: 
-        {{ categoria.categoryId }}, 
+<div style=" text-transform: uppercase;  ">
+    <h1> Categoria 
+        {{ categoria.categoryId }} 
         {{ categoria.categoryName }}  
     </h1>
 </div>
@@ -17,7 +17,6 @@
             <h2>:)</h2> 
             </mat-panel-description>
       </mat-expansion-panel-header>
-
       <!--Body  -->
       <div class="bodyExpansionPanel" *ngFor="let categoria of categorias"  (click)="getCategoryIdExpasionPanel1(categoria.categoryId)" (click)="getCategoryIdExpasionPanel2(categoria.categoryId)">
             <!--Categoria 1,2,3 Para el hogar, Para Gamers, Para el trabajo "-->

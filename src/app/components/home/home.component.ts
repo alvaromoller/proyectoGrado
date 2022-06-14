@@ -32,11 +32,16 @@ import { NumberSymbol } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
+  //Imagen
+  imgLogos:any[]= [
+    {img:'assets/img/imgHome.jpg', description:'Busca la mejor computadora de acuerdo a tus requerimientos.'},
+    {img:'assets/img/LaptopWork.jpg'},
+    {img:'assets/img/LaptopGamer.jpg'}
+  ];
   //Filter, para las busquedas
   filterPost = "";
   //pagination
   public page: number=0;
-
   //WebSockets gif loading
   public loading:boolean;
 
