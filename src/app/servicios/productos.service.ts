@@ -12,8 +12,8 @@ export class ProductosService {
     
     constructor(private http:HttpClient) { }
 
-    ProductUrl:string = 'http://localhost:8080/v1/product';                         //direccion
-    ProductsPcUrl:string = 'http://localhost:8080/v1/product/productsPc';           //direccion
+    ProductUrl:string = 'http://localhost:8080/v1/product';                         //direccion, productos
+    ProductsPcUrl:string = 'http://localhost:8080/v1/product/productsPc';           //direccion, productos con marca
 
     pcUrl:string = 'http://localhost:8080/v1/productCategory/productsByCategory';   //direccion de productos de tiendas 4, 5, 3
     ProductUrlByStore:string = 'http://localhost:8080/v1/product/productsByStore';  //productos por tienda
@@ -24,7 +24,7 @@ export class ProductosService {
         return this.http.get<Productos[]>(this.ProductUrl);
     }
 
-    //PC.COM, lista de productos    
+    //, lista de productos por marcas    
     getProductsPc(): Observable<Productos[]>{
         return this.http.get<Productos[]>(this.ProductsPcUrl);
     }

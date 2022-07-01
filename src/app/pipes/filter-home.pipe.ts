@@ -14,7 +14,7 @@ export class FilterHomePipe implements PipeTransform {
     if(arrProductos !== undefined )           //si es distinto a nidefinido q realice las sgtes busquedas
     {
       for (const post of arrProductos)
-      { //busqueda post por name, description, price
+      { //busqueda post por name1,name2 y description
         if(post.name.toLowerCase().indexOf(arg1.toLowerCase()) > -1  || 
            post.name2.toLowerCase().indexOf(arg1.toLowerCase()) > -1 ||
            post.description.toLowerCase().indexOf(arg1.toLowerCase()) > -1 )
@@ -23,6 +23,8 @@ export class FilterHomePipe implements PipeTransform {
           //console.log(post);
           resltadoPost.push(post); 
         }
+
+
       }//for
     }//if
 

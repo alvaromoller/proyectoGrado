@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-
+  /**metodo de prueba, borrar */
   intervalId:any;
   setInterval2(){
     this.intervalId = setInterval( () => {
@@ -135,10 +135,14 @@ export class HomeComponent implements OnInit {
   //PROBANDO Multi filter 
   //Arreglo de cajas, Chechbox
   checkbox: any = [
-    { id: 1, type:"checkbox", brand:"HP",     ram:"4 GB"  , price: 1000 },
-    { id: 2, type:"checkbox", brand:"DELL",   ram:"8 GB"  , price: 2000 },
-    { id: 3, type:"checkbox", brand:"Lenovo", ram:"12 GB" , price: 3000 },
-    { id: 4, type:"checkbox", brand:"Asus",   ram:"16 GB" , price: 4000 }
+    { id: 1, type:"checkbox", brand:"HP",     checked:false, ram:"4 GB"  , price: 1000 },
+    { id: 2, type:"checkbox", brand:"DELL",   checked:false, ram:"8 GB"  , price: 2000 },
+    { id: 3, type:"checkbox", brand:"LENOVO", checked:false, ram:"12 GB" , price: 3000 },
+    { id: 4, type:"checkbox", brand:"HUAWEI", checked:false, ram:"16 GB" , price: 4000 },
+    { id: 5, type:"checkbox", brand:"ASUS",   checked:false, ram:"16 GB" , price: 4000 },
+    { id: 6, type:"checkbox", brand:"MICROSOFT", checked:false, ram:"16 GB" , price: 4000 },
+    { id: 7, type:"checkbox", brand:"SAMSUNG",   checked:false, ram:"16 GB" , price: 4000 }
+
   ];
 
   
@@ -146,7 +150,7 @@ export class HomeComponent implements OnInit {
   productos:any = [];
   productos2:any = [];
   getProducts2(){
-    this._productosService.getProductsPc()
+    this._productosService.getProducts()  //getProductsPc()
     .subscribe(data => {
         this.productos = data;
         this.productos2 = data;
@@ -181,7 +185,7 @@ export class HomeComponent implements OnInit {
 
     }
     else{
-      this.filter1 = this.productos.filter((e:any) => e.brand != event.target.value )            // si el item.ID != caja.ID mostrar el arreglo item{id,precio}
+      this.filter1 = this.productos.filter((e:any) => e.brand != event.target.value )            // si el productos.brand != caja.brand mostrar el arreglo item{id,precio}
       this.newfilter2 = [];
       this.productos = [];
       this.newfilter2.push(this.filter1);
@@ -199,7 +203,11 @@ export class HomeComponent implements OnInit {
         }//For
       }//For
 
-    }
+      if(this.productos.filter((e:any) => e.brand.length < 0 )){
+        console.log("ninguna caja seleccionada");
+      }
+
+    }//else
   }
 
 
@@ -278,6 +286,78 @@ export class HomeComponent implements OnInit {
   }
   
 
+  //probando ejemplo de checkbox , marca, sistema operativo, tipo de red
+  Brands: any =[
+    {BrandName:"Samsung", Checked:false},
+    {BrandName:"Apple", Checked:false},
+    {BrandName:"Oppo", Checked:false}
+  ];
+
+  OperatingSystems: any =[
+    {OSName:"IOS", Checked:false},
+    {OSName:"Android", Checked:false}
+  ];
+
+  NetworkTypes: any =[
+    {NetworkType:"2G", Checked:false},
+    {NetworkType:"3G", Checked:false},
+    {NetworkType:"4G", Checked:false}
+  ];
+
+  //Lista Mobil, tendria q estar en base de datos
+  MobileList: any =[
+    {price:2500, Name:"Samsung galaxy Note", BrandName:"Samsung", OSName:"Android", NetworkType:"4G", Checked:false},
+    {price:2500, Name:"Apple Iphone 6",      BrandName:"Apple",   OSName:"IOS",     NetworkType:"3G", Checked:false},
+    {price:2500, Name:"Oppo Max",            BrandName:"Oppo",    OSName:"Android", NetworkType:"2G", Checked:false},
+    {price:2500, Name:"Oppo Full",           BrandName:"Oppo",    OSName:"Android", NetworkType:"3G", Checked:false},
+    {price:2500, Name:"Oppo Switch",         BrandName:"Oppo",    OSName:"Android", NetworkType:"4G", Checked:false},
+    {price:2500, Name:"Apple Iphone 7",      BrandName:"Apple",   OSName:"IOS",     NetworkType:"4G", Checked:false},
+    {price:2500, Name:"Samsung galaxy s",    BrandName:"Samsung", OSName:"Android", NetworkType:"3G", Checked:false},
+    {price:2500, Name:"Samsung galaxy o",    BrandName:"Samsung", OSName:"Android", NetworkType:"2G", Checked:false},
+  ];
+    //Lista Mobil, tendria q estar en base de datos
+  ProductData: any =[
+    {price:2500, Name:"Samsung galaxy Note", BrandName:"Samsung", OSName:"Android", NetworkType:"4G", Checked:false},
+    {price:2500, Name:"Apple Iphone 6",      BrandName:"Apple",   OSName:"IOS",     NetworkType:"3G", Checked:false},
+    {price:2500, Name:"Oppo Max",            BrandName:"Oppo",    OSName:"Android", NetworkType:"2G", Checked:false},
+    {price:2500, Name:"Oppo Full",           BrandName:"Oppo",    OSName:"Android", NetworkType:"3G", Checked:false},
+    {price:2500, Name:"Oppo Switch",         BrandName:"Oppo",    OSName:"Android", NetworkType:"4G", Checked:false},
+    {price:2500, Name:"Apple Iphone 7",      BrandName:"Apple",   OSName:"IOS",     NetworkType:"4G", Checked:false},
+    {price:2500, Name:"Samsung galaxy s",    BrandName:"Samsung", OSName:"Android", NetworkType:"3G", Checked:false},
+    {price:2500, Name:"Samsung galaxy o",    BrandName:"Samsung", OSName:"Android", NetworkType:"2G", Checked:false},
+  ];
+
+  
+  //DisplayProductList: any = [];
+  //este metodo sera llamado cada vez que se seleccione un checkbox
+  OnChange(event: any) {
+    //DisplayProductList llama al vector de lista MobileList
+    this.ProductData = [];
 
 
+  }
+
+
+
+
+  get selectedBrand() {
+    //Get all the selected brands
+    //return this.ProductData.Brands.filter(opt => opt.Checked)
+    return this.Brands.filter(opt => opt.Checked)
+  }
+
+  get selectedOS() {
+    //Get all the selected Operating systems
+    //return this.ProductData.OperatingSystems.filter(opt => opt.Checked)
+    return this.OperatingSystems.filter(opt => opt.Checked)
+  }
+
+  get selectedNetwork() {
+    //Get all the selected networks
+    //return this.ProductData.NetworkTypes.filter(opt => opt.Checked)
+    return this.NetworkTypes.filter(opt => opt.Checked)
+  }
+
+
+  //fin prueba de filtros
 }

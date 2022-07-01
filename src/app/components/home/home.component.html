@@ -9,6 +9,7 @@
     </div>
   </div>
 -->
+  <!--Carrusel-->
   <ngb-carousel>
     <ng-template ngbSlide  *ngFor="let imgLogo of imgLogos">
       <!--Imagen-->
@@ -23,13 +24,15 @@
   </ngb-carousel>
 
 <br>
-  <!--Buscador-->
-  <div class="buscador" >
+  <!--Buscador ,*ngIf, nos sirve para poner sms si no hay resultados -->
+  <div class="buscador" *ngIf="( productos | filterHome:filterPost ) as result" >
     <div id= "txtBuscador" >
       <form class="example-form">
         <mat-form-field id="matBuscador" class="example-full-width" appearance="fill">
           <mat-label>Buscar</mat-label>
           <input matInput type="text"  autocomplete="off" placeholder="Buscar" name="filterPost" [(ngModel)] = "filterPost" >
+          <!-- mensaje, No hay resultados --> 
+          <p style="color: red;" *ngIf="result.length === 0">No hay resultados</p>
         </mat-form-field>
       </form>
     </div>
@@ -46,18 +49,29 @@
   <!--PRUEBA Lista de productos sin Base de datos-->
   <h1 >Productos</h1>
   <hr>
+
+  <!--PROBANDO Multi filter con MARCA -->
+  <!-- Brand: Muestra las cajas del Array Checkbox-->
+  <!--HP, dell, Huawei, Lenovo, Asus, Microsoft, Samsung-->
+  <div  class="contenedor-checkbox" >
+    <div  class="checkbox"   *ngFor="let caja of checkbox " >
+      <input type="{{ caja.type }}" value={{caja.brand}}  (change)="ModifyFilterBrand($event)"  >  <!--value={{caja.marca}}, obtiene el valor a comparar-->
+      {{ caja.brand }}
+    </div>
+  </div>
+
   <!--Agregando loader.gif-->
   <div class="loading"  *ngIf="loading">
     <img src="assets/img/loader.gif" alt="">
   </div>
 
-  <!--Productos-->   
+  <!--Productos, productosSinFiltro-->   
   <!--fxLayout.xs="column",  pantalla 521 X 538, pantalla de celular-->
   <!--fxFlex.sm="45%", tamaño para pantalla 768px-->
   <div class="contenedor-card  animated fadeIn" fxLayout="row wrap"  fxLayout.xs="column">
     
-    <mat-card class="card" fxFlex="23%"  fxFlex.sm="45%" 
-    *ngFor="let producto of productosSinFiltro | filterHome:filterPost  | paginate: { itemsPerPage: 4, currentPage: page }">
+    <mat-card class="card" fxFlex="23%"  fxFlex.sm="45%"  
+    *ngFor="let producto of productos | filterHome:filterPost  | paginate: { itemsPerPage: 12, currentPage: page }">
       <!--Img-->
       <div class="contenedor-card-img" >
         <!--<img class="card-img" src= "assets/img/imgHome.jpg"  alt="Card image cap">-->
@@ -81,7 +95,9 @@
     </mat-card>
 
   </div>
+
 </div>
+
 <br><br>
 <!--Paginacion-->
 <pagination-controls 
@@ -93,44 +109,41 @@
 <br><br>
 
 
-<!--Segundo Div-->
+<!--Segundo Div
 <div class="category">
   <h1>Elige una marca</h1>
   <hr>
+</div>
+-->
 
-  <!--PROBANDO Multi filter con MARCA -->
-  <!-- Brand: Muestra las cajas del Array Checkbox-->
-  <div  class="contenedor-checkbox" >
-    <div  class="checkbox"   *ngFor="let caja of checkbox " >
-      <input type="{{ caja.type }}" value={{caja.brand}}  (change)="ModifyFilterBrand($event)"  >  <!--value={{caja.marca}}, obtiene el valor a comparar-->
-      {{ caja.brand }}
-    </div>
-  </div>
 
-  <!--RESULTADO: Muestra Marca del Array Items  fxFlex.sm="45%"  -->
-  <div class="contenedor-card animated fadeIn"  fxLayout="row wrap"  fxLayout.xs="column">
-    <mat-card class="card" fxFlex="23%"  fxFlex.sm="45%"
-    *ngFor="let producto of productos | filterHome:filterPost " >
-      <!--Img-->
-      <div class="contenedor-card-img">
-        <img class="card-img" mat-card-image [src]="getImgUrl(producto.img)" alt="Fotografia de muestra" (click)="productInfo(producto)">
-      </div>
-      <!--Body-->
-      <mat-card-content class="card-body" >
-        <h5 class="card-title" style="text-align: center;">{{ producto.name }} </h5>
-        <hr><!--nombre opcional-->
-        <p class="card-text" style="text-align: justify;">  {{ producto.name2 }}</p>
-      </mat-card-content>
-      <!--Footer-->
-      <div class="card-footer">
-        <small class="text-muted">Precio:{{ producto.price }}</small>
-      </div>
-      <!-- Botones-->
-      <div>
-        <button class=" btn btn-outline-primary w-100" type="button"  (click)="productInfo(producto)">Ver más</button>
-        <button class=" btn btn-outline-primary w-100" type="button"  (click)="addToCart(producto)">Añadir al carrito</button>
-      </div>
-    </mat-card>
-  </div>
 
+  <!--PROBANDO Multi filter  -->
+
+<!--(change)="OnChange($event)"  [(ngModel)]="brand.Checked"-->
+Brands
+<div *ngFor="let brand of Brands">
+  <input type="checkbox" name="BrandList" value={{brand.BrandName}} (change)="OnChange($event)" >{{ brand.BrandName }}
+</div>
+<br/>
+
+Operating systems
+<div *ngFor="let os of OperatingSystems">
+  <input type="checkbox" name="OSList" value={{os.OSName}}  >{{ os.OSName }}
+</div>
+<br/>
+
+NetworkTypes
+<div *ngFor="let network of NetworkTypes">
+  <input type="checkbox" name="NetworkList" value={{network.NetworkType}}  >{{ network.NetworkType }}
+</div>
+<br/>
+
+
+<div *ngFor="let product of MobileList">
+  <label>{{ product.price }}</label> --->
+  <label>{{ product.Name }}</label> --->
+  <label>{{ product.BrandName }}</label> --->
+  <label>{{ product.OSName }}</label> --->
+  <label>{{ product.NetworkType }}</label>
 </div>
